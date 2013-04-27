@@ -3,8 +3,8 @@ CBSE Exercise
 
 You need the following to start with the exercise:
 - Eclipse IDE for Java EE Developer (Juno)
-- Java SE JDK (6 or above)
-- Java EE JDK (6)
+- Java SE JDK 7
+- Java EE JDK 6
 - JBoss AS 7.1.1.Final
 
 Then install the Eclipse Modeling Tools into your Eclipse so you can create and edit the UML diagrams.
