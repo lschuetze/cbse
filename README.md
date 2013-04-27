@@ -8,3 +8,5 @@ You need the following to start with the exercise:
 - JBoss AS 7.1.1.Final
 
 Then install the Eclipse Modeling Tools into your Eclipse so you can create and edit the UML diagrams.
+You will need to install the JBoss Eclipse Tools 4.0 from http://download.jboss.org/jbosstools/updates/stable/juno/.
+Check 'Abridged JBoss Tools 4.0'.
