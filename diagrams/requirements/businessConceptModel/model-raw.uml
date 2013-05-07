@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_L0LnkLcbEeKr4uW0zlcgVA" name="model">
+  <ownedComment xmi:id="_YORwwLcbEeKr4uW0zlcgVA">
+    <body>Test</body>
+  </ownedComment>
+  <packagedElement xmi:type="uml:Component" xmi:id="_bpuj8LcbEeKr4uW0zlcgVA" name="Component1"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_dnwW4LcbEeKr4uW0zlcgVA" name="Component2"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_onnWsLcbEeKr4uW0zlcgVA" name="Appointment">
+    <ownedAttribute xmi:id="_tswrkLcbEeKr4uW0zlcgVA" name="user" type="_rNhpALcbEeKr4uW0zlcgVA" association="_tsx5sLcbEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tswrkbcbEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tswrkrcbEeKr4uW0zlcgVA" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_vuX-ALcbEeKr4uW0zlcgVA" name="user" type="_rNhpALcbEeKr4uW0zlcgVA" association="_vuYlELcbEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vuX-AbcbEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vuX-ArcbEeKr4uW0zlcgVA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rNhpALcbEeKr4uW0zlcgVA" name="User"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tsx5sLcbEeKr4uW0zlcgVA" name="appointment_user_1" memberEnd="_tsx5sbcbEeKr4uW0zlcgVA _tswrkLcbEeKr4uW0zlcgVA">
+    <ownedEnd xmi:id="_tsx5sbcbEeKr4uW0zlcgVA" name="appointment" type="_onnWsLcbEeKr4uW0zlcgVA" association="_tsx5sLcbEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tsx5srcbEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tsx5s7cbEeKr4uW0zlcgVA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vuYlELcbEeKr4uW0zlcgVA" name="appointment_user_2" memberEnd="_vuYlEbcbEeKr4uW0zlcgVA _vuX-ALcbEeKr4uW0zlcgVA">
+    <ownedEnd xmi:id="_vuYlEbcbEeKr4uW0zlcgVA" name="appointment" type="_onnWsLcbEeKr4uW0zlcgVA" association="_vuYlELcbEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vuYlErcbEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vuYlE7cbEeKr4uW0zlcgVA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1460sLcbEeKr4uW0zlcgVA" name="appointment_user_3" visibility="private" memberEnd="_1460sbcbEeKr4uW0zlcgVA _145mkLcbEeKr4uW0zlcgVA">
+    <ownedEnd xmi:id="_145mkLcbEeKr4uW0zlcgVA" name="" type="_rNhpALcbEeKr4uW0zlcgVA" association="_1460sLcbEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_145mkbcbEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_145mkrcbEeKr4uW0zlcgVA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_1460sbcbEeKr4uW0zlcgVA" name="" type="_onnWsLcbEeKr4uW0zlcgVA" association="_1460sLcbEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1460srcbEeKr4uW0zlcgVA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1460s7cbEeKr4uW0zlcgVA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vJujYLccEeKr4uW0zlcgVA" name="AppointmentType"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_18EZ4LccEeKr4uW0zlcgVA" name="appointmentType_appointment_1" memberEnd="_18EZ4bccEeKr4uW0zlcgVA _18Dy0LccEeKr4uW0zlcgVA" navigableOwnedEnd="_18EZ4bccEeKr4uW0zlcgVA">
+    <ownedEnd xmi:id="_18EZ4bccEeKr4uW0zlcgVA" name="appointmentType" type="_vJujYLccEeKr4uW0zlcgVA" association="_18EZ4LccEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18EZ4rccEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18EZ47ccEeKr4uW0zlcgVA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_18Dy0LccEeKr4uW0zlcgVA" name="appointment" type="_onnWsLcbEeKr4uW0zlcgVA" association="_18EZ4LccEeKr4uW0zlcgVA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18Dy0bccEeKr4uW0zlcgVA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18Dy0rccEeKr4uW0zlcgVA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
