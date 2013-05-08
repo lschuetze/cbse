@@ -1,1 +1,28 @@
 requirements model, what are the possible actions in the system
+includes everything what can be done.
+A use case can include another by namning it in a step
+Use Case Diagrams are useful only as a catalogue or map
+
+The textual structure is prefered by Cheesman (P. 45)
+- an identifying name and/or number
+- the name of the initiating actor
+- a short description of the goal of the use case
+- a single numbered sequence of steps that describe the main success scenario
+Example:
+Name: Make a Reservation
+Initiator: Reservation Maker
+Goal: Reserve a room at a hotel
+1. Reservation Maker request to make a reservation.
+2....
+3. System provieds availability and price.
+....
+Extension:
+3. Room not available
+ a) System offers alternative datas an room types
+ b) Reservation Maker selects from alternatvies
+ 
+ Extensions can end with
+ - Fail - to terminate the use case unsatisfied
+ - Stop - to terminate the use case satisfied
+ - Resume N - Go to the step in the main process
+ - Nothing - continue with its normal next step (no step is skipped or replaced)

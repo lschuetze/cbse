@@ -1,0 +1,10 @@
+Is an interface together with all the oder specification paraphernalia needed to define precisly what a component that offers that interface must do, and what a client of that interface can expect
+- The interface type itself
+- Its information model - the attributes and association roles of the interface, and their types, transitively until closure
+- Its operation specification - operation signatures and  pre- and postcondetion
+- Any additional invariants on the informational model
+Each interface has its own package
+Data types in the package are exclusive private
+<<info types>> are a projection or refinement of the type information in the business type model
+
+An operation specification consists of a signature and a pre- and poscondition (normaly OCL but also 

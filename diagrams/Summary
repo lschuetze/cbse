@@ -1,0 +1,10 @@
+Component Specification Concept 		| UML Construct 		| Stereotyp
+Component Specification 				| Class 				| <<comp spec>>
+Interface Type 							| Type (Class <<type>>) | <<interface type>>
+Comp Spec offers Interface Type 		| Dependency 			| <<offers>>
+Business Conept 						| Class 				| <<concept>> (optional)
+Business Type						 	| Type (Class <<type>>) | <<type>>
+Structured Data Type 					| Type (Class <<type>>) | <<datatype>>
+Interface Information Type 				| Type (Class <<type>>) | <<info tyoe>> (often omitted)
+Parameterized Attribute 				| Operation 			| <<att>>
+Operation requiring a new transaction 	| Operation 			| <<transaction>>

@@ -1,3 +1,5 @@
 derived from domain model (business concept model)
 - represents the system's perspective on the outer world (more attributes, refined class structures from the system's perspective)
 - may lead to a subset of classes of the business concept model, due to restricted responsibilities of the system in the modelled domain (e.g., a hotel reservation system does not handle the billing: this is done by a dedicated billing system, but is modeled in the business concept model)
+
+Interface Responsibility Diagram

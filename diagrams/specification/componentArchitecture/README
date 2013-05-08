@@ -1,0 +1,3 @@
+A component architecture gives a single component architecture insetead of a number of independent component specifications.
+Especially interesting in large achitectures with many components, interfaces and dependencies.
+The best way of figuring out hte operations those interfaces need is to work through the collaborations.

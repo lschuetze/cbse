@@ -1,0 +1,11 @@
+<<comp spec>>, which is be realized by a UML component
+Interface types should be displayed as "lollipops".
+Example:
+<<comp spec>>CustomerMgr --<<offers>>--> <<interface type>>ICustomerMgt (lollipop)
+also there is an arrow for the usage of other lollipops, also the component specification defines any constraints between interfaces.
+
+There are also component object interaction diagrams. They describe the interaction between components.
+Naming rules:
+objectname/rolename:classifiername
+Page 62
+All this should more describe the externals of the components. It only restricts the freedom of the implementation designer.
