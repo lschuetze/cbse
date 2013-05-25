@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_ttMRYMVpEeKIlfQeixgDQw" name="model">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_372dwMVpEeKIlfQeixgDQw" clientDependency="_-5V0UMVpEeKIlfQeixgDQw _RQcugMVqEeKIlfQeixgDQw _ThYPUMVqEeKIlfQeixgDQw _UjyukMVqEeKIlfQeixgDQw" name="User">
+    <generalization xmi:id="_Ss6sgMVqEeKIlfQeixgDQw" general="_Mavj0MVqEeKIlfQeixgDQw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_-5V0UMVpEeKIlfQeixgDQw" name="Realization1" client="_372dwMVpEeKIlfQeixgDQw" supplier="_372dwMVpEeKIlfQeixgDQw"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Mavj0MVqEeKIlfQeixgDQw" name="Register with the system">
+    <include xmi:id="_fZZmMMVqEeKIlfQeixgDQw" addition="_ZyVQAMVqEeKIlfQeixgDQw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_RQcugMVqEeKIlfQeixgDQw" name="Dependency1" client="_372dwMVpEeKIlfQeixgDQw" supplier="_Mavj0MVqEeKIlfQeixgDQw"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_ThYPUMVqEeKIlfQeixgDQw" name="Dependency2" client="_372dwMVpEeKIlfQeixgDQw" supplier="_Mavj0MVqEeKIlfQeixgDQw"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_UjyukMVqEeKIlfQeixgDQw" name="Abstraction1" client="_372dwMVpEeKIlfQeixgDQw" supplier="_Mavj0MVqEeKIlfQeixgDQw"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YZ8gwMVqEeKIlfQeixgDQw" name="A_user_register with the system" memberEnd="_YZ8gwcVqEeKIlfQeixgDQw _YZ8gxMVqEeKIlfQeixgDQw">
+    <ownedEnd xmi:id="_YZ8gwcVqEeKIlfQeixgDQw" name="user" type="_372dwMVpEeKIlfQeixgDQw" association="_YZ8gwMVqEeKIlfQeixgDQw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZ8gwsVqEeKIlfQeixgDQw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YZ8gw8VqEeKIlfQeixgDQw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_YZ8gxMVqEeKIlfQeixgDQw" name="register with the system" type="_Mavj0MVqEeKIlfQeixgDQw" association="_YZ8gwMVqEeKIlfQeixgDQw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZ8gxcVqEeKIlfQeixgDQw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YZ8gxsVqEeKIlfQeixgDQw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ZyVQAMVqEeKIlfQeixgDQw" name="User conflict detection"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_mkNAAMVqEeKIlfQeixgDQw" name="UserManager"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_GrE10MVrEeKIlfQeixgDQw" name="package"/>
+</uml:Model>
