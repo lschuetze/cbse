@@ -5,7 +5,7 @@
 1. Click register.
 2. Enter your name and your email address.
 3. Submit data.
-4. System checks for users already registered with the given details.
+4. System checks user credentials.
 5. System registers the user.
 
 ######Extensions:
