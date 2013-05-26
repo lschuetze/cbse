@@ -1,0 +1,63 @@
+%######Name: Create appointment
+%######Initiator: User
+%######Goal: Create a new appointment for the user and, if chosen, for invited users
+%######Main success scenario:
+%1. enter the name
+%2. pick a date
+%3. invite other users
+%4. mark appointment as public or private
+%5. choose appointment category (free, blocked, potentially blocked, away)
+%6. confirm creation
+%7. the system creates the appointment for the current and the invited users (if there are no conflicts)
+%
+%
+%######Extensions:
+%* 6. the chosen date is in conflict with appointments (from invited users)
+%  * a1. the system shows that there is a conflict (and if public the conflicting appointments)
+%  * a2. the system offers the possibility to repick a date
+%
+%
+%######Variations:
+%At every stage the user may abort.
+
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[table]{xcolor}
+
+\newcolumntype{g}{>{\columncolor{lightgray}}l}
+
+
+\begin{document}
+\begin{tabular}{|g|l|}
+	\hline
+Name &  Create appointment \\
+	\hline
+Initiator &  User \\
+	\hline
+Goal &  Create a new appointment for the user and, if chosen, for invited users \\
+	\hline
+\end{tabular}
+
+\paragraph{Main success scenario:}
+\begin{enumerate}
+	\item enter the name
+	\item pick a date
+	\item invite other users
+	\item mark appointment as public or private
+	\item choose appointment category (free, blocked, potentially blocked, away)
+	\item confirm creation
+	\item the system creates the appointment for the current and the invited users (if there are no conflicts)
+\end{enumerate}
+
+\paragraph{Extensions:}
+\begin{enumerate}
+	\item[6.] the chosen date is in conflict with appointments (from invited users)
+		\begin{enumerate}
+			\item the system shows that there is a conflict (and if public the conflicting appointments)
+			\item the system offers the possibility to repick a date
+		\end{enumerate}
+\end{enumerate}
+
+\paragraph{Variations:}
+At every stage the user may abort.
+\end{document}
