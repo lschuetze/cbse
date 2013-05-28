@@ -46,18 +46,28 @@ Goal &  Create a new appointment for the user and, if chosen, for invited users 
 	\item mark appointment as public or private
 	\item choose appointment category (free, blocked, potentially blocked, away)
 	\item confirm creation
-	\item the system creates the appointment for the current and the invited users (if there are no conflicts)
+	\item the system checks for conflicting appointments
+	\item the system creates the appointment for the current and the invited users
 \end{enumerate}
 
 \paragraph{Extensions:}
-\begin{enumerate}
-	\item[6.] the chosen date is in conflict with appointments (from invited users)
-		\begin{enumerate}
-			\item the system shows that there is a conflict (and if public the conflicting appointments)
-			\item the system offers the possibility to repick a date
-		\end{enumerate}
-\end{enumerate}
+\begin{itemize}
+	\item 6. the user did not give a name or date
+		\begin{itemize}
+			\item the system prints an error message
+		\end{itemize}
+\end{itemize}
 
 \paragraph{Variations:}
-At every stage the user may abort.
+\begin{itemize}
+	\item 
+		\begin{enumerate}
+			\item[7.] the chosen date is in conflict with any other appointment
+				\begin{enumerate}
+					\item the system shows that there is a conflict (and if public or own, the conflicting appointments)
+					\item the system offers the possibility to repick a date
+				\end{enumerate}
+		\end{enumerate}
+	\item At every stage the user may abort.
+\end{itemize}
 \end{document}
