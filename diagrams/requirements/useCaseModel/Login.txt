@@ -1,0 +1,17 @@
+usecase: login
+initiator: user
+goal: identify user and grant user access to system
+success scenario:
+	1. user enters email
+	2. user enters password
+	3. user submits data
+	4. system checks email/password
+	5. system grants access
+
+extensions:
+	4. user/pw do not match:
+		a) display error message: "username or password incorrect!"
+		b) resume 1.
+
+variations
+	user may abort in steps 1 to 3
