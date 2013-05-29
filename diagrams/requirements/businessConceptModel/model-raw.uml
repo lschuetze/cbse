@@ -49,4 +49,25 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18Dy0rccEeKr4uW0zlcgVA" value="1"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_1jPDIMgzEeKVyogBHsCaxg" name="Calendar"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_5uVKkMgzEeKVyogBHsCaxg" name="calendar_user_1" memberEnd="_5uVKkcgzEeKVyogBHsCaxg _5uSuUMgzEeKVyogBHsCaxg">
+    <ownedEnd xmi:id="_5uVKkcgzEeKVyogBHsCaxg" name="calendar" type="_1jPDIMgzEeKVyogBHsCaxg" association="_5uVKkMgzEeKVyogBHsCaxg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5uVKksgzEeKVyogBHsCaxg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5uVKk8gzEeKVyogBHsCaxg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_5uSuUMgzEeKVyogBHsCaxg" name="user" type="_rNhpALcbEeKr4uW0zlcgVA" association="_5uVKkMgzEeKVyogBHsCaxg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5uSuUcgzEeKVyogBHsCaxg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5uSuUsgzEeKVyogBHsCaxg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6s2BQMgzEeKVyogBHsCaxg" name="" memberEnd="_6s2BQcgzEeKVyogBHsCaxg _6s1aMMgzEeKVyogBHsCaxg">
+    <ownedEnd xmi:id="_6s2BQcgzEeKVyogBHsCaxg" name="" type="_1jPDIMgzEeKVyogBHsCaxg" association="_6s2BQMgzEeKVyogBHsCaxg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6s2BQsgzEeKVyogBHsCaxg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6s2BQ8gzEeKVyogBHsCaxg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_6s1aMMgzEeKVyogBHsCaxg" name="" type="_onnWsLcbEeKr4uW0zlcgVA" association="_6s2BQMgzEeKVyogBHsCaxg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6s1aMcgzEeKVyogBHsCaxg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6s1aMsgzEeKVyogBHsCaxg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
 </uml:Model>
