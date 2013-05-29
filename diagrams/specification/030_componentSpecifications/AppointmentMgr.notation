@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_06JrcMiXEeKp1oANwQY0Gg" type="PapyrusUMLComponentDiagram" name="NewDiagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_8G60IMiXEeKp1oANwQY0Gg" type="2002" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_8G7bMMiXEeKp1oANwQY0Gg" type="5004"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_8G7bMciXEeKp1oANwQY0Gg" visible="false" type="7001">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_8G7bMsiXEeKp1oANwQY0Gg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8G7bM8iXEeKp1oANwQY0Gg"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8G60IciXEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8G60IsiXEeKp1oANwQY0Gg"/>
+    <element xmi:type="uml:Component" href="AppointmentMgr.uml#_8G4-8MiXEeKp1oANwQY0Gg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8G60I8iXEeKp1oANwQY0Gg" x="108" y="96"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_-KoYUMiXEeKp1oANwQY0Gg" type="2003" fontName="Segoe UI">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-Ko_YMiXEeKp1oANwQY0Gg" source="ShadowFigure">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-Ko_YciXEeKp1oANwQY0Gg" key="ShadowFigure_Value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-Ko_YsiXEeKp1oANwQY0Gg" source="displayNameLabelIcon">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-Ko_Y8iXEeKp1oANwQY0Gg" key="displayNameLabelIcon_value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-Ko_ZMiXEeKp1oANwQY0Gg" source="QualifiedName">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-KpmcMiXEeKp1oANwQY0Gg" key="QualifiedNameDepth" value="1000"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_-KpmcciXEeKp1oANwQY0Gg" type="5005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-KpmcsiXEeKp1oANwQY0Gg" x="-12" y="24"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_-KoYUciXEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_-KoYUsiXEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_-KoYU8iXEeKp1oANwQY0Gg"/>
+    <element xmi:type="uml:Interface" href="AppointmentMgr.uml#_-Kl8EMiXEeKp1oANwQY0Gg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-KoYVMiXEeKp1oANwQY0Gg" x="432" y="120"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_r8YCsMiYEeKp1oANwQY0Gg" type="2003" fontName="Segoe UI">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r8ZQ0MiYEeKp1oANwQY0Gg" source="ShadowFigure">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r8Z34MiYEeKp1oANwQY0Gg" key="ShadowFigure_Value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r8Z34ciYEeKp1oANwQY0Gg" source="displayNameLabelIcon">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r8Z34siYEeKp1oANwQY0Gg" key="displayNameLabelIcon_value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r8ae8MiYEeKp1oANwQY0Gg" source="QualifiedName">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r8ae8ciYEeKp1oANwQY0Gg" key="QualifiedNameDepth" value="1000"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_r8ae8siYEeKp1oANwQY0Gg" type="5005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_r8ae88iYEeKp1oANwQY0Gg" y="24"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_r8YpwMiYEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_r8YpwciYEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_r8YpwsiYEeKp1oANwQY0Gg"/>
+    <element xmi:type="uml:Interface" href="AppointmentMgr.uml#_r8Qt8MiYEeKp1oANwQY0Gg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r8Ypw8iYEeKp1oANwQY0Gg" x="216" y="228"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_06JrcciXEeKp1oANwQY0Gg"/>
+  <element xmi:type="uml:Model" href="AppointmentMgr.uml#_06H2QMiXEeKp1oANwQY0Gg"/>
+  <edges xmi:type="notation:Connector" xmi:id="_ES8aYMiYEeKp1oANwQY0Gg" type="4012" source="_8G60IMiXEeKp1oANwQY0Gg" target="_-KoYUMiXEeKp1oANwQY0Gg" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ES9ogMiYEeKp1oANwQY0Gg" visible="false" type="6006">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ES9ogciYEeKp1oANwQY0Gg" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_ES9ogsiYEeKp1oANwQY0Gg" type="6020">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ES9og8iYEeKp1oANwQY0Gg" x="-7" y="19"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ES8aYciYEeKp1oANwQY0Gg" fontName="Segoe UI"/>
+    <element xmi:type="uml:Substitution" href="AppointmentMgr.uml#_ES3h4MiYEeKp1oANwQY0Gg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ES8aYsiYEeKp1oANwQY0Gg" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ETDIEMiYEeKp1oANwQY0Gg" id="(0.98,0.2857142857142857)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ETDIEciYEeKp1oANwQY0Gg" id="(0.5,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_zLZ1MMiYEeKp1oANwQY0Gg" type="4001" source="_8G60IMiXEeKp1oANwQY0Gg" target="_r8YCsMiYEeKp1oANwQY0Gg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_zLZ1MciYEeKp1oANwQY0Gg" fontName="Segoe UI"/>
+    <element xmi:type="uml:Usage" href="AppointmentMgr.uml#_zLQEMMiYEeKp1oANwQY0Gg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zLZ1MsiYEeKp1oANwQY0Gg" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zLetsMiYEeKp1oANwQY0Gg" id="(0.7666666666666667,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zLetsciYEeKp1oANwQY0Gg" id="(0.5,0.0)"/>
+  </edges>
+</notation:Diagram>

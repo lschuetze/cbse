@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_32-o8MiXEeKp1oANwQY0Gg" name="model">
+  <packagedElement xmi:type="uml:Component" xmi:id="_-Mwp0MiYEeKp1oANwQY0Gg" clientDependency="_BqpF8MiZEeKp1oANwQY0Gg" name="UserMgr"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="__cTmIMiYEeKp1oANwQY0Gg" name="IUserMgt"/>
+  <packagedElement xmi:type="uml:Substitution" xmi:id="_BqpF8MiZEeKp1oANwQY0Gg" name="Substitution1" client="_-Mwp0MiYEeKp1oANwQY0Gg" supplier="__cTmIMiYEeKp1oANwQY0Gg"/>
+</uml:Model>

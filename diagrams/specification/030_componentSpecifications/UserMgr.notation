@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_32_3EMiXEeKp1oANwQY0Gg" type="PapyrusUMLComponentDiagram" name="NewDiagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_-M07QMiYEeKp1oANwQY0Gg" type="2002" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_-M2JYMiYEeKp1oANwQY0Gg" type="5004"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_-M2JYciYEeKp1oANwQY0Gg" visible="false" type="7001">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_-M2JYsiYEeKp1oANwQY0Gg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M2JY8iYEeKp1oANwQY0Gg"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_-M07QciYEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_-M07QsiYEeKp1oANwQY0Gg"/>
+    <element xmi:type="uml:Component" href="UserMgr.uml#_-Mwp0MiYEeKp1oANwQY0Gg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M07Q8iYEeKp1oANwQY0Gg" x="108" y="96"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="__cYeoMiYEeKp1oANwQY0Gg" type="2003" fontName="Segoe UI">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__cZswMiYEeKp1oANwQY0Gg" source="ShadowFigure">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__caT0MiYEeKp1oANwQY0Gg" key="ShadowFigure_Value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__caT0ciYEeKp1oANwQY0Gg" source="displayNameLabelIcon">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__caT0siYEeKp1oANwQY0Gg" key="displayNameLabelIcon_value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__caT08iYEeKp1oANwQY0Gg" source="QualifiedName">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__caT1MiYEeKp1oANwQY0Gg" key="QualifiedNameDepth" value="1000"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="__caT1ciYEeKp1oANwQY0Gg" type="5005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__ca64MiYEeKp1oANwQY0Gg" x="-5" y="26"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="__cZFsMiYEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__cZFsciYEeKp1oANwQY0Gg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="__cZFssiYEeKp1oANwQY0Gg"/>
+    <element xmi:type="uml:Interface" href="UserMgr.uml#__cTmIMiYEeKp1oANwQY0Gg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__cZFs8iYEeKp1oANwQY0Gg" x="401" y="126"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_32_3EciXEeKp1oANwQY0Gg"/>
+  <element xmi:type="uml:Model" href="UserMgr.uml#_32-o8MiXEeKp1oANwQY0Gg"/>
+  <edges xmi:type="notation:Connector" xmi:id="_BqtXYMiZEeKp1oANwQY0Gg" type="4012" source="_-M07QMiYEeKp1oANwQY0Gg" target="__cYeoMiYEeKp1oANwQY0Gg" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Bqt-cMiZEeKp1oANwQY0Gg" visible="false" type="6006">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Bqt-cciZEeKp1oANwQY0Gg" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_BqulgMiZEeKp1oANwQY0Gg" type="6020">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BqulgciZEeKp1oANwQY0Gg" x="-4" y="15"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BqtXYciZEeKp1oANwQY0Gg" fontName="Segoe UI"/>
+    <element xmi:type="uml:Substitution" href="UserMgr.uml#_BqpF8MiZEeKp1oANwQY0Gg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BqtXYsiZEeKp1oANwQY0Gg" points="[28, 0, -143, 0]$[171, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bqy28MiZEeKp1oANwQY0Gg" id="(0.8133333333333334,0.5142857142857142)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Bqy28ciZEeKp1oANwQY0Gg" id="(0.0,0.3)"/>
+  </edges>
+</notation:Diagram>

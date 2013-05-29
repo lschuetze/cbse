@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_06H2QMiXEeKp1oANwQY0Gg" name="model">
+  <packagedElement xmi:type="uml:Component" xmi:id="_8G4-8MiXEeKp1oANwQY0Gg" clientDependency="_ES3h4MiYEeKp1oANwQY0Gg _veISMMiYEeKp1oANwQY0Gg _zLQEMMiYEeKp1oANwQY0Gg" name="AppointmentMgr">
+    <generalization xmi:id="_DTkBAMiYEeKp1oANwQY0Gg" general="_-Kl8EMiXEeKp1oANwQY0Gg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_-Kl8EMiXEeKp1oANwQY0Gg" clientDependency="_Aw-vgMiYEeKp1oANwQY0Gg _Ca_aQMiYEeKp1oANwQY0Gg" name="IAppointmentMgt"/>
+  <packagedElement xmi:type="uml:Substitution" xmi:id="_Aw-vgMiYEeKp1oANwQY0Gg" name="Substitution1" client="_-Kl8EMiXEeKp1oANwQY0Gg" supplier="_8G4-8MiXEeKp1oANwQY0Gg"/>
+  <packagedElement xmi:type="uml:Substitution" xmi:id="_Ca_aQMiYEeKp1oANwQY0Gg" name="Substitution2" client="_-Kl8EMiXEeKp1oANwQY0Gg" supplier="_8G4-8MiXEeKp1oANwQY0Gg"/>
+  <packagedElement xmi:type="uml:Substitution" xmi:id="_ES3h4MiYEeKp1oANwQY0Gg" name="Substiution3" client="_8G4-8MiXEeKp1oANwQY0Gg" supplier="_-Kl8EMiXEeKp1oANwQY0Gg"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_r8Qt8MiYEeKp1oANwQY0Gg" name="IUserMgt"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_veISMMiYEeKp1oANwQY0Gg" name="Usage0" client="_8G4-8MiXEeKp1oANwQY0Gg" supplier="_r8Qt8MiYEeKp1oANwQY0Gg"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zLQEMMiYEeKp1oANwQY0Gg" name="Usage1" client="_8G4-8MiXEeKp1oANwQY0Gg" supplier="_r8Qt8MiYEeKp1oANwQY0Gg"/>
+</uml:Model>
