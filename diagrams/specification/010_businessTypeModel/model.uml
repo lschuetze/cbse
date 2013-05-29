@@ -53,7 +53,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_uYhUQLbtEeK2G-vIl46kaw" name="String"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_S5QtULbuEeK2G-vIl46kaw" name="Appointment">
-      <ownedAttribute xmi:id="_PQjZ4LbxEeK2G-vIl46kaw" name="isPrivate" visibility="public" type="_NoTpsLbxEeK2G-vIl46kaw">
+      <ownedAttribute xmi:id="_PQjZ4LbxEeK2G-vIl46kaw" name="privateAppointment" visibility="public" type="_NoTpsLbxEeK2G-vIl46kaw">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pu7_ALbxEeK2G-vIl46kaw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pu8mELbxEeK2G-vIl46kaw" value="1"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_Pu9NILbxEeK2G-vIl46kaw">
