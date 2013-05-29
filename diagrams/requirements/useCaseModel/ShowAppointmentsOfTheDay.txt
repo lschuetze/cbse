@@ -1,0 +1,10 @@
+﻿Name: Show appointments of the day
+Initiator: User
+Goal: Show list of appointments for a date
+1. User requests the appointments from the appointment manager. Optionally gives a date.
+2. The appointment manager determines the appointments of the User
+3. The appointment manager selects the appointments of the date
+4. Deliver the appointments to the User 
+Extensions:
+3. Date not given
+a) Determine current date
