@@ -75,6 +75,7 @@
           <ownedParameter xmi:id="_3npcAMhhEeKSw4KKhwQdHQ" name="date">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
           </ownedParameter>
+          <ownedParameter xmi:id="_R1zu8MlHEeKmmZeQqqLxgQ" name="appointmentsOfTheDay" type="_VcuzkMidEeKp1oANwQY0Gg" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_XOL20MhgEeKSw4KKhwQdHQ" name="Appointment">
