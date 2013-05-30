@@ -1,0 +1,28 @@
+Name: Create Appointment
+Initiator: User
+Goal: User created a new appointment
+Main success scenario:
+
+1. User enters the title of the appointment
+2. User enters the begin date (including time) and the end date (including time)
+3. User mark appointment as public or private
+4. User choose an category for the appointment
+	(being either free, blocked, protentially blocked or away)
+5. User confirms creation
+6. System checks for conflicts
+7. System creates the appointment
+
+Extensions:
+1. User did not enter a title
+	a. System prints an error message
+	Resume 1.
+6. There is a private conflicting appointment
+	a. System notifies the user that there is a conflicting appointment
+	b. Resume 2.
+6. There is a public conflicting appointment
+	a2. System notifies the user that there is a conflicting appointment
+		and provides details about the conflicting appointment
+	b2. Resume 2.
+Variations:
+	At 2 the user may invite other users to the appointment.
+	At every stage the user may abort.
