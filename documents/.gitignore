@@ -1,0 +1,10 @@
+# Latex files #
+*.aux
+*.log
+*.toc
+*.dvi
+*.pdf
+*.out
+
+# vim swp #
+*.swp
