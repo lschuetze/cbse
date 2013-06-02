@@ -133,8 +133,8 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_WDYbIMhhEeKSw4KKhwQdHQ" name="private" visibility="public" isUnique="false">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <ownedAttribute xmi:id="_WDYbIMhhEeKSw4KKhwQdHQ" name="personal" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W0S6sMhhEeKSw4KKhwQdHQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W0XMIMhhEeKSw4KKhwQdHQ" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_W0bdkMhhEeKSw4KKhwQdHQ">
@@ -197,8 +197,8 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_rM6F4MieEeKp1oANwQY0Gg" name="private" visibility="public" isUnique="false">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <ownedAttribute xmi:id="_rM6F4MieEeKp1oANwQY0Gg" name="personal" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r9t3wMieEeKp1oANwQY0Gg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r9vs8MieEeKp1oANwQY0Gg" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_r9yJMMieEeKp1oANwQY0Gg">
