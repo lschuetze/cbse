@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_RJ_50MtgEeKJ5bPPt4L4BA" name="model">
+  <ownedComment xmi:id="_Z6EBQMtgEeKJ5bPPt4L4BA" annotatedElement="_mBK9AMtgEeKJ5bPPt4L4BA">
+    <body>Name: Show appointements of the day&#xD;
+Initiator: User&#xD;
+Goal: Show list of appointments&#xD;
+1. User requests the appointments from the appointment manager. Optional give a date.&#xD;
+2. The appointment manager determines the appointments of the User&#xD;
+3. The appointment manager selects the appointments of the date&#xD;
+4. Deliver the appointments to the User &#xD;
+Extensions:&#xD;
+3. Date not given&#xD;
+a) Determine current date</body>
+  </ownedComment>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hJEloMtgEeKJ5bPPt4L4BA" clientDependency="__czp4MtgEeKJ5bPPt4L4BA" name="Show Appointments of the day"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_mBK9AMtgEeKJ5bPPt4L4BA" name="IShowAppointment">
+    <ownedOperation xmi:id="_z34OIMtgEeKJ5bPPt4L4BA" name="getAppointments"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="__czp4MtgEeKJ5bPPt4L4BA" name="Dependency1" client="_hJEloMtgEeKJ5bPPt4L4BA" supplier="_mBK9AMtgEeKJ5bPPt4L4BA"/>
+</uml:Model>
