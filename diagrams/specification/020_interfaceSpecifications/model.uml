@@ -65,12 +65,12 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_g2Cb4MiiEeKBoJxaYaHPNg" name="&lt;&lt;import>>" client="_nPH48MhiEeKSw4KKhwQdHQ" supplier="_OLAgIMiiEeKBoJxaYaHPNg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_V5yYcMicEeKp1oANwQY0Gg" clientDependency="_nzD4YMiiEeKBoJxaYaHPNg" name="IAppointmentMgt">
+    <packagedElement xmi:type="uml:Package" xmi:id="_V5yYcMicEeKp1oANwQY0Gg" clientDependency="_nzD4YMiiEeKBoJxaYaHPNg" name="s">
       <packagedElement xmi:type="uml:Class" xmi:id="_-gwJMMheEeKSw4KKhwQdHQ" name="IAppointmentMgt">
         <ownedOperation xmi:id="_5SkXoMhfEeKSw4KKhwQdHQ" name="createAppointment">
-          <ownedParameter xmi:id="_hVYJQMhgEeKSw4KKhwQdHQ" name="appDetails" type="_XOL20MhgEeKSw4KKhwQdHQ"/>
+          <ownedParameter xmi:id="_hVYJQMhgEeKSw4KKhwQdHQ" name="appDetails" type="_VcuzkMidEeKp1oANwQY0Gg"/>
         </ownedOperation>
-        <ownedOperation xmi:id="_7gAfkMhfEeKSw4KKhwQdHQ" name="showAppiontmentsOfDay">
+        <ownedOperation xmi:id="_7gAfkMhfEeKSw4KKhwQdHQ" name="showAppointmentsOfDay">
           <ownedParameter xmi:id="_uq_qEMhhEeKSw4KKhwQdHQ" name="user" type="_UZRiYMhkEeKQEamLItoqsw"/>
           <ownedParameter xmi:id="_3npcAMhhEeKSw4KKhwQdHQ" name="date">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
