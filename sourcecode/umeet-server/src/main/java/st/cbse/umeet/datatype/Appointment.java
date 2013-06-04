@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -21,6 +22,7 @@ public class Appointment implements Serializable {
 	private Long endDate;
 
 	@Id
+	@GeneratedValue
 	private Long id;
 	private String notes;
 	@ManyToMany
@@ -31,6 +33,15 @@ public class Appointment implements Serializable {
 	private String title;
 	public Appointment() {
 		super();
+	}
+	
+	public Appointment(String title, Long startDate, Long endDate, User creator, String status, Boolean personal) {
+		this.title = title;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.creator = creator;
+		this.status = status;
+		this.personal = personal;
 	}
 	public User getCreator() {
 		return this.creator;

@@ -3,6 +3,7 @@ package st.cbse.umeet.dto;
 import java.util.List;
 
 public class AppointmentDetails {
+	private Long id;
 	private UserDetails creator;
 	private Long endDate;
 	private String notes;
@@ -74,6 +75,14 @@ public class AppointmentDetails {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
