@@ -28,15 +28,18 @@ public class AppointmentMgr implements IAppointmentMgt {
 	public List<AppointmentDetails> showAppointmentsOfDay(UserDetails user,
 			Long date) {
 		Long oneDay = (long) (24*60*60*1000);
+		Long fDay = date + oneDay;
 		// just one ms before next day
-		oneDay -= 1;
+//		oneDay -= 1;
 		/*
 		 * date has to be the Long representation of the day at 00:00.
-		 * startDate has to be before date+24h
-		 * and endDate has to be after date
+		 * The startDate or endDate has to be between date and date+24h
+		 * (startDate has to be after date and before date+24h)
+		 * or
+		 * (endDate has to be after date and before date+24h)
 		 */
-		Query query = em.createQuery("select a from Appointment a where a.startDate<=(:date+:oneDay) and a.endDate>=:date");
-		query.setParameter("date", date).setParameter("oneDay", oneDay);
+		Query query = em.createQuery("select a from Appointment a where (a.startDate>=:date and a.startDate<:fDay) or (a.endDate>=:date and a.endDate<=:fDay)");
+		query.setParameter("date", date).setParameter("fDay", fDay);
 		List<Appointment> results = query.getResultList();
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
 		for(Appointment app : results) {
