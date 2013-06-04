@@ -76,11 +76,11 @@ public class AppointmentMgrTest {
 		// Insert appointments into database
 		utx.begin();
 		em.joinTransaction();
-		appBeforeDate = new Appointment(null, dateBefore, dateBefore + 10000,
+		appBeforeDate = new Appointment("BeforeDate", dateBefore, dateBefore + 10000,
 				null, null, null);
-		appAfterDate = new Appointment(null, dateAfter, dateAfter + 10000,
+		appAfterDate = new Appointment("AfterDate", dateAfter, dateAfter + 10000,
 				null, null, null);
-		appDuringDate = new Appointment(null, date, date + 10000, null, null,
+		appDuringDate = new Appointment("Date", date, date + 10000, null, null,
 				null);
 		em.persist(appBeforeDate);
 		em.persist(appAfterDate);
@@ -94,34 +94,28 @@ public class AppointmentMgrTest {
 	public void testDate() throws Exception {
 		// Appointment app = new Appointment();
 		// em.persist(app);
+		utx.begin();
+		em.joinTransaction();
 		cal.set(YEAR, MONTH, DAY, 0, 0, 0);
 		// Long day1 = cal.getTimeInMillis();
 		// cal.set(YEAR, MONTH, DAY+1);
 		// Long day2 = cal.getTimeInMillis();
 		// System.out.println(day2-day1);
-		try{
+		System.out.println(appMgr.showAppointmentsOfDay(null, cal.getTimeInMillis())
+				.size());
 		assertEquals(appMgr.showAppointmentsOfDay(null, cal.getTimeInMillis())
 				.size(), 1);
-		}
-		catch(Exception e) {
-			System.out.println("#foo#" + appMgr.showAppointmentsOfDay(null, cal.getTimeInMillis()).size());
-			throw e;
-		}
+		utx.commit();
+		
 	}
 
 	@Test
 	@InSequence(2)
 	public void testDateAfter() throws Exception {
 		cal.set(YEAR, MONTH, DAY + 1, 0, 0, 0);
-		try {
 			assertEquals(
 					appMgr.showAppointmentsOfDay(null, cal.getTimeInMillis())
 							.size(), 1);
-		} catch (Exception e) {
-			System.out.println(appMgr.showAppointmentsOfDay(null,
-					cal.getTimeInMillis()));
-			throw e;
-		}
 	}
 
 	@Test

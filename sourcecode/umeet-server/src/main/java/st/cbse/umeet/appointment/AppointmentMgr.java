@@ -1,5 +1,7 @@
 package st.cbse.umeet.appointment;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,23 +29,24 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Override
 	public List<AppointmentDetails> showAppointmentsOfDay(UserDetails user,
 			Long date) {
-		Long oneDay = (long) (24*60*60*1000);
-		Long fDay = date + oneDay;
-		// just one ms before next day
-//		oneDay -= 1;
+		Long oneDay = (long) (24 * 60 * 60 * 1000);
+		// HACK Substract 1000ms puffer for the really exact calendar date
+		// just one s before next day
+		oneDay -= 1000;
+		Long fDate = date + oneDay;
 		/*
-		 * date has to be the Long representation of the day at 00:00.
-		 * The startDate or endDate has to be between date and date+24h
-		 * (startDate has to be after date and before date+24h)
-		 * or
-		 * (endDate has to be after date and before date+24h)
+		 * date has to be the Long representation of the day at 00:00. The
+		 * startDate or endDate has to be between date and date+24h (startDate
+		 * has to be after date and before date+24h) or (endDate has to be after
+		 * date and before date+24h)
 		 */
-		Query query = em.createQuery("select a from Appointment a where (a.startDate>=:date and a.startDate<:fDay) or (a.endDate>=:date and a.endDate<:fDay)");
-		query.setParameter("date", date).setParameter("fDay", fDay);
+		Query query = em
+				.createQuery("select a from Appointment a where (a.startDate>=:date and a.startDate<:fDay) or (a.endDate>=:date and a.endDate<:fDay)");
+		query.setParameter("date", date).setParameter("fDay", fDate);
 		List<Appointment> results = query.getResultList();
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
-		for(Appointment app : results) {
-			appDetailsList.add(parseAppointment(app));			
+		for (Appointment app : results) {
+			appDetailsList.add(parseAppointment(app));
 		}
 		return appDetailsList;
 	}
