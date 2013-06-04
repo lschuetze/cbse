@@ -38,7 +38,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 		 * or
 		 * (endDate has to be after date and before date+24h)
 		 */
-		Query query = em.createQuery("select a from Appointment a where (a.startDate>=:date and a.startDate<:fDay) or (a.endDate>=:date and a.endDate<=:fDay)");
+		Query query = em.createQuery("select a from Appointment a where (a.startDate>=:date and a.startDate<=:fDay) or (a.endDate>=:date and a.endDate<=:fDay)");
 		query.setParameter("date", date).setParameter("fDay", fDay);
 		List<Appointment> results = query.getResultList();
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
