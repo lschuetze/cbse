@@ -1,3 +1,3 @@
-default.configuration=umeat-server
+default.configuration=umeet-server
 eclipse.preferences.version=1
 hibernate3.enabled=true
