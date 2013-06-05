@@ -1,5 +1,7 @@
 package st.cbse.umeet.system;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import st.cbse.umeet.dto.AppointmentDetails;
@@ -7,6 +9,6 @@ import st.cbse.umeet.dto.AppointmentDetails;
 @Local
 public interface IShowAppointmentOfTheDay {
 	
-	public AppointmentDetails getAppointments();
+	public List<AppointmentDetails> getAppointments(String email, Long date);
 
 }
