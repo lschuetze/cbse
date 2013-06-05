@@ -17,72 +17,81 @@ public class AppointmentDetails {
 		return creator;
 	}
 
-	public void setCreator(UserDetails creator) {
+	public AppointmentDetails setCreator(UserDetails creator) {
 		this.creator = creator;
+		return this;
 	}
 
 	public Long getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Long endDate) {
+	public AppointmentDetails setEndDate(Long endDate) {
 		this.endDate = endDate;
+		return this;
 	}
 
 	public String getNotes() {
 		return notes;
 	}
 
-	public void setNotes(String notes) {
+	public AppointmentDetails setNotes(String notes) {
 		this.notes = notes;
+		return this;
 	}
 
 	public List<UserDetails> getParticipants() {
 		return participants;
 	}
 
-	public void setParticipants(List<UserDetails> participants) {
+	public AppointmentDetails setParticipants(List<UserDetails> participants) {
 		this.participants = participants;
+		return this;
 	}
 
 	public Boolean getPersonal() {
 		return personal;
 	}
 
-	public void setPersonal(Boolean personal) {
+	public AppointmentDetails setPersonal(Boolean personal) {
 		this.personal = personal;
+		return this;
 	}
 
 	public Long getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Long startDate) {
+	public AppointmentDetails setStartDate(Long startDate) {
 		this.startDate = startDate;
+		return this;
 	}
 
 	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public AppointmentDetails setStatus(String status) {
 		this.status = status;
+		return this;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public AppointmentDetails setTitle(String title) {
 		this.title = title;
+		return this;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public AppointmentDetails setId(Long id) {
 		this.id = id;
+		return this;
 	}
 
 }

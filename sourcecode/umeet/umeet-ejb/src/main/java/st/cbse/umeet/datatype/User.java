@@ -7,42 +7,47 @@ import javax.persistence.Id;
 
 /**
  * Entity implementation class for Entity: UserDetails
- *
+ * 
  */
 @Entity
-
 public class User implements Serializable {
 
-	   
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String email;
 	private String name;
 	private String password;
-	private static final long serialVersionUID = 1L;
 
 	public User() {
 		super();
-	}   
+	}
+
 	public String getEmail() {
 		return this.email;
 	}
 
-	public void setEmail(String email) {
+	public User setEmail(String email) {
 		this.email = email;
-	}   
+		return this;
+	}
+
 	public String getName() {
 		return this.name;
 	}
 
-	public void setName(String name) {
+	public User setName(String name) {
 		this.name = name;
-	}   
+		return this;
+	}
+
 	public String getPassword() {
 		return this.password;
 	}
 
-	public void setPassword(String password) {
+	public User setPassword(String password) {
 		this.password = password;
+		return this;
 	}
-   
+
 }
