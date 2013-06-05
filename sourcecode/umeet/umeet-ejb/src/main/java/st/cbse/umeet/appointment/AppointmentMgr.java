@@ -44,7 +44,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 				Appointment.class);
 		query.setParameter("date", date).setParameter("fDay", fDate);
 		List<Appointment> results = query.getResultList();
-		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
+		List<AppointmentDetails> appDetailsList = new LinkedList<>();
 		for (Appointment app : results) {
 			appDetailsList.add(parseAppointment(app));
 		}
