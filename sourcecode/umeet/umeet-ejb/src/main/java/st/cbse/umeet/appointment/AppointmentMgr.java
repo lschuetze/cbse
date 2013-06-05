@@ -19,10 +19,10 @@ import st.cbse.umeet.user.IUserMgt;
 public class AppointmentMgr implements IAppointmentMgt {
 
 	@PersistenceContext
-	EntityManager em;
+	private EntityManager em;
 	
 	@Inject
-	IUserMgt userMgr;
+	private IUserMgt userMgr;
 
 	@Override
 	public AppointmentDetails createAppointment(AppointmentDetails appDetails) {
@@ -58,6 +58,12 @@ public class AppointmentMgr implements IAppointmentMgt {
 		return appDetailsList;
 	}
 
+	/**
+	 * Parses a details object to a datatype object.
+	 * @param appDetails the detail object of an appointment
+	 * @return
+	 * An {@link Appointment} object
+	 */
 	private Appointment parseDetails(AppointmentDetails appDetails) {
 		Appointment app = new Appointment()
 				.setStartDate(appDetails.getStartDate())
@@ -73,6 +79,12 @@ public class AppointmentMgr implements IAppointmentMgt {
 		return app;
 	}
 
+	/**
+	 * Parses a datatype object to a details object.
+	 * @param app the appointment object.
+	 * @return
+	 * An {@link AppointmentDetails} object
+	 */
 	private AppointmentDetails parseAppointment(Appointment app) {
 		AppointmentDetails appDetails = new AppointmentDetails()
 				.setStartDate(app.getStartDate()).setEndDate(app.getEndDate())
