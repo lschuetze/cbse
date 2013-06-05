@@ -1,7 +1,6 @@
 package st.cbse.umeet.system;
 
 import javax.ejb.Stateless;
-import javax.inject.Named;
 
 import st.cbse.umeet.dto.AppointmentDetails;
 

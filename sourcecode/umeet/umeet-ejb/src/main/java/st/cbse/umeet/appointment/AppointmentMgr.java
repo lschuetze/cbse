@@ -1,14 +1,12 @@
 package st.cbse.umeet.appointment;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import st.cbse.umeet.datatype.Appointment;
 import st.cbse.umeet.dto.AppointmentDetails;
@@ -40,8 +38,10 @@ public class AppointmentMgr implements IAppointmentMgt {
 		 * has to be after date and before date+24h) or (endDate has to be after
 		 * date and before date+24h)
 		 */
-		Query query = em
-				.createQuery("select a from Appointment a where (a.startDate>=:date and a.startDate<:fDay) or (a.endDate>=:date and a.endDate<:fDay)");
+		TypedQuery<Appointment> query = em.createQuery(
+				"select a from Appointment a where (a.startDate>=:date and a.startDate<:fDay)"
+						+ "or (a.endDate>=:date and a.endDate<:fDay)",
+				Appointment.class);
 		query.setParameter("date", date).setParameter("fDay", fDate);
 		List<Appointment> results = query.getResultList();
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
