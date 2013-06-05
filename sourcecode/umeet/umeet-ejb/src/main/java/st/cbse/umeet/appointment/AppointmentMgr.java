@@ -52,34 +52,30 @@ public class AppointmentMgr implements IAppointmentMgt {
 	}
 
 	private Appointment parseDetails(AppointmentDetails appDetails) {
-		Appointment app = new Appointment();
+		Appointment app = new Appointment()
+				.setStartDate(appDetails.getStartDate())
+				.setEndDate(appDetails.getEndDate()).setId(appDetails.getId())
+				.setTitle(appDetails.getTitle())
+				.setNotes(appDetails.getNotes())
+				.setPersonal(appDetails.getPersonal())
+				.setStatus(appDetails.getStatus());
 		// TODO @Manuel: Think about good implementation
 		// app.setCreator(appDetails.getCreator());
-		app.setEndDate(appDetails.getEndDate());
-		app.setId(appDetails.getEndDate());
-		app.setNotes(appDetails.getNotes());
 		// TODO @Manuel: Think about good implementation
 		// app.setParticipants(appDetails.getParticipants());
-		app.setPersonal(appDetails.getPersonal());
-		app.setStartDate(appDetails.getStartDate());
-		app.setStatus(appDetails.getStatus());
-		app.setTitle(appDetails.getTitle());
 		return app;
 	}
 
 	private AppointmentDetails parseAppointment(Appointment app) {
-		AppointmentDetails appDetails = new AppointmentDetails();
+		AppointmentDetails appDetails = new AppointmentDetails()
+				.setStartDate(app.getStartDate()).setEndDate(app.getEndDate())
+				.setId(app.getId()).setTitle(app.getTitle())
+				.setNotes(app.getNotes()).setPersonal(app.getPersonal())
+				.setStatus(app.getStatus());
 		// TODO @Manuel: Think about good implementation
 		// app.setCreator(appDetails.getCreator());
-		appDetails.setEndDate(app.getEndDate());
-		appDetails.setId(app.getEndDate());
-		appDetails.setNotes(app.getNotes());
 		// TODO @Manuel: Think about good implementation
 		// app.setParticipants(appDetails.getParticipants());
-		appDetails.setPersonal(app.getPersonal());
-		appDetails.setStartDate(app.getStartDate());
-		appDetails.setStatus(app.getStatus());
-		appDetails.setTitle(app.getTitle());
 		return appDetails;
 	}
 
