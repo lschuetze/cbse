@@ -11,7 +11,15 @@ public class ShowAppointmentsOfTheDay {
 	@Inject
 	private IShowAppointmentOfTheDay ej;
 	
-	public String foo="test";
+	private String foo = "test";
+	
+	public void changeFoo() {
+		foo = "foo";
+	}
+	
+	public String getFoo() {
+		return foo;
+	}
 	
 
 }
