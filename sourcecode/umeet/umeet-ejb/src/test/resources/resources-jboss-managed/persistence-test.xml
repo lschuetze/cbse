@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+<persistence-unit name="UMeet-server">
+    <!-- Durch "java:/DefaultDS" wird dem JBoss angewiesen, die integrierte HSQLDB,
+         die als "Default Datasource" eingebunden ist, für die Persistenz der
+         Applikation zu verwenden -->
+    <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+    <class>st.cbse.umeet.datatype.User</class>
+    <class>st.cbse.umeet.datatype.Appointment</class>    
+    <properties>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+		<!-- Options: validate: validate the schema | update: updates the schema 
+			| create: creates the schema | create-drop: after closing the SessionFactory 
+			the schema will be dropped -->
+		<!-- TODO @Manuel: Write a generateSchema() method for schema generation and initial filling -->
+        <property name="hibernate.hbm2ddl.auto" value="create"/>
+        <property name="hibernate.format_sql" value="true" />  
+        <property name="hibernate.show_sql" value="true" /> 
+    </properties>
+
+</persistence-unit>
+</persistence>
