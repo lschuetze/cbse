@@ -27,7 +27,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Override
 	public List<AppointmentDetails> showAppointmentsOfDay(UserDetails user,
 			Long date) {
-		Long oneDay = (long) (24 * 60 * 60 * 1000);
+		Long oneDay = Long.valueOf((24 * 60 * 60 * 1000));
 		// HACK Substract 1000ms puffer for the really exact calendar date
 		// just one s before next day
 		oneDay -= 1000;
