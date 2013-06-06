@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_LseKAM6pEeKE8_8DWFKlvQ" name="model">
+  <ownedComment xmi:id="_JcBU4M6qEeKE8_8DWFKlvQ" annotatedElement="_ubdmsM6rEeKE8_8DWFKlvQ">
+    <body> Name      Create appointment
+Initiator User
+Goal      The user creates a new appointment
+
+Main success scenario:
+1. User enters the title of the appointment
+2. User enters the begin date (including time) and the end date (including time)
+3. User mark appointment as public or private
+4. User choose an category for the appointment 
+	(being either free, blocked, protentially blocked or away)
+5. User confirms creation
+6. System checks for conflicts
+7. System creates the appointment
+
+Extensions:
+1. User did not enter a title
+	a) System prints an error message
+	b) Resume 1.
+6. There is a private conflicting appointment
+	a) System notifies the user that there is a conflicting appointment
+	b) Resume 2.
+6. There is a public conflicting appointment
+	a) System notifies the user that there is a
+	 conflicting appointment and provides details about the conflicting appointment
+	b) Resume 2.
+
+Variations:
+• At 2 the user may invite other users to the appointment.
+• At every stage the user may abort.
+</body>
+  </ownedComment>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ubdmsM6rEeKE8_8DWFKlvQ" name="ICreateAppointment">
+    <ownedOperation xmi:id="_DoY3cM6sEeKE8_8DWFKlvQ" name="createAppointment"/>
+    <ownedOperation xmi:id="_XHYU0M6uEeKE8_8DWFKlvQ" name="getConflicts"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Constraint" xmi:id="_rBI_cM6sEeKE8_8DWFKlvQ" name="Constraint1">
+    <specification xmi:type="uml:LiteralString" xmi:id="_rBLbsM6sEeKE8_8DWFKlvQ" value=""/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vJpF4M6sEeKE8_8DWFKlvQ" clientDependency="_0S_lUM6sEeKE8_8DWFKlvQ" name="CreateAppointment"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_0S_lUM6sEeKE8_8DWFKlvQ" name="Abstraction1" client="_vJpF4M6sEeKE8_8DWFKlvQ" supplier="_ubdmsM6rEeKE8_8DWFKlvQ"/>
+</uml:Model>

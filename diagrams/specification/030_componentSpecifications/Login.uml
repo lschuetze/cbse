@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_cYJ1cM6vEeKE8_8DWFKlvQ" name="model">
+  <ownedComment xmi:id="_pf02UM6vEeKE8_8DWFKlvQ" annotatedElement="_io_hYM6vEeKE8_8DWFKlvQ">
+    <body> Main success scenario:
+1. user enters email
+2. user enters password
+3. user submits data
+4. system checks email/password
+5. system grants access
+Extensions:
+4 user/pw do not match or user does not exist
+a) display error message: ”username or password incorrect!”
+b) resume 1.
+Variations:
+• user may abort in steps 1 to 3
+</body>
+  </ownedComment>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_io_hYM6vEeKE8_8DWFKlvQ" name="Login">
+    <ownedOperation xmi:id="_mAqn0M6vEeKE8_8DWFKlvQ" name="login"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ITW08M6wEeKE8_8DWFKlvQ" clientDependency="_LsXYIM6wEeKE8_8DWFKlvQ" name="Login"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_LsXYIM6wEeKE8_8DWFKlvQ" name="Abstraction1" client="_ITW08M6wEeKE8_8DWFKlvQ" supplier="_io_hYM6vEeKE8_8DWFKlvQ"/>
+</uml:Model>

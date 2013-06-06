@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_EoInwM6tEeKE8_8DWFKlvQ" name="model">
+  <ownedComment xmi:id="_ZoCJIM6tEeKE8_8DWFKlvQ" annotatedElement="_LcWtkM6tEeKE8_8DWFKlvQ">
+    <body> Main success scenario:
+1. User click register.
+2. User enters his name, email address and password.
+3. User submits data.
+4. System checks user details.
+5. System registers the user.
+Extensions:
+3 User did not fill all forms.
+a) System prompts to fill all forms.
+4 System detects a user already existing with given email.
+a) Fail.
+Variations:
+• At every stage the user may abort.
+</body>
+  </ownedComment>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LcWtkM6tEeKE8_8DWFKlvQ" name="IRegisterUser">
+    <ownedOperation xmi:id="_nuZm4M6tEeKE8_8DWFKlvQ" name="registerUser"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_r2LUkM6tEeKE8_8DWFKlvQ" clientDependency="_1axQQM6tEeKE8_8DWFKlvQ" name="Register User"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_1axQQM6tEeKE8_8DWFKlvQ" name="Abstraction1" client="_r2LUkM6tEeKE8_8DWFKlvQ" supplier="_LcWtkM6tEeKE8_8DWFKlvQ"/>
+</uml:Model>
