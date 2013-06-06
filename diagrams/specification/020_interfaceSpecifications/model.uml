@@ -77,6 +77,9 @@
           </ownedParameter>
           <ownedParameter xmi:id="_R1zu8MlHEeKmmZeQqqLxgQ" name="appointmentsOfTheDay" type="_VcuzkMidEeKp1oANwQY0Gg" direction="return"/>
         </ownedOperation>
+        <ownedOperation xmi:id="_RB8bEM7DEeKq4onS9HKa_g" name="getConflicts">
+          <ownedParameter xmi:id="_fS1t0M7DEeKq4onS9HKa_g" name="appDetails" type="_VcuzkMidEeKp1oANwQY0Gg"/>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_XOL20MhgEeKSw4KKhwQdHQ" name="Appointment">
         <ownedAttribute xmi:id="_y18dAMhgEeKSw4KKhwQdHQ" name="title" visibility="public" isUnique="false">

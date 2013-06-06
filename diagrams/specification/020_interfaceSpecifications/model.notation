@@ -173,6 +173,13 @@
             <element xmi:type="uml:Operation" href="model.uml#_7gAfkMhfEeKSw4KKhwQdHQ"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_7gDi4chfEeKSw4KKhwQdHQ"/>
           </children>
+          <children xmi:type="notation:Shape" xmi:id="_RJPV4M7DEeKq4onS9HKa_g" type="3013" fontName="Segoe UI" lineColor="0">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lWGQwM7DEeKq4onS9HKa_g" source="CustomAppearance_Annotation">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lggxAM7DEeKq4onS9HKa_g" key="CustomAppearance_MaskValue" value="20746"/>
+            </eAnnotations>
+            <element xmi:type="uml:Operation" href="model.uml#_RB8bEM7DEeKq4onS9HKa_g"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_RJPV4c7DEeKq4onS9HKa_g"/>
+          </children>
           <styles xmi:type="notation:TitleStyle" xmi:id="_-hE5VsheEeKSw4KKhwQdHQ"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_-hE5V8heEeKSw4KKhwQdHQ"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_-hE5WMheEeKSw4KKhwQdHQ"/>

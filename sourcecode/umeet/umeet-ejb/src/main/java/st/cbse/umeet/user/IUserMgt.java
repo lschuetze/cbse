@@ -1,5 +1,7 @@
 package st.cbse.umeet.user;
 
+import java.util.List;
+
 import st.cbse.umeet.datatype.User;
 import st.cbse.umeet.dto.UserDetails;
 
@@ -12,5 +14,7 @@ public interface IUserMgt {
 	 * An {@link User} object
 	 */
 	public User parseDetails(UserDetails userDetails);
+
+	public List<User> parseDetails(List<UserDetails> participants);
 
 }

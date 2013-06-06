@@ -1,6 +1,7 @@
 package st.cbse.umeet.appointment;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -55,10 +56,9 @@ public class AppointmentMgrTest {
 	@Inject
 	private UserTransaction utx;
 
-	private Appointment appBeforeDate;
-	private Appointment appAfterDate;
-	private Appointment appDuringDate;
-	private User user;
+	private AppointmentDetails appBeforeDate;
+	private AppointmentDetails appAfterDate;
+	private AppointmentDetails appDuringDate;
 	private UserDetails userDetails;
 	private Calendar cal = GregorianCalendar.getInstance();
 	private static final int YEAR = 2013;
@@ -66,48 +66,51 @@ public class AppointmentMgrTest {
 	private static final int DAY = 4;
 	private static final String USER_EMAIL = "test@cbse.st";
 
-	// Prepare database
+	// Prepare database and insert appointments
 	// HINT Test setup includes:
 	// - user only as creator
 	// - user as creator and participant
 	// - user only as participant
 	@Test
 	@InSequence(0)
-	public void insertData() throws Exception {
-		// Prepare dates
-		user = new User().setName("test").setPassword("test")
+	public void insertAppointments() throws Exception {
+		// Insert one test user into database
+		User user = new User().setName("test").setPassword("test")
 				.setEmail(USER_EMAIL);
+		utx.begin();
+		em.joinTransaction();
+		em.persist(user);
+		utx.commit();
+		// Prepare variables
+		userDetails = new UserDetails().setName("test").setPassword("test")
+				.setEmail(USER_EMAIL);
+		LinkedList<UserDetails> userDetailsList = new LinkedList<UserDetails>();
+		userDetailsList.add(userDetails);
+
 		cal.set(YEAR, MONTH, DAY, 0, 0, 0);
 		Long date = cal.getTimeInMillis();
 		cal.set(YEAR, MONTH, DAY + 1, 0, 0, 0);
 		Long dateAfter = cal.getTimeInMillis();
 		cal.set(YEAR, MONTH, DAY - 1, 0, 0, 0);
 		Long dateBefore = cal.getTimeInMillis();
-		System.out.println("#foo# date:" + date + " dateAfter:" + dateAfter
-				+ " dateBefore" + dateBefore);
 
-		// Insert appointments into database
-		utx.begin();
-		em.joinTransaction();
-		em.persist(user);
 		// Here is the hint implemented
-		appBeforeDate = new Appointment("BeforeDate", dateBefore,
-				dateBefore + 10000, user, null, null);
-		appAfterDate = new Appointment("AfterDate", dateAfter,
-				dateAfter + 10000, null, null, null);
-		appDuringDate = new Appointment("Date", date, date + 10000, user, null,
-				null);
-		LinkedList<User> ls = new LinkedList<User>();
-		ls.add(user);
-		appDuringDate.setParticipants(ls);
-		appAfterDate.setParticipants(ls);
-		em.persist(appBeforeDate);
-		em.persist(appAfterDate);
-		em.persist(appDuringDate);
-		utx.commit();
+		appBeforeDate = new AppointmentDetails().setTitle("BeforeDate")
+				.setStartDate(dateBefore).setEndDate(dateBefore + 10000)
+				.setCreator(userDetails);
+		appAfterDate = new AppointmentDetails().setTitle("AfterDate")
+				.setStartDate(dateAfter).setEndDate(dateAfter + 10000)
+				.setParticipants(userDetailsList);
+		appDuringDate = new AppointmentDetails().setTitle("Date")
+				.setStartDate(date).setEndDate(date + 10000)
+				.setCreator(userDetails).setParticipants(userDetailsList);
+
+		// Insert the appointments
+		assertTrue(appMgr.createAppointment(appBeforeDate));
+		assertTrue(appMgr.createAppointment(appAfterDate));
+		assertTrue(appMgr.createAppointment(appDuringDate));
 	}
 
-	// tests go here
 	@Test
 	@InSequence(1)
 	public void testDate() throws Exception {
@@ -156,5 +159,11 @@ public class AppointmentMgrTest {
 		assertEquals(
 				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
 						.size(), 0);
+	}
+
+	@Test
+	@InSequence(6)
+	public void testCreateEmptyAppointment() throws Exception {
+		assertTrue(appMgr.createAppointment(new AppointmentDetails()));
 	}
 }

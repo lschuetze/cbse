@@ -7,8 +7,6 @@ import st.cbse.umeet.dto.UserDetails;
 
 public interface IAppointmentMgt {
 	
-	public AppointmentDetails createAppointment(AppointmentDetails appDetails);
-
 	/**
 	 * Search all appointments for a given date and user.
 	 * @param user the user as participant or creator of the appointment.
@@ -17,5 +15,19 @@ public interface IAppointmentMgt {
 	 * A list of {@link AppointmentDetails}
 	 */
 	public List<AppointmentDetails> showAppointmentsOfDay(UserDetails user, Long date);
+	
+	/**
+	 * TODO @Manuel
+	 * @param appDetails
+	 * @return
+	 */
+	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails);
+	
+	/**
+	 * TODO @Manuel
+	 * @param appDetails
+	 * @return
+	 */
+	public Boolean createAppointment(AppointmentDetails appDetails);
 
 }
