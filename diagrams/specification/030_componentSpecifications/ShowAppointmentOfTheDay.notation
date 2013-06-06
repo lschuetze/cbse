@@ -45,63 +45,79 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJLTVstgEeKJ5bPPt4L4BA"/>
       </children>
       <element xmi:type="uml:Class" href="ShowAppointmentOfTheDay.uml#_hJEloMtgEeKJ5bPPt4L4BA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJI3EctgEeKJ5bPPt4L4BA" x="510" y="70" width="246" height="13"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJI3EctgEeKJ5bPPt4L4BA" x="492" y="72" width="246" height="13"/>
     </children>
-    <children xmi:type="notation:Shape" xmi:id="_mBMLIMtgEeKJ5bPPt4L4BA" type="2008" fontName="Segoe UI" lineColor="0">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mBMyMMtgEeKJ5bPPt4L4BA" source="ShadowFigure">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mBMyMctgEeKJ5bPPt4L4BA" key="ShadowFigure_Value" value="false"/>
+    <children xmi:type="notation:Shape" xmi:id="_X5V1EM7hEeKJ6LHpSdJYZQ" type="2016" fontName="Ubuntu" fontHeight="11" lineColor="0">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X5YRUM7hEeKJ6LHpSdJYZQ" source="ShadowFigure">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X5YRUc7hEeKJ6LHpSdJYZQ" key="ShadowFigure_Value" value="false"/>
       </eAnnotations>
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mBNZQMtgEeKJ5bPPt4L4BA" source="displayNameLabelIcon">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mBNZQctgEeKJ5bPPt4L4BA" key="displayNameLabelIcon_value" value="false"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X5YRUs7hEeKJ6LHpSdJYZQ" source="displayNameLabelIcon">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X5YRU87hEeKJ6LHpSdJYZQ" key="displayNameLabelIcon_value" value="false"/>
       </eAnnotations>
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mBNZQstgEeKJ5bPPt4L4BA" source="QualifiedName">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mBNZQ8tgEeKJ5bPPt4L4BA" key="QualifiedNameDepth" value="1000"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X5Y4YM7hEeKJ6LHpSdJYZQ" source="QualifiedName">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X5Y4Yc7hEeKJ6LHpSdJYZQ" key="QualifiedNameDepth" value="1000"/>
       </eAnnotations>
-      <children xmi:type="notation:DecorationNode" xmi:id="_mBNZRMtgEeKJ5bPPt4L4BA" type="5029"/>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_mBNZRctgEeKJ5bPPt4L4BA" type="7017">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_mBNZRstgEeKJ5bPPt4L4BA"/>
-        <styles xmi:type="notation:SortingStyle" xmi:id="_mBNZR8tgEeKJ5bPPt4L4BA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_mBNZSMtgEeKJ5bPPt4L4BA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mBNZSctgEeKJ5bPPt4L4BA"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_X5Y4Ys7hEeKJ6LHpSdJYZQ" type="0">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_X5Y4Y87hEeKJ6LHpSdJYZQ" y="5"/>
       </children>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_mBNZSstgEeKJ5bPPt4L4BA" type="7018">
-        <children xmi:type="notation:Shape" xmi:id="_z8clEMtgEeKJ5bPPt4L4BA" type="3013" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="ShowAppointmentOfTheDay.uml#_z34OIMtgEeKJ5bPPt4L4BA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_z8clEctgEeKJ5bPPt4L4BA"/>
+      <element xmi:type="notation:Diagram" href="ShowAppointmentOfTheDay.uml#_X4gHkM7hEeKJ6LHpSdJYZQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X5V1Ec7hEeKJ6LHpSdJYZQ" x="594" y="290"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_BgNacM7iEeKJ6LHpSdJYZQ" type="2004" fontName="Ubuntu" fontHeight="11" lineColor="0">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BgOBgM7iEeKJ6LHpSdJYZQ" source="ShadowFigure">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BgOBgc7iEeKJ6LHpSdJYZQ" key="ShadowFigure_Value" value="false"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BgOBgs7iEeKJ6LHpSdJYZQ" source="displayNameLabelIcon">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BgOBg87iEeKJ6LHpSdJYZQ" key="displayNameLabelIcon_value" value="false"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BgOBhM7iEeKJ6LHpSdJYZQ" source="QualifiedName">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BgOBhc7iEeKJ6LHpSdJYZQ" key="QualifiedNameDepth" value="1000"/>
+      </eAnnotations>
+      <children xmi:type="notation:DecorationNode" xmi:id="_BgOBhs7iEeKJ6LHpSdJYZQ" type="5011"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_BgOBh87iEeKJ6LHpSdJYZQ" type="7006">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_BgOBiM7iEeKJ6LHpSdJYZQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_BgOBic7iEeKJ6LHpSdJYZQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_BgOBis7iEeKJ6LHpSdJYZQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BgOokM7iEeKJ6LHpSdJYZQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_BgOokc7iEeKJ6LHpSdJYZQ" type="7007">
+        <children xmi:type="notation:Shape" xmi:id="_FpLa8M7iEeKJ6LHpSdJYZQ" type="3007" fontName="Ubuntu" fontHeight="11" lineColor="0">
+          <element xmi:type="uml:Operation" href="ShowAppointmentOfTheDay.uml#_FpKM0M7iEeKJ6LHpSdJYZQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_FpLa8c7iEeKJ6LHpSdJYZQ"/>
         </children>
-        <styles xmi:type="notation:TitleStyle" xmi:id="_mBNZS8tgEeKJ5bPPt4L4BA"/>
-        <styles xmi:type="notation:SortingStyle" xmi:id="_mBNZTMtgEeKJ5bPPt4L4BA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_mBNZTctgEeKJ5bPPt4L4BA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mBNZTstgEeKJ5bPPt4L4BA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_BgOoks7iEeKJ6LHpSdJYZQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_BgOok87iEeKJ6LHpSdJYZQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_BgOolM7iEeKJ6LHpSdJYZQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BgOolc7iEeKJ6LHpSdJYZQ"/>
       </children>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_mBNZT8tgEeKJ5bPPt4L4BA" type="7019">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_mBNZUMtgEeKJ5bPPt4L4BA"/>
-        <styles xmi:type="notation:SortingStyle" xmi:id="_mBNZUctgEeKJ5bPPt4L4BA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_mBNZUstgEeKJ5bPPt4L4BA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mBNZU8tgEeKJ5bPPt4L4BA"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_BgOols7iEeKJ6LHpSdJYZQ" type="7008">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_BgOol87iEeKJ6LHpSdJYZQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_BgOomM7iEeKJ6LHpSdJYZQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_BgOomc7iEeKJ6LHpSdJYZQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BgOoms7iEeKJ6LHpSdJYZQ"/>
       </children>
-      <element xmi:type="uml:Class" href="ShowAppointmentOfTheDay.uml#_mBK9AMtgEeKJ5bPPt4L4BA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mBMLIctgEeKJ5bPPt4L4BA" x="564" y="216"/>
+      <element xmi:type="uml:Interface" href="ShowAppointmentOfTheDay.uml#_BgLlQM7iEeKJ6LHpSdJYZQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BgNacc7iEeKJ6LHpSdJYZQ" x="552" y="216"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_RKHOkctgEeKJ5bPPt4L4BA"/>
     <element xmi:type="uml:Model" href="ShowAppointmentOfTheDay.uml#_RJ_50MtgEeKJ5bPPt4L4BA"/>
-    <edges xmi:type="notation:Connector" xmi:id="__c6XkMtgEeKJ5bPPt4L4BA" type="4008" source="_hJI3EMtgEeKJ5bPPt4L4BA" target="_mBMLIMtgEeKJ5bPPt4L4BA" lineColor="0">
-      <children xmi:type="notation:DecorationNode" xmi:id="__c9a4MtgEeKJ5bPPt4L4BA" visible="false" type="6026">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__c9a4ctgEeKJ5bPPt4L4BA" y="40"/>
-      </children>
-      <children xmi:type="notation:DecorationNode" xmi:id="__c-B8MtgEeKJ5bPPt4L4BA" type="6027">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__c-B8ctgEeKJ5bPPt4L4BA" y="60"/>
-      </children>
-      <styles xmi:type="notation:FontStyle" xmi:id="__c6XkctgEeKJ5bPPt4L4BA" fontName="Segoe UI"/>
-      <element xmi:type="uml:Dependency" href="ShowAppointmentOfTheDay.uml#__czp4MtgEeKJ5bPPt4L4BA"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__c6XkstgEeKJ5bPPt4L4BA" points="[1, 10, -14, -130]$[14, 134, -1, -6]"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__dPHsMtgEeKJ5bPPt4L4BA" id="(0.488,0.06)"/>
-    </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_GasCAMthEeKJ5bPPt4L4BA" type="4013" source="_Z6llsMtgEeKJ5bPPt4L4BA" target="_mBMLIMtgEeKJ5bPPt4L4BA" lineColor="0">
-      <styles xmi:type="notation:FontStyle" xmi:id="_GasCActhEeKJ5bPPt4L4BA" fontName="Segoe UI"/>
+    <edges xmi:type="notation:Connector" xmi:id="_JbsDQM7iEeKJ6LHpSdJYZQ" type="4013" source="_Z6llsMtgEeKJ5bPPt4L4BA" target="_BgNacM7iEeKJ6LHpSdJYZQ" lineColor="0">
+      <styles xmi:type="notation:FontStyle" xmi:id="_JbsDQc7iEeKJ6LHpSdJYZQ" fontName="Ubuntu" fontHeight="11"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GasCAsthEeKJ5bPPt4L4BA" points="[0, -8, -186, 13]$[124, 13, -62, 34]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ga9u0MthEeKJ5bPPt4L4BA" id="(1.0,0.46710526315789475)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JbsDQs7iEeKJ6LHpSdJYZQ" points="[44, -18, -191, 55]$[158, -130, -77, -57]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JbufgM7iEeKJ6LHpSdJYZQ" id="(0.9817351598173516,0.5352112676056338)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_LIfjUM7iEeKJ6LHpSdJYZQ" type="4006" source="_hJI3EMtgEeKJ5bPPt4L4BA" target="_BgNacM7iEeKJ6LHpSdJYZQ" lineColor="0">
+      <children xmi:type="notation:DecorationNode" xmi:id="_LIgxcM7iEeKJ6LHpSdJYZQ" visible="false" type="6014">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LIgxcc7iEeKJ6LHpSdJYZQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_LIgxcs7iEeKJ6LHpSdJYZQ" visible="false" type="6015">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LIgxc87iEeKJ6LHpSdJYZQ" y="60"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_LIfjUc7iEeKJ6LHpSdJYZQ" fontName="Ubuntu" fontHeight="11"/>
+      <element xmi:type="uml:Abstraction" href="ShowAppointmentOfTheDay.uml#_LIduIM7iEeKJ6LHpSdJYZQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LIfjUs7iEeKJ6LHpSdJYZQ" points="[-3, 0, 14, -183]$[22, 241, 39, 58]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LIjNsM7iEeKJ6LHpSdJYZQ" id="(0.5528455284552846,1.0)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_RKLgAMtgEeKJ5bPPt4L4BA" type="UseCase" name="ShowAppointmentsOfTheDay_UC" measurementUnit="Pixel">

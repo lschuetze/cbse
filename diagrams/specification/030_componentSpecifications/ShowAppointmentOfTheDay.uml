@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_RJ_50MtgEeKJ5bPPt4L4BA" name="model">
-  <ownedComment xmi:id="_Z6EBQMtgEeKJ5bPPt4L4BA" annotatedElement="_mBK9AMtgEeKJ5bPPt4L4BA">
-    <body>Name: Show appointements of the day&#xD;
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Model xmi:id="_RJ_50MtgEeKJ5bPPt4L4BA" name="model">
+    <ownedComment xmi:id="_Z6EBQMtgEeKJ5bPPt4L4BA" annotatedElement="_mBK9AMtgEeKJ5bPPt4L4BA _BgLlQM7iEeKJ6LHpSdJYZQ">
+      <body>Name: Show appointements of the day&#xD;
 Initiator: User&#xD;
 Goal: Show list of appointments&#xD;
 1. User requests the appointments from the appointment manager. Optional give a date.&#xD;
@@ -11,10 +12,16 @@ Goal: Show list of appointments&#xD;
 Extensions:&#xD;
 3. Date not given&#xD;
 a) Determine current date</body>
-  </ownedComment>
-  <packagedElement xmi:type="uml:Class" xmi:id="_hJEloMtgEeKJ5bPPt4L4BA" clientDependency="__czp4MtgEeKJ5bPPt4L4BA" name="Show Appointments of the day"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_mBK9AMtgEeKJ5bPPt4L4BA" name="IShowAppointment">
-    <ownedOperation xmi:id="_z34OIMtgEeKJ5bPPt4L4BA" name="getAppointments"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="__czp4MtgEeKJ5bPPt4L4BA" name="Dependency1" client="_hJEloMtgEeKJ5bPPt4L4BA" supplier="_mBK9AMtgEeKJ5bPPt4L4BA"/>
-</uml:Model>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hJEloMtgEeKJ5bPPt4L4BA" clientDependency="__czp4MtgEeKJ5bPPt4L4BA _LIduIM7iEeKJ6LHpSdJYZQ" name="Show Appointments of the day"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_mBK9AMtgEeKJ5bPPt4L4BA" name="IShowAppointment">
+      <ownedOperation xmi:id="_z34OIMtgEeKJ5bPPt4L4BA" name="getAppointments"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="__czp4MtgEeKJ5bPPt4L4BA" name="Dependency1" client="_hJEloMtgEeKJ5bPPt4L4BA" supplier="_mBK9AMtgEeKJ5bPPt4L4BA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_BgLlQM7iEeKJ6LHpSdJYZQ" name="IShowAppointment">
+      <ownedOperation xmi:id="_FpKM0M7iEeKJ6LHpSdJYZQ" name="getAppointments"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Abstraction" xmi:id="_LIduIM7iEeKJ6LHpSdJYZQ" name="Abstraction1" client="_hJEloMtgEeKJ5bPPt4L4BA" supplier="_BgLlQM7iEeKJ6LHpSdJYZQ"/>
+  </uml:Model>
+  <notation:Diagram xmi:id="_X4gHkM7hEeKJ6LHpSdJYZQ"/>
+</xmi:XMI>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_EoInwM6tEeKE8_8DWFKlvQ" name="model">
-  <ownedComment xmi:id="_ZoCJIM6tEeKE8_8DWFKlvQ" annotatedElement="_LcWtkM6tEeKE8_8DWFKlvQ">
+  <ownedComment xmi:id="_ZoCJIM6tEeKE8_8DWFKlvQ" annotatedElement="_LcWtkM6tEeKE8_8DWFKlvQ _xueAAM7hEeKJ6LHpSdJYZQ">
     <body> Main success scenario:
 1. User click register.
 2. User enters his name, email address and password.
@@ -19,6 +19,10 @@ Variations:
   <packagedElement xmi:type="uml:Class" xmi:id="_LcWtkM6tEeKE8_8DWFKlvQ" name="IRegisterUser">
     <ownedOperation xmi:id="_nuZm4M6tEeKE8_8DWFKlvQ" name="registerUser"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_r2LUkM6tEeKE8_8DWFKlvQ" clientDependency="_1axQQM6tEeKE8_8DWFKlvQ" name="Register User"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_r2LUkM6tEeKE8_8DWFKlvQ" clientDependency="_1axQQM6tEeKE8_8DWFKlvQ _5c0y0M7hEeKJ6LHpSdJYZQ" name="Register User"/>
   <packagedElement xmi:type="uml:Abstraction" xmi:id="_1axQQM6tEeKE8_8DWFKlvQ" name="Abstraction1" client="_r2LUkM6tEeKE8_8DWFKlvQ" supplier="_LcWtkM6tEeKE8_8DWFKlvQ"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_xueAAM7hEeKJ6LHpSdJYZQ" name="IRegisterUser">
+    <ownedOperation xmi:id="_0uLSYM7hEeKJ6LHpSdJYZQ" name="registerUser"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_5c0y0M7hEeKJ6LHpSdJYZQ" name="" client="_r2LUkM6tEeKE8_8DWFKlvQ" supplier="_xueAAM7hEeKJ6LHpSdJYZQ"/>
 </uml:Model>
