@@ -5,6 +5,10 @@ public class UserDetails {
 	private String email;
 	private String name;
 	private String password;
+	
+	public static UserDetails create(){
+		return new UserDetails();
+	}
 
 	public String getEmail() {
 		return email;

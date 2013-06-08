@@ -46,6 +46,10 @@ public class Appointment implements Serializable {
 		this.status = status;
 		this.personal = personal;
 	}
+	
+	public static Appointment create() {
+		return new Appointment();
+	}
 
 	public User getCreator() {
 		return this.creator;

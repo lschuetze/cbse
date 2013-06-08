@@ -22,6 +22,10 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}
+	
+	public static User create() {
+		return new User();
+	}
 
 	public String getEmail() {
 		return this.email;
