@@ -75,8 +75,8 @@ public class AppointmentMgrTest {
 		// Prepare variables
 		userDetails = new UserDetails().setName("test").setPassword("test")
 				.setEmail(USER_EMAIL);
-		userDetails2 = new UserDetails().setName("test2")
-				.setPassword("test").setEmail(USER_EMAIL_2);
+		userDetails2 = new UserDetails().setName("test2").setPassword("test")
+				.setEmail(USER_EMAIL_2);
 		LinkedList<UserDetails> userDetailsList = new LinkedList<UserDetails>();
 		userDetailsList.add(userDetails);
 
@@ -90,13 +90,19 @@ public class AppointmentMgrTest {
 		// Here is the hint implemented
 		appBeforeDate = new AppointmentDetails().setTitle("BeforeDate")
 				.setStartDate(dateBefore).setEndDate(dateBefore + 10000)
-				.setCreator(userDetails);
+				.setCreator(userDetails)
+				.setStatus(AppointmentStatus.AWAY.toString())
+				.setPersonal(false);
 		appAfterDate = new AppointmentDetails().setTitle("AfterDate")
 				.setStartDate(dateAfter).setEndDate(dateAfter + 10000)
-				.setCreator(userDetails2).setParticipants(userDetailsList);
+				.setCreator(userDetails2).setParticipants(userDetailsList)
+				.setStatus(AppointmentStatus.AWAY.toString())
+				.setPersonal(false);
 		appDuringDate = new AppointmentDetails().setTitle("Date")
 				.setStartDate(date).setEndDate(date + 10000)
-				.setCreator(userDetails).setParticipants(userDetailsList);
+				.setCreator(userDetails).setParticipants(userDetailsList)
+				.setStatus(AppointmentStatus.AWAY.toString())
+				.setPersonal(false);
 	}
 
 	// Prepare database and insert appointments
@@ -173,7 +179,7 @@ public class AppointmentMgrTest {
 						.size(), 0);
 	}
 
-	@Test(expected=Exception.class)
+	@Test(expected = Exception.class)
 	@InSequence(6)
 	public void testCreateEmptyAppointment() throws Exception {
 		appMgr.createAppointment(new AppointmentDetails());

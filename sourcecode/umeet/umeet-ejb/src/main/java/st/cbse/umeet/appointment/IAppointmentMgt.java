@@ -17,8 +17,9 @@ public interface IAppointmentMgt {
 	public List<AppointmentDetails> showAppointmentsOfDay(UserDetails user, Long date);
 	
 	/**
-	 * TODO @Manuel
-	 * Appointment details must have a creator, startDate and endDate.
+	 * Checks for conflict during given appointment.
+	 * <br>What appointment details must have, see in
+	 * {@link AppointmentMgr#isAppointmentDetailsCorrect(AppointmentDetails)}
 	 * @param appDetails
 	 * @return
 	 * @throws Exception 
@@ -26,8 +27,9 @@ public interface IAppointmentMgt {
 	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails) throws Exception;
 	
 	/**
-	 * TODO @Manuel
-	 * Appointment details must have a creator, startDate and endDate.
+	 * Creates an appointment.
+	 * <br>What appointment details must have, see in
+	 * {@link AppointmentMgr#isAppointmentDetailsCorrect(AppointmentDetails)}
 	 * @param appDetails
 	 * @return
 	 * @throws Exception 
