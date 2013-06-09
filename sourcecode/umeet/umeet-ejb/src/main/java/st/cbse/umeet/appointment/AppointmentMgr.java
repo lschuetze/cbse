@@ -24,6 +24,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Inject
 	private IUserMgt userMgr;
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<AppointmentDetails> showAppointmentsOfDay(
 			UserDetails userDetails, Long date) {
@@ -55,6 +58,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 		return appDetailsList;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails)
 			throws Exception {
@@ -97,6 +103,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 		return appDetailsList;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Boolean createAppointment(AppointmentDetails appDetails)
 			throws Exception {
