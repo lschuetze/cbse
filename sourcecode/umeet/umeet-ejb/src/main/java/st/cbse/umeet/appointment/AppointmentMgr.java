@@ -1,5 +1,6 @@
 package st.cbse.umeet.appointment;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,14 +57,36 @@ public class AppointmentMgr implements IAppointmentMgt {
 	}
 
 	@Override
-	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails) {
+	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails) throws Exception {
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
-		// TODO @Manuel implement
+		if(!isAppointmentDetailsCorrect(appDetails)) {
+			throw new Exception("Appointment Details incorrect");
+		}
+		Appointment appointment = parseDetails(appDetails);
+		List<User> userList = new ArrayList<User>();
+		userList.add(appointment.getCreator());
+		userList.addAll(appointment.getParticipants());
+		/*
+		 * Conflict situations:
+		 * - Another appointment of a participating or creating user is during the given time
+		 * - None of the both appointments is of the type "Free" TODO @Manuel
+		 */
+		TypedQuery<Appointment> query = em
+				.createQuery(
+						"select a from Appointment a left outer join a.participants par where (a.creator IN (:userList) or par IN (:userList)) and ((a.startDate>=:date and a.startDate<:fDay)"
+								+ "or (a.endDate>=:date and a.endDate<:fDay)) GROUP BY a.id",
+						Appointment.class);
+		query.setParameter("date", appointment.getStartDate()).setParameter("fDay", appointment.getEndDate())
+				.setParameter("userList", userList);
+		List<Appointment> results = query.getResultList();
+		for (Appointment app : results) {
+			appDetailsList.add(parseAppointment(app));
+		}
 		return appDetailsList;
 	}
 
 	@Override
-	public Boolean createAppointment(AppointmentDetails appDetails) {
+	public Boolean createAppointment(AppointmentDetails appDetails) throws Exception {
 		// Create the appointment if no conflicts exist
 		if (getConflicts(appDetails).size() == 0) {
 			Appointment app = parseDetails(appDetails);
@@ -72,6 +95,20 @@ public class AppointmentMgr implements IAppointmentMgt {
 		}
 		// any error returns a false
 		return false;
+	}
+	
+	/**
+	 * Checks for correct input details.
+	 * Appointment details must have a creator, startDate and endDate.
+	 * @param appDetails The appointment details to check
+	 * @return
+	 * <code>true</code> when appointment details are correct. <code>false</code> otherwise.
+	 */
+	private Boolean isAppointmentDetailsCorrect(AppointmentDetails appDetails) {
+		if(appDetails.getCreator() == null || appDetails.getStartDate() == null || appDetails.getEndDate() == null) {
+			return false;
+		}
+		return true;
 	}
 
 	/**

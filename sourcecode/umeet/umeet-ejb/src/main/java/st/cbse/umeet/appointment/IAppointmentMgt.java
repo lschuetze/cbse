@@ -18,16 +18,20 @@ public interface IAppointmentMgt {
 	
 	/**
 	 * TODO @Manuel
+	 * Appointment details must have a creator, startDate and endDate.
 	 * @param appDetails
 	 * @return
+	 * @throws Exception 
 	 */
-	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails);
+	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails) throws Exception;
 	
 	/**
 	 * TODO @Manuel
+	 * Appointment details must have a creator, startDate and endDate.
 	 * @param appDetails
 	 * @return
+	 * @throws Exception 
 	 */
-	public Boolean createAppointment(AppointmentDetails appDetails);
+	public Boolean createAppointment(AppointmentDetails appDetails) throws Exception;
 
 }

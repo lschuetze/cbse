@@ -1,6 +1,7 @@
 package st.cbse.umeet.appointment;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
@@ -20,6 +21,7 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -60,30 +62,21 @@ public class AppointmentMgrTest {
 	private AppointmentDetails appAfterDate;
 	private AppointmentDetails appDuringDate;
 	private UserDetails userDetails;
+	private UserDetails userDetails2;
 	private Calendar cal = GregorianCalendar.getInstance();
 	private static final int YEAR = 2013;
 	private static final int MONTH = 5;
 	private static final int DAY = 4;
 	private static final String USER_EMAIL = "test@cbse.st";
+	private static final String USER_EMAIL_2 = "test2@cbse.st";
 
-	// Prepare database and insert appointments
-	// HINT Test setup includes:
-	// - user only as creator
-	// - user as creator and participant
-	// - user only as participant
-	@Test
-	@InSequence(0)
-	public void insertAppointments() throws Exception {
-		// Insert one test user into database
-		User user = new User().setName("test").setPassword("test")
-				.setEmail(USER_EMAIL);
-		utx.begin();
-		em.joinTransaction();
-		em.persist(user);
-		utx.commit();
+	@Before
+	public void beforeClass() throws Exception {
 		// Prepare variables
 		userDetails = new UserDetails().setName("test").setPassword("test")
 				.setEmail(USER_EMAIL);
+		userDetails2 = new UserDetails().setName("test2")
+				.setPassword("test").setEmail(USER_EMAIL_2);
 		LinkedList<UserDetails> userDetailsList = new LinkedList<UserDetails>();
 		userDetailsList.add(userDetails);
 
@@ -100,22 +93,41 @@ public class AppointmentMgrTest {
 				.setCreator(userDetails);
 		appAfterDate = new AppointmentDetails().setTitle("AfterDate")
 				.setStartDate(dateAfter).setEndDate(dateAfter + 10000)
-				.setParticipants(userDetailsList);
+				.setCreator(userDetails2).setParticipants(userDetailsList);
 		appDuringDate = new AppointmentDetails().setTitle("Date")
 				.setStartDate(date).setEndDate(date + 10000)
 				.setCreator(userDetails).setParticipants(userDetailsList);
+	}
+
+	// Prepare database and insert appointments
+	// HINT Test setup includes:
+	// - user only as creator
+	// - user as creator and participant
+	// - user only as participant
+	@Test
+	@InSequence(0)
+	public void insertAppointments() throws Exception {
+		// Insert one test user into database
+		User user = new User().setName("test").setPassword("test")
+				.setEmail(USER_EMAIL);
+		User user2 = new User().setName("test").setPassword("test")
+				.setEmail(USER_EMAIL_2);
+		utx.begin();
+		em.joinTransaction();
+		em.persist(user);
+		em.persist(user2);
+		utx.commit();
 
 		// Insert the appointments
+		assertTrue(appMgr.createAppointment(appDuringDate));
 		assertTrue(appMgr.createAppointment(appBeforeDate));
 		assertTrue(appMgr.createAppointment(appAfterDate));
-		assertTrue(appMgr.createAppointment(appDuringDate));
 	}
 
 	@Test
 	@InSequence(1)
 	public void testDate() throws Exception {
 		cal.set(YEAR, MONTH, DAY, 0, 0, 0);
-		userDetails = new UserDetails().setEmail(USER_EMAIL);
 		assertEquals(
 				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
 						.size(), 1);
@@ -161,9 +173,18 @@ public class AppointmentMgrTest {
 						.size(), 0);
 	}
 
-	@Test
+	@Test(expected=Exception.class)
 	@InSequence(6)
 	public void testCreateEmptyAppointment() throws Exception {
-		assertTrue(appMgr.createAppointment(new AppointmentDetails()));
+		appMgr.createAppointment(new AppointmentDetails());
+	}
+
+	@Test
+	@InSequence(7)
+	public void testCreateConflictCreatorAppointment() throws Exception {
+		assertFalse(appMgr.createAppointment(appDuringDate));
+		assertEquals(
+				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
+						.size(), 1);
 	}
 }
