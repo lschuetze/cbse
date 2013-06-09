@@ -85,6 +85,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 		 * 
 		 * - None of the both appointments is of the type "Free" <-- implemented
 		 * in the result-loop
+		 * 
+		 * - Remove private appointments which are not from the creator of the
+		 * new appointment <-- implemented in the result-loop
 		 */
 		TypedQuery<Appointment> query = em
 				.createQuery(
@@ -99,6 +102,14 @@ public class AppointmentMgr implements IAppointmentMgt {
 			// "Free" status of the appointment is ignored and doesn't cause a
 			// conflict
 			if (app.getStatus() != AppointmentStatus.FREE.toString()) {
+				// Remove private appointments details which are not from the
+				// creator of the new appointment
+				if (app.getPersonal() == true
+						&& app.getCreator().getEmail() != appDetails
+								.getCreator().getEmail()) {
+					// Remove interesting parts
+					app.setTitle("").setNotes("").setStatus("");
+				}
 				appDetailsList.add(parseAppointment(app));
 			}
 		}
