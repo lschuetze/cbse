@@ -35,4 +35,24 @@ public class UserMgr implements IUserMgt {
 		return userList;
 	}
 
+	@Override
+	public UserDetails parseUser(User user) {
+		if(user == null) {
+			return null;
+		}
+		return new UserDetails().setEmail(user.getEmail()).setName(user.getName());
+	}
+	
+	@Override
+	public List<UserDetails> parseUser(List<User> userList) {
+		List<UserDetails> userDetailsList = new LinkedList<UserDetails>();
+		if(userList == null) {
+			return userDetailsList;
+		}
+		for(User user : userList) {
+			userDetailsList.add(parseUser(user));
+		}
+		return userDetailsList;
+	}
+
 }

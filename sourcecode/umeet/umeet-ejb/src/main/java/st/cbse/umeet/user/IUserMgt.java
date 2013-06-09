@@ -17,4 +17,8 @@ public interface IUserMgt {
 
 	public List<User> parseDetails(List<UserDetails> participants);
 
+	public UserDetails parseUser(User creator);
+
+	public List<UserDetails> parseUser(List<User> userList);
+
 }

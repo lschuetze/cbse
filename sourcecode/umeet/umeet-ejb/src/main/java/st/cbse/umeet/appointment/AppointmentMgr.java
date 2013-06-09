@@ -27,6 +27,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 	/**
 	 * {@inheritDoc}
 	 */
+	// TODO @Manuel test return value detailed
 	@Override
 	public List<AppointmentDetails> showAppointmentsOfDay(
 			UserDetails userDetails, Long date) {
@@ -61,13 +62,14 @@ public class AppointmentMgr implements IAppointmentMgt {
 	/**
 	 * {@inheritDoc}
 	 */
+	// TODO @Manuel test return values detailed
 	@Override
 	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails)
 			throws Exception {
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
 		if (!isAppointmentDetailsCorrect(appDetails)) {
 			throw new Exception("Appointment Details incorrect");
-		} else if(appDetails.getStatus() == AppointmentStatus.FREE.toString()) {
+		} else if (appDetails.getStatus() == AppointmentStatus.FREE.toString()) {
 			// An appointment with free status doesn't trigger a conflict
 			return appDetailsList;
 		}
@@ -177,11 +179,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 				.setStartDate(app.getStartDate()).setEndDate(app.getEndDate())
 				.setId(app.getId()).setTitle(app.getTitle())
 				.setNotes(app.getNotes()).setPersonal(app.getPersonal())
-				.setStatus(app.getStatus());
-		// TODO @Manuel: Think about good implementation
-		// app.setCreator(appDetails.getCreator());
-		// TODO @Manuel: Think about good implementation
-		// app.setParticipants(appDetails.getParticipants());
+				.setStatus(app.getStatus())
+				.setCreator(userMgr.parseUser(app.getCreator()))
+				.setParticipants(userMgr.parseUser(app.getParticipants()));
 		return appDetails;
 	}
 
