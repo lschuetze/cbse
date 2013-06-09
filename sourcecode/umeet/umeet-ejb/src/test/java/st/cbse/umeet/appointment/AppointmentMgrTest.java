@@ -61,6 +61,9 @@ public class AppointmentMgrTest {
 	private AppointmentDetails appBeforeDate;
 	private AppointmentDetails appAfterDate;
 	private AppointmentDetails appDuringDate;
+	private Long date;
+	private Long dateAfter;
+	private Long dateBefore;
 	private UserDetails userDetails;
 	private UserDetails userDetails2;
 	private Calendar cal = GregorianCalendar.getInstance();
@@ -81,11 +84,11 @@ public class AppointmentMgrTest {
 		userDetailsList.add(userDetails);
 
 		cal.set(YEAR, MONTH, DAY, 0, 0, 0);
-		Long date = cal.getTimeInMillis();
+		date = cal.getTimeInMillis();
 		cal.set(YEAR, MONTH, DAY + 1, 0, 0, 0);
-		Long dateAfter = cal.getTimeInMillis();
+		dateAfter = cal.getTimeInMillis();
 		cal.set(YEAR, MONTH, DAY - 1, 0, 0, 0);
-		Long dateBefore = cal.getTimeInMillis();
+		dateBefore = cal.getTimeInMillis();
 
 		// Here is the hint implemented
 		appBeforeDate = new AppointmentDetails().setTitle("BeforeDate")
@@ -134,49 +137,43 @@ public class AppointmentMgrTest {
 	@InSequence(1)
 	public void testDate() throws Exception {
 		cal.set(YEAR, MONTH, DAY, 0, 0, 0);
-		assertEquals(
-				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
-						.size(), 1);
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, date).size(), 1);
 	}
 
 	@Test
 	@InSequence(2)
 	public void testDateAfter() throws Exception {
-		cal.set(YEAR, MONTH, DAY + 1, 0, 0, 0);
 		userDetails = new UserDetails().setEmail(USER_EMAIL);
-		assertEquals(
-				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
-						.size(), 1);
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, dateAfter)
+				.size(), 1);
 	}
 
 	@Test
 	@InSequence(3)
 	public void testDateAfterEmpty() throws Exception {
-		cal.set(YEAR, MONTH, DAY + 2, 0, 0, 0);
 		userDetails = new UserDetails().setEmail(USER_EMAIL);
-		assertEquals(
-				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
-						.size(), 0);
+		cal.setTimeInMillis(dateAfter);
+		cal.roll(Calendar.DAY_OF_MONTH, true);
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
+				.size(), 0);
 	}
 
 	@Test
 	@InSequence(4)
 	public void testDateBefore() throws Exception {
-		cal.set(YEAR, MONTH, DAY - 1, 0, 0, 0);
 		userDetails = new UserDetails().setEmail(USER_EMAIL);
-		assertEquals(
-				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
-						.size(), 1);
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, dateBefore)
+				.size(), 1);
 	}
 
 	@Test
 	@InSequence(5)
 	public void testDateBeforeEmpty() throws Exception {
-		cal.set(YEAR, MONTH, DAY + 2, 0, 0, 0);
 		userDetails = new UserDetails().setEmail(USER_EMAIL);
-		assertEquals(
-				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
-						.size(), 0);
+		cal.setTimeInMillis(dateBefore);
+		cal.roll(Calendar.DAY_OF_MONTH, false);
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
+				.size(), 0);
 	}
 
 	@Test(expected = Exception.class)
@@ -189,8 +186,14 @@ public class AppointmentMgrTest {
 	@InSequence(7)
 	public void testCreateConflictCreatorAppointment() throws Exception {
 		assertFalse(appMgr.createAppointment(appDuringDate));
-		assertEquals(
-				appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
-						.size(), 1);
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, date).size(), 1);
+	}
+
+	@Test
+	@InSequence(8)
+	public void testCreateFreeConflictAppointment() throws Exception {
+		appDuringDate.setStatus(AppointmentStatus.FREE.toString());
+		assertTrue(appMgr.createAppointment(appDuringDate));
+		assertEquals(appMgr.showAppointmentsOfDay(userDetails, date).size(), 2);
 	}
 }

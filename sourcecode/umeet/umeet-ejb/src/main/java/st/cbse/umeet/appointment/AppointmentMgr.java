@@ -61,15 +61,22 @@ public class AppointmentMgr implements IAppointmentMgt {
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
 		if (!isAppointmentDetailsCorrect(appDetails)) {
 			throw new Exception("Appointment Details incorrect");
+		} else if(appDetails.getStatus() == AppointmentStatus.FREE.toString()) {
+			// An appointment with free status doesn't trigger a conflict
+			return appDetailsList;
 		}
 		Appointment appointment = parseDetails(appDetails);
 		List<User> userList = new LinkedList<User>();
 		userList.add(appointment.getCreator());
 		userList.addAll(appointment.getParticipants());
 		/*
-		 * Conflict situations: - Another appointment of a participating or
-		 * creating user is during the given time - None of the both
-		 * appointments is of the type "Free" TODO @Manuel
+		 * Conflict situations:
+		 * 
+		 * - Another appointment of a participating or creating user is during
+		 * the given time <-- implemented in the query
+		 * 
+		 * - None of the both appointments is of the type "Free" <-- implemented
+		 * in the result-loop
 		 */
 		TypedQuery<Appointment> query = em
 				.createQuery(
@@ -81,7 +88,11 @@ public class AppointmentMgr implements IAppointmentMgt {
 				.setParameter("userList", userList);
 		List<Appointment> results = query.getResultList();
 		for (Appointment app : results) {
-			appDetailsList.add(parseAppointment(app));
+			// "Free" status of the appointment is ignored and doesn't cause a
+			// conflict
+			if (app.getStatus() != AppointmentStatus.FREE.toString()) {
+				appDetailsList.add(parseAppointment(app));
+			}
 		}
 		return appDetailsList;
 	}
