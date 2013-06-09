@@ -1,6 +1,5 @@
 package st.cbse.umeet.appointment;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,6 +24,10 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Inject
 	private IUserMgt userMgr;
 
+	/**
+	 * {@inheritDoc}
+	 */
+	// TODO @Manuel test return value detailed
 	@Override
 	public List<AppointmentDetails> showAppointmentsOfDay(
 			UserDetails userDetails, Long date) {
@@ -56,37 +59,69 @@ public class AppointmentMgr implements IAppointmentMgt {
 		return appDetailsList;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	// TODO @Manuel test return values detailed
 	@Override
-	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails) throws Exception {
+	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails)
+			throws Exception {
 		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
-		if(!isAppointmentDetailsCorrect(appDetails)) {
+		if (!isAppointmentDetailsCorrect(appDetails)) {
 			throw new Exception("Appointment Details incorrect");
+		} else if (appDetails.getStatus() == AppointmentStatus.FREE.toString()) {
+			// An appointment with free status doesn't trigger a conflict
+			return appDetailsList;
 		}
 		Appointment appointment = parseDetails(appDetails);
-		List<User> userList = new ArrayList<User>();
+		List<User> userList = new LinkedList<User>();
 		userList.add(appointment.getCreator());
 		userList.addAll(appointment.getParticipants());
 		/*
 		 * Conflict situations:
-		 * - Another appointment of a participating or creating user is during the given time
-		 * - None of the both appointments is of the type "Free" TODO @Manuel
+		 * 
+		 * - Another appointment of a participating or creating user is during
+		 * the given time <-- implemented in the query
+		 * 
+		 * - None of the both appointments is of the type "Free" <-- implemented
+		 * in the result-loop
+		 * 
+		 * - Remove private appointments which are not from the creator of the
+		 * new appointment <-- implemented in the result-loop
 		 */
 		TypedQuery<Appointment> query = em
 				.createQuery(
 						"select a from Appointment a left outer join a.participants par where (a.creator IN (:userList) or par IN (:userList)) and ((a.startDate>=:date and a.startDate<:fDay)"
 								+ "or (a.endDate>=:date and a.endDate<:fDay)) GROUP BY a.id",
 						Appointment.class);
-		query.setParameter("date", appointment.getStartDate()).setParameter("fDay", appointment.getEndDate())
+		query.setParameter("date", appointment.getStartDate())
+				.setParameter("fDay", appointment.getEndDate())
 				.setParameter("userList", userList);
 		List<Appointment> results = query.getResultList();
 		for (Appointment app : results) {
-			appDetailsList.add(parseAppointment(app));
+			// "Free" status of the appointment is ignored and doesn't cause a
+			// conflict
+			if (app.getStatus() != AppointmentStatus.FREE.toString()) {
+				// Remove private appointments details which are not from the
+				// creator of the new appointment
+				if (app.getPersonal() == true
+						&& app.getCreator().getEmail() != appDetails
+								.getCreator().getEmail()) {
+					// Remove interesting parts
+					app.setTitle("").setNotes("").setStatus("");
+				}
+				appDetailsList.add(parseAppointment(app));
+			}
 		}
 		return appDetailsList;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public Boolean createAppointment(AppointmentDetails appDetails) throws Exception {
+	public Boolean createAppointment(AppointmentDetails appDetails)
+			throws Exception {
 		// Create the appointment if no conflicts exist
 		if (getConflicts(appDetails).size() == 0) {
 			Appointment app = parseDetails(appDetails);
@@ -96,16 +131,26 @@ public class AppointmentMgr implements IAppointmentMgt {
 		// any error returns a false
 		return false;
 	}
-	
+
 	/**
-	 * Checks for correct input details.
-	 * Appointment details must have a creator, startDate and endDate.
-	 * @param appDetails The appointment details to check
-	 * @return
-	 * <code>true</code> when appointment details are correct. <code>false</code> otherwise.
+	 * Correct appointment details must have:<br>
+	 * - creator<br>
+	 * - startDate<br>
+	 * - endDate<br>
+	 * - personal<br>
+	 * - status
+	 * 
+	 * @param appDetails
+	 *            The appointment details to check
+	 * @return <code>true</code> when appointment details are correct.
+	 *         <code>false</code> otherwise.
 	 */
-	private Boolean isAppointmentDetailsCorrect(AppointmentDetails appDetails) {
-		if(appDetails.getCreator() == null || appDetails.getStartDate() == null || appDetails.getEndDate() == null) {
+	protected Boolean isAppointmentDetailsCorrect(AppointmentDetails appDetails) {
+		if (appDetails.getCreator() == null
+				|| appDetails.getStartDate() == null
+				|| appDetails.getEndDate() == null
+				|| appDetails.getPersonal() == null
+				|| AppointmentStatus.fromString(appDetails.getStatus()) == null) {
 			return false;
 		}
 		return true;
@@ -145,12 +190,37 @@ public class AppointmentMgr implements IAppointmentMgt {
 				.setStartDate(app.getStartDate()).setEndDate(app.getEndDate())
 				.setId(app.getId()).setTitle(app.getTitle())
 				.setNotes(app.getNotes()).setPersonal(app.getPersonal())
-				.setStatus(app.getStatus());
-		// TODO @Manuel: Think about good implementation
-		// app.setCreator(appDetails.getCreator());
-		// TODO @Manuel: Think about good implementation
-		// app.setParticipants(appDetails.getParticipants());
+				.setStatus(app.getStatus())
+				.setCreator(userMgr.parseUser(app.getCreator()))
+				.setParticipants(userMgr.parseUser(app.getParticipants()));
 		return appDetails;
 	}
 
+}
+
+enum AppointmentStatus {
+	BLOCKED("Blocked"), FREE("Free"), POTENTIALLY_BLOCKED("Potentially blocked"), AWAY(
+			"Away");
+
+	private final String status;
+
+	private AppointmentStatus(final String status) {
+		this.status = status;
+	}
+
+	public static AppointmentStatus fromString(String status) {
+		if (status != null) {
+			for (AppointmentStatus a : AppointmentStatus.values()) {
+				if (status.equalsIgnoreCase(a.status)) {
+					return a;
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return status;
+	}
 }
