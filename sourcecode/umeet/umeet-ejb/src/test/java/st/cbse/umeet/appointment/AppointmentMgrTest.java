@@ -91,17 +91,17 @@ public class AppointmentMgrTest {
 		dateBefore = cal.getTimeInMillis();
 
 		// Here is the hint implemented
-		appBeforeDate = new AppointmentDetails().setTitle("BeforeDate")
+		appBeforeDate = AppointmentDetails.create().setTitle("BeforeDate")
 				.setStartDate(dateBefore).setEndDate(dateBefore + 10000)
 				.setCreator(userDetails)
 				.setStatus(AppointmentStatus.AWAY.toString())
 				.setPersonal(false);
-		appAfterDate = new AppointmentDetails().setTitle("AfterDate")
+		appAfterDate = AppointmentDetails.create().setTitle("AfterDate")
 				.setStartDate(dateAfter).setEndDate(dateAfter + 10000)
 				.setCreator(userDetails2).setParticipants(userDetailsList)
 				.setStatus(AppointmentStatus.AWAY.toString())
 				.setPersonal(false);
-		appDuringDate = new AppointmentDetails().setTitle("Date")
+		appDuringDate = AppointmentDetails.create().setTitle("Date")
 				.setStartDate(date).setEndDate(date + 10000)
 				.setCreator(userDetails).setParticipants(userDetailsList)
 				.setStatus(AppointmentStatus.AWAY.toString())
@@ -179,7 +179,7 @@ public class AppointmentMgrTest {
 	@Test(expected = Exception.class)
 	@InSequence(6)
 	public void testCreateEmptyAppointment() throws Exception {
-		appMgr.createAppointment(new AppointmentDetails());
+		appMgr.createAppointment(AppointmentDetails.create());
 	}
 
 	@Test

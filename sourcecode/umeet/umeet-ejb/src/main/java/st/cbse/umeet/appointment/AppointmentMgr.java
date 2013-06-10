@@ -186,7 +186,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 * @return An {@link AppointmentDetails} object
 	 */
 	private AppointmentDetails parseAppointment(Appointment app) {
-		AppointmentDetails appDetails = new AppointmentDetails()
+		AppointmentDetails appDetails = AppointmentDetails.create()
 				.setStartDate(app.getStartDate()).setEndDate(app.getEndDate())
 				.setId(app.getId()).setTitle(app.getTitle())
 				.setNotes(app.getNotes()).setPersonal(app.getPersonal())

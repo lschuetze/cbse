@@ -16,6 +16,10 @@ public class AppointmentDetails {
 	public static AppointmentDetails create() {
 		return new AppointmentDetails();
 	}
+	
+	private AppointmentDetails() {
+		super();
+	}
 
 	public UserDetails getCreator() {
 		return creator;

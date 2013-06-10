@@ -36,7 +36,7 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 		for (String m : participantsEmail) {
 			participantList.add(UserDetails.create().setEmail(m));
 		}
-		AppointmentDetails appDetails = new AppointmentDetails()
+		AppointmentDetails appDetails = AppointmentDetails.create()
 				.setCreator(UserDetails.create().setEmail(creatorEmail))
 				.setStartDate(startDate).setEndDate(endDate).setTitle(title)
 				.setStatus(status).setNotes(notes).setPersonal(personal)
@@ -52,7 +52,7 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 		for (String m : participantsEmail) {
 			participantList.add(UserDetails.create().setEmail(m));
 		}
-		AppointmentDetails appDetails = new AppointmentDetails()
+		AppointmentDetails appDetails = AppointmentDetails.create()
 				.setCreator(UserDetails.create().setEmail(creatorEmail))
 				.setStartDate(startDate).setEndDate(endDate).setStatus(status)
 				.setPersonal(personal).setParticipants(participantList);
