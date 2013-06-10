@@ -24,7 +24,7 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 
 	@Override
 	public List<AppointmentDetails> getAppointments(String email, Long date) {
-		UserDetails user = new UserDetails().setEmail(email);
+		UserDetails user = UserDetails.create().setEmail(email);
 		return appMgr.showAppointmentsOfDay(user, date);
 	}
 
@@ -34,10 +34,10 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 			Boolean personal, List<String> participantsEmail) throws Exception {
 		List<UserDetails> participantList = new LinkedList<UserDetails>();
 		for (String m : participantsEmail) {
-			participantList.add(new UserDetails().setEmail(m));
+			participantList.add(UserDetails.create().setEmail(m));
 		}
 		AppointmentDetails appDetails = new AppointmentDetails()
-				.setCreator(new UserDetails().setEmail(creatorEmail))
+				.setCreator(UserDetails.create().setEmail(creatorEmail))
 				.setStartDate(startDate).setEndDate(endDate).setTitle(title)
 				.setStatus(status).setNotes(notes).setPersonal(personal)
 				.setParticipants(participantList);
@@ -50,28 +50,27 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 			List<String> participantsEmail) throws Exception {
 		List<UserDetails> participantList = new LinkedList<UserDetails>();
 		for (String m : participantsEmail) {
-			participantList.add(new UserDetails().setEmail(m));
+			participantList.add(UserDetails.create().setEmail(m));
 		}
 		AppointmentDetails appDetails = new AppointmentDetails()
-				.setCreator(new UserDetails().setEmail(creatorEmail))
+				.setCreator(UserDetails.create().setEmail(creatorEmail))
 				.setStartDate(startDate).setEndDate(endDate).setStatus(status)
 				.setPersonal(personal).setParticipants(participantList);
 		return appMgr.getConflicts(appDetails);
 	}
 
 	@Override
-	public boolean registerUser(String email, String name, String password){
-		UserDetails details = new UserDetails()
-				.setEmail(email)
-				.setName(name)
-				.setPassword(password);
+	public boolean registerUser(String email, String name, String password) {
+		UserDetails details = UserDetails.create().setEmail(email)
+				.setName(name).setPassword(password);
 		return userMgr.registerUser(details);
 	}
 
 	@Override
 	public boolean login(String email, String password) {
 		User user = userMgr.login(email, password);
-		if(user == null) return false;
+		if (user == null)
+			return false;
 		// TODO: do something with User instance?
 		return true;
 	}

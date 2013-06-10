@@ -12,7 +12,7 @@ public class AppointmentDetails {
 	private Long startDate;
 	private String status;
 	private String title;
-	
+
 	public static AppointmentDetails create() {
 		return new AppointmentDetails();
 	}

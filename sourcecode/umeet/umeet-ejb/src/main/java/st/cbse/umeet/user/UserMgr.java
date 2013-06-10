@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import st.cbse.umeet.datatype.Appointment;
 import st.cbse.umeet.datatype.User;
 import st.cbse.umeet.dto.UserDetails;
 
@@ -19,21 +18,22 @@ public class UserMgr implements IUserMgt {
 	private EntityManager em;
 
 	@Override
-	public User login(String email, String password){
+	public User login(String email, String password) {
 		// search for user in database
-		TypedQuery<User> query = em.createQuery(
-				"SELECT u FROM User u WHERE (u.email=:param_email)",
-				User.class);
+		TypedQuery<User> query = em
+				.createQuery(
+						"SELECT u FROM User u WHERE (u.email=:param_email)",
+						User.class);
 		query.setParameter("param_email", email);
 		List<User> list = query.getResultList();
 		// check user data
-		if(list.isEmpty()){
+		if (list.isEmpty()) {
 			// user does not exist
 			// TODO: throw exception instead of returning null?
 			return null;
 		}
 		User user = list.get(0);
-		if(user.getPassword().equals(password)){
+		if (user.getPassword().equals(password)) {
 			// user exists, but password does not match
 			// TODO: throw exception instead of returning null?
 			return null;
@@ -41,17 +41,18 @@ public class UserMgr implements IUserMgt {
 		// user exists and password matches. all clear!
 		return user;
 	}
-	
+
 	@Override
-	public boolean registerUser(UserDetails userDetails){
+	public boolean registerUser(UserDetails userDetails) {
 		// search for user with specified email in database
-		TypedQuery<User> query = em.createQuery(
-				"SELECT u FROM User u WHERE (u.email=:param_email)",
-				User.class);
+		TypedQuery<User> query = em
+				.createQuery(
+						"SELECT u FROM User u WHERE (u.email=:param_email)",
+						User.class);
 		query.setParameter("param_email", userDetails.getEmail());
 		List<User> list = query.getResultList();
 		// check query answer
-		if(!list.isEmpty()){
+		if (!list.isEmpty()) {
 			// a user with that email already exists
 			return false;
 		}
@@ -59,10 +60,10 @@ public class UserMgr implements IUserMgt {
 		em.persist(parseDetails(userDetails));
 		return true;
 	}
-	
+
 	@Override
 	public User parseDetails(UserDetails userDetails) {
-		if(userDetails == null) {
+		if (userDetails == null) {
 			// TODO @Manuel give something other back
 			// remark(stefan): should this throw a NullPointerException?
 			return null;
@@ -76,10 +77,10 @@ public class UserMgr implements IUserMgt {
 	@Override
 	public List<User> parseDetails(List<UserDetails> participants) {
 		List<User> userList = new LinkedList<User>();
-		if(participants == null){
+		if (participants == null) {
 			return userList;
 		}
-		for(UserDetails participant : participants) {
+		for (UserDetails participant : participants) {
 			userList.add(parseDetails(participant));
 		}
 		return userList;
@@ -87,19 +88,20 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public UserDetails parseUser(User user) {
-		if(user == null) {
+		if (user == null) {
 			return null;
 		}
-		return new UserDetails().setEmail(user.getEmail()).setName(user.getName());
+		return UserDetails.create().setEmail(user.getEmail())
+				.setName(user.getName());
 	}
-	
+
 	@Override
 	public List<UserDetails> parseUser(List<User> userList) {
 		List<UserDetails> userDetailsList = new LinkedList<UserDetails>();
-		if(userList == null) {
+		if (userList == null) {
 			return userDetailsList;
 		}
-		for(User user : userList) {
+		for (User user : userList) {
 			userDetailsList.add(parseUser(user));
 		}
 		return userDetailsList;

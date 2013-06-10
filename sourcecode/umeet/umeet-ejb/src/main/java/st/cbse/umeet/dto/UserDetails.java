@@ -5,8 +5,12 @@ public class UserDetails {
 	private String email;
 	private String name;
 	private String password;
-	
-	public static UserDetails create(){
+
+	private UserDetails() {
+		super();
+	}
+
+	public static UserDetails create() {
 		return new UserDetails();
 	}
 

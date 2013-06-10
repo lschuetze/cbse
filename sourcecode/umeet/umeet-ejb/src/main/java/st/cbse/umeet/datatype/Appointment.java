@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 public class Appointment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@ManyToOne
 	private User creator;
 	private Long endDate;
@@ -46,7 +46,7 @@ public class Appointment implements Serializable {
 		this.status = status;
 		this.personal = personal;
 	}
-	
+
 	public static Appointment create() {
 		return new Appointment();
 	}

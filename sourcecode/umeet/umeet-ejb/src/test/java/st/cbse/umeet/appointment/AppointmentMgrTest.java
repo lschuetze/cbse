@@ -76,9 +76,9 @@ public class AppointmentMgrTest {
 	@Before
 	public void beforeClass() throws Exception {
 		// Prepare variables
-		userDetails = new UserDetails().setName("test").setPassword("test")
+		userDetails = UserDetails.create().setName("test").setPassword("test")
 				.setEmail(USER_EMAIL);
-		userDetails2 = new UserDetails().setName("test2").setPassword("test")
+		userDetails2 = UserDetails.create().setName("test2").setPassword("test")
 				.setEmail(USER_EMAIL_2);
 		LinkedList<UserDetails> userDetailsList = new LinkedList<UserDetails>();
 		userDetailsList.add(userDetails);
@@ -143,7 +143,7 @@ public class AppointmentMgrTest {
 	@Test
 	@InSequence(2)
 	public void testDateAfter() throws Exception {
-		userDetails = new UserDetails().setEmail(USER_EMAIL);
+		userDetails = UserDetails.create().setEmail(USER_EMAIL);
 		assertEquals(appMgr.showAppointmentsOfDay(userDetails, dateAfter)
 				.size(), 1);
 	}
@@ -151,7 +151,7 @@ public class AppointmentMgrTest {
 	@Test
 	@InSequence(3)
 	public void testDateAfterEmpty() throws Exception {
-		userDetails = new UserDetails().setEmail(USER_EMAIL);
+		userDetails = UserDetails.create().setEmail(USER_EMAIL);
 		cal.setTimeInMillis(dateAfter);
 		cal.roll(Calendar.DAY_OF_MONTH, true);
 		assertEquals(appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())
@@ -161,7 +161,7 @@ public class AppointmentMgrTest {
 	@Test
 	@InSequence(4)
 	public void testDateBefore() throws Exception {
-		userDetails = new UserDetails().setEmail(USER_EMAIL);
+		userDetails = UserDetails.create().setEmail(USER_EMAIL);
 		assertEquals(appMgr.showAppointmentsOfDay(userDetails, dateBefore)
 				.size(), 1);
 	}
@@ -169,7 +169,7 @@ public class AppointmentMgrTest {
 	@Test
 	@InSequence(5)
 	public void testDateBeforeEmpty() throws Exception {
-		userDetails = new UserDetails().setEmail(USER_EMAIL);
+		userDetails = UserDetails.create().setEmail(USER_EMAIL);
 		cal.setTimeInMillis(dateBefore);
 		cal.roll(Calendar.DAY_OF_MONTH, false);
 		assertEquals(appMgr.showAppointmentsOfDay(userDetails, cal.getTimeInMillis())

@@ -6,7 +6,6 @@ import st.cbse.umeet.dto.AppointmentDetails;
 
 public interface ICreateAppointment {
 
-
 	/**
 	 * TODO @Manuel only one function for testing for valid and complete input
 	 * data.... perhaps get it out of AppointmentMgr.
@@ -27,8 +26,8 @@ public interface ICreateAppointment {
 			Long endDate, String title, String status, String notes,
 			Boolean personal, List<String> participantsEmail) throws Exception;
 
-	public List<AppointmentDetails> getConflicts(String creatorEmail, Long startDate,
-			Long endDate, String status, Boolean personal,
+	public List<AppointmentDetails> getConflicts(String creatorEmail,
+			Long startDate, Long endDate, String status, Boolean personal,
 			List<String> participantsEmail) throws Exception;
 
 }

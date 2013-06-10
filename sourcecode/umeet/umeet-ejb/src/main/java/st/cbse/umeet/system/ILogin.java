@@ -4,7 +4,7 @@ import javax.ejb.Local;
 
 @Local
 public interface ILogin {
-	
-	public boolean login(String email, String password); 
+
+	public boolean login(String email, String password);
 
 }

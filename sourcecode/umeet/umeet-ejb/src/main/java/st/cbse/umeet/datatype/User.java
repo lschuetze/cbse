@@ -22,7 +22,7 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}
-	
+
 	public static User create() {
 		return new User();
 	}
