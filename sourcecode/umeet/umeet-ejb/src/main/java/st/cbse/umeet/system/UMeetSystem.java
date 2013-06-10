@@ -24,6 +24,7 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 
 	@Override
 	public List<AppointmentDetails> getAppointments(String email, Long date) {
+
 		UserDetails user = UserDetails.create().setEmail(email);
 		return appMgr.showAppointmentsOfDay(user, date);
 	}
@@ -32,15 +33,18 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 	public Boolean createAppointment(String creatorEmail, Long startDate,
 			Long endDate, String title, String status, String notes,
 			Boolean personal, List<String> participantsEmail) throws Exception {
-		List<UserDetails> participantList = new LinkedList<UserDetails>();
+
+		List<UserDetails> participantList = new LinkedList<>();
 		for (String m : participantsEmail) {
 			participantList.add(UserDetails.create().setEmail(m));
 		}
+
 		AppointmentDetails appDetails = AppointmentDetails.create()
 				.setCreator(UserDetails.create().setEmail(creatorEmail))
 				.setStartDate(startDate).setEndDate(endDate).setTitle(title)
 				.setStatus(status).setNotes(notes).setPersonal(personal)
 				.setParticipants(participantList);
+
 		return appMgr.createAppointment(appDetails);
 	}
 
@@ -48,19 +52,23 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 	public List<AppointmentDetails> getConflicts(String creatorEmail,
 			Long startDate, Long endDate, String status, Boolean personal,
 			List<String> participantsEmail) throws Exception {
-		List<UserDetails> participantList = new LinkedList<UserDetails>();
+
+		List<UserDetails> participantList = new LinkedList<>();
 		for (String m : participantsEmail) {
 			participantList.add(UserDetails.create().setEmail(m));
 		}
+
 		AppointmentDetails appDetails = AppointmentDetails.create()
 				.setCreator(UserDetails.create().setEmail(creatorEmail))
 				.setStartDate(startDate).setEndDate(endDate).setStatus(status)
 				.setPersonal(personal).setParticipants(participantList);
+
 		return appMgr.getConflicts(appDetails);
 	}
 
 	@Override
 	public boolean registerUser(String email, String name, String password) {
+
 		UserDetails details = UserDetails.create().setEmail(email)
 				.setName(name).setPassword(password);
 		return userMgr.registerUser(details);
@@ -68,6 +76,7 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 
 	@Override
 	public boolean login(String email, String password) {
+
 		User user = userMgr.login(email, password);
 		if (user == null)
 			return false;

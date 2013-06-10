@@ -19,6 +19,7 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public User login(String email, String password) {
+		
 		// search for user in database
 		TypedQuery<User> query = em
 				.createQuery(
@@ -44,6 +45,7 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public boolean registerUser(UserDetails userDetails) {
+		
 		// search for user with specified email in database
 		TypedQuery<User> query = em
 				.createQuery(
@@ -63,6 +65,7 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public User parseDetails(UserDetails userDetails) {
+		
 		if (userDetails == null) {
 			// TODO @Manuel give something other back
 			// remark(stefan): should this throw a NullPointerException?
@@ -76,7 +79,8 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public List<User> parseDetails(List<UserDetails> participants) {
-		List<User> userList = new LinkedList<User>();
+		
+		List<User> userList = new LinkedList<>();
 		if (participants == null) {
 			return userList;
 		}
@@ -88,6 +92,7 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public UserDetails parseUser(User user) {
+		
 		if (user == null) {
 			return null;
 		}
@@ -97,7 +102,8 @@ public class UserMgr implements IUserMgt {
 
 	@Override
 	public List<UserDetails> parseUser(List<User> userList) {
-		List<UserDetails> userDetailsList = new LinkedList<UserDetails>();
+		
+		List<UserDetails> userDetailsList = new LinkedList<>();
 		if (userList == null) {
 			return userDetailsList;
 		}

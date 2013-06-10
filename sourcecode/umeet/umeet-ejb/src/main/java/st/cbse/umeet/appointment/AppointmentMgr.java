@@ -52,7 +52,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 		query.setParameter("date", date).setParameter("fDay", fDate)
 				.setParameter("user", user);
 		List<Appointment> results = query.getResultList();
-		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
+		List<AppointmentDetails> appDetailsList = new LinkedList<>();
 		for (Appointment app : results) {
 			appDetailsList.add(parseAppointment(app));
 		}
@@ -66,15 +66,16 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Override
 	public List<AppointmentDetails> getConflicts(AppointmentDetails appDetails)
 			throws Exception {
-		List<AppointmentDetails> appDetailsList = new LinkedList<AppointmentDetails>();
+		List<AppointmentDetails> appDetailsList = new LinkedList<>();
 		if (!isAppointmentDetailsCorrect(appDetails)) {
 			throw new Exception("Appointment Details incorrect");
-		} else if (appDetails.getStatus() == AppointmentStatus.FREE.toString()) {
+		}
+		if (appDetails.getStatus().equals(AppointmentStatus.FREE.toString())) {
 			// An appointment with free status doesn't trigger a conflict
 			return appDetailsList;
 		}
 		Appointment appointment = parseDetails(appDetails);
-		List<User> userList = new LinkedList<User>();
+		List<User> userList = new LinkedList<>();
 		userList.add(appointment.getCreator());
 		userList.addAll(appointment.getParticipants());
 		/*
@@ -101,12 +102,12 @@ public class AppointmentMgr implements IAppointmentMgt {
 		for (Appointment app : results) {
 			// "Free" status of the appointment is ignored and doesn't cause a
 			// conflict
-			if (app.getStatus() != AppointmentStatus.FREE.toString()) {
+			if (!app.getStatus().equals(AppointmentStatus.FREE.toString())) {
 				// Remove private appointments details which are not from the
 				// creator of the new appointment
-				if (app.getPersonal() == true
-						&& app.getCreator().getEmail() != appDetails
-								.getCreator().getEmail()) {
+				if (app.getPersonal()
+						&& !app.getCreator().getEmail().equals(appDetails
+								.getCreator().getEmail())) {
 					// Remove interesting parts
 					app.setTitle("").setNotes("").setStatus("");
 				}
