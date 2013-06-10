@@ -34,7 +34,7 @@ public class UserMgr implements IUserMgt {
 			return null;
 		}
 		User user = list.get(0);
-		if (user.getPassword().equals(password)) {
+		if (!user.getPassword().equals(password)) {
 			// user exists, but password does not match
 			// TODO: throw exception instead of returning null?
 			return null;

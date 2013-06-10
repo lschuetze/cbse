@@ -1,43 +1,29 @@
 package st.cbse.umeet.controller;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
-//import javax.enterprise.inject.Model;
-import javax.enterprise.inject.Produces;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
+import st.cbse.umeet.system.UMeetSystem;
 
-import st.cbse.umeet.dto.LoginDetails;
-import st.cbse.umeet.system.ILogin;
 
-@Model
+@ManagedBean
 public class LoginController {
 	
+	private String email;
+	
+	private String password;
+	
 	@Inject
-	private FacesContext facesContext;
-
-	@Inject
-	private ILogin loginInterface;
+	FacesContext facesContext;
 	
-	@Produces
-	@Named
-	private LoginDetails loginDetails;
-	
-	private String email = null; 
-	
-	@PostConstruct
-	public void initNewLoginDetails(){
-		loginDetails = new LoginDetails();
-	}
+	@EJB
+	UMeetSystem system;
 	
 	public void login(){
-		System.out.println(loginDetails.getEmail());
-		if(loginInterface.login(loginDetails.getEmail(), loginDetails.getPassword())){
-			this.email = loginDetails.getEmail();
-		} else {
+		if(!system.login(email, password)){
+			System.out.println("Login Failed!");
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Username and password did not match"
 					, "Login Unsuccessful");
