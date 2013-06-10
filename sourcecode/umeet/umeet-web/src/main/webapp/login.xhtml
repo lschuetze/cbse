@@ -10,11 +10,11 @@
 			<h2>Login</h2>
 			<h:panelGrid columns="3" columnClasses="titleCell">
 				<h:outputLabel for="email" value="Email:" />
-				<h:inputText id="email" value="#{newMember.email}" />
+				<h:inputText id="email" value="#{loginDetails.email}" />
 				<h:message for="email" errorClass="invalid" />
 
 				<h:outputLabel for="password" value="Password:" />
-				<h:inputSecret id="password" value="#{newMember.phoneNumber}" />
+				<h:inputSecret id="password" value="#{loginDetails.password}" />
 				<h:message for="password" errorClass="invalid" />
 			</h:panelGrid>
 
