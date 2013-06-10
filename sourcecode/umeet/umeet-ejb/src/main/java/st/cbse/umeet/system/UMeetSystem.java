@@ -7,15 +7,20 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import st.cbse.umeet.appointment.IAppointmentMgt;
+import st.cbse.umeet.datatype.User;
 import st.cbse.umeet.dto.AppointmentDetails;
 import st.cbse.umeet.dto.UserDetails;
+import st.cbse.umeet.user.IUserMgt;
 
 @Stateless
 public class UMeetSystem implements IShowAppointmentOfTheDay,
-		ICreateAppointment {
+		ICreateAppointment, IRegisterUser, ILogin {
 
 	@EJB
 	IAppointmentMgt appMgr;
+
+	@EJB
+	IUserMgt userMgr;
 
 	@Override
 	public List<AppointmentDetails> getAppointments(String email, Long date) {
@@ -52,6 +57,23 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 				.setStartDate(startDate).setEndDate(endDate).setStatus(status)
 				.setPersonal(personal).setParticipants(participantList);
 		return appMgr.getConflicts(appDetails);
+	}
+
+	@Override
+	public boolean registerUser(String email, String name, String password){
+		UserDetails details = new UserDetails()
+				.setEmail(email)
+				.setName(name)
+				.setPassword(password);
+		return userMgr.registerUser(details);
+	}
+
+	@Override
+	public boolean login(String email, String password) {
+		User user = userMgr.login(email, password);
+		if(user == null) return false;
+		// TODO: do something with User instance?
+		return true;
 	}
 
 }
