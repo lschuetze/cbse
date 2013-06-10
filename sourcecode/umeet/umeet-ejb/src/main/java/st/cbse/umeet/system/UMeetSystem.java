@@ -12,7 +12,7 @@ import st.cbse.umeet.dto.UserDetails;
 
 @Stateless
 public class UMeetSystem implements IShowAppointmentOfTheDay,
-		ICreateAppointment {
+		ICreateAppointment, ILogin {
 
 	@EJB
 	IAppointmentMgt appMgr;
@@ -52,6 +52,12 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 				.setStartDate(startDate).setEndDate(endDate).setStatus(status)
 				.setPersonal(personal).setParticipants(participantList);
 		return appMgr.getConflicts(appDetails);
+	}
+
+	@Override
+	public boolean login(String email, String password) {
+		// TODO @Ronny Implement this!
+		return false;
 	}
 
 }
