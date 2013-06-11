@@ -6,6 +6,10 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import st.cbse.umeet.system.ILogin;
 
 
@@ -13,13 +17,11 @@ import st.cbse.umeet.system.ILogin;
 @SessionScoped
 public class LoginController {
 	
-	@ManagedProperty(value = "")
-	String email;
+	@Email @NotEmpty String email;
 	
 	@Inject FacesContext facesContext;
 
-	@ManagedProperty(value = "")
-	private String password;
+	@NotEmpty private String password;
 
 	@Inject ILogin loginBean;
 
