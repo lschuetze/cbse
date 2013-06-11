@@ -46,11 +46,12 @@ public class LoginController {
 					"Username and password did not match"
 					, "Login unsuccessful");
 			facesContext.addMessage(null, m);
-			isLoggedIn = true;
+			isLoggedIn = false;
 			return "login";
 		}
-		isLoggedIn = false;
-		return "test";
+		facesContext.getExternalContext().getSessionMap().put("user", email);
+		isLoggedIn = true;
+		return "showAppointments.xhtml";
 	}
 	
 	public void setEmail(String email) {

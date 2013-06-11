@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Appointments for #{loginController.email}</h1>
+		<table>
+			<tr>
+				<td>
+				<br />
+				<b>Create Appointment</b>
+				</td>
+				<td><h:dataTable
+						value="#{appointmentController.appointmentsOfTheDay}" var="a"
+						styleClass="order-table" headerClass="order-table-header"
+						rowClasses="order-table-odd-row,order-table-even-row">
+
+						<h:column>
+							<f:facet name="header">Start</f:facet>
+					#{a.startDate}
+			</h:column>
+						<h:column>
+							<f:facet name="header">End</f:facet>
+					#{a.endDate}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Title</f:facet>
+					#{a.title}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Status</f:facet>
+					#{a.status}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Creator</f:facet>
+					#{a.creator}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Participants</f:facet>
+					#{a.participants}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Notes</f:facet>
+					#{a.notes}			
+			</h:column>
+					</h:dataTable></td></tr>
+		</table>
+	</ui:define>
+</ui:composition>
