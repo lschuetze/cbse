@@ -51,7 +51,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 				"select a from Appointment a "
 						+ "left outer join a.participants par "
 						+ "where (a.creator = :user or par = :user) and "
-						+ "((a.startDate >= :start) and (a.endDate < :end)))",
+						+ "((a.startDate >= :start) and (a.startDate < :end)))",
 				Appointment.class);
 		query.setParameter("start", start).setParameter("end", end)
 				.setParameter("user", user);
