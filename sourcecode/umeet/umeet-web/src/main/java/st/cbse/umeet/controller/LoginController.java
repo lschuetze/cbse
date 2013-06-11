@@ -35,7 +35,7 @@ public class LoginController {
 		return password;
 	}
 	
-	public boolean getIsLoggedin(){
+	public boolean getIsLoggedIn(){
 		return isLoggedIn;
 	}
 	
