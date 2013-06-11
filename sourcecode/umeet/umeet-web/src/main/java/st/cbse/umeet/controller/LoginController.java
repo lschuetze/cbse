@@ -24,6 +24,8 @@ public class LoginController {
 	@NotEmpty private String password;
 
 	@Inject ILogin loginBean;
+	
+	boolean isLoggedIn = false;
 
 	public String getEmail(){
 		return this.email;
@@ -33,6 +35,10 @@ public class LoginController {
 		return password;
 	}
 	
+	public boolean getIsLoggedin(){
+		return isLoggedIn;
+	}
+	
 	public String login(){
 		if(!loginBean.login(email, password)){
 			System.out.println("Login failed!");
@@ -40,8 +46,10 @@ public class LoginController {
 					"Username and password did not match"
 					, "Login unsuccessful");
 			facesContext.addMessage(null, m);
+			isLoggedIn = true;
 			return "login";
 		}
+		isLoggedIn = false;
 		return "test";
 	}
 	
