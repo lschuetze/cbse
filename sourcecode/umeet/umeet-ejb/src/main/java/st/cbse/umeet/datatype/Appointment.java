@@ -20,16 +20,16 @@ public class Appointment implements Serializable {
 
 	@ManyToOne
 	private User creator;
-	private Long endDate;
+	private long endDate;
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	private String notes;
 	@ManyToMany
 	private List<User> participants;
-	private Boolean personal;
-	private Long startDate;
+	private boolean personal;
+	private long startDate;
 	private String status;
 	private String title;
 

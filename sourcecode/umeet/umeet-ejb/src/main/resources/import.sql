@@ -19,5 +19,5 @@
 -- insert into Registrant(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212') 
 insert into User(name, email, password) values('Sven Karol', 'uebung@cbse.st', 'test')
 insert into User(name, email, password) values('Uwe Aßmann', 'master@cbse.st', 'test')
-insert into Appointment(id, endDate, notes, personal, startDate, status, title, creator_email) values (4711, 512, 'testnotes', false, 1024, 'Free', 'Bake Cookies', 'uebung@cbse.st')
+insert into Appointment(id, endDate, notes, personal, startDate, status, title, creator_email) values (4711, getdate()+200000, 'testnotes', false, getdate()-100000, 'Free', 'Bake Cookies', 'uebung@cbse.st')
 insert into Appointment_User(Appointment_id, participants_email) values (4711, 'master@cbse.st')
