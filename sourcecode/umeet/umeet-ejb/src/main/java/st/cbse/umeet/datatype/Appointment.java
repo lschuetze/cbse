@@ -37,15 +37,24 @@ public class Appointment implements Serializable {
 		super();
 	}
 
-	public Appointment(String title, Long startDate, Long endDate,
-			User creator, String status, Boolean personal) {
-		this.title = title;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.creator = creator;
-		this.status = status;
-		this.personal = personal;
-	}
+//	public Appointment(String title, long startDate, long endDate,
+//			User creator, String status, Boolean personal) {
+//		
+//		this.title = title;
+//		this.startDate = startDate;
+//		this.endDate = endDate;
+//		this.creator = creator;
+//		this.status = status;
+//		this.personal = personal;
+//	}
+
+//	public Appointment(String title, Long startDate, Long endDate,
+//			User creator, String status, Boolean personal,
+//			List<User> participants) {
+//		
+//		this(title, startDate, endDate, creator, status, personal);
+//		this.participants = participants;
+//	}
 
 	public static Appointment create() {
 		return new Appointment();

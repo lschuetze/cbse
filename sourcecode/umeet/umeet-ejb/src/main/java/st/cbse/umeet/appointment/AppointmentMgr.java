@@ -1,8 +1,9 @@
 package st.cbse.umeet.appointment;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TimeZone;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -34,10 +35,11 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Override
 	public List<AppointmentDetails> showAppointmentsOfDay(
 			UserDetails userDetails, Long date) {
+
 		User user = userMgr.parseDetails(userDetails);
 
-		long start = startOfTheDay(date);
-		long end = start + oneDay;
+		long start = getStartOfDay(new Date(date));
+		long end = getEndOfDay(new Date(date));
 
 		/*
 		 * date has to be the Long representation of the day at 00:00. The
@@ -48,8 +50,8 @@ public class AppointmentMgr implements IAppointmentMgt {
 		TypedQuery<Appointment> query = em.createQuery(
 				"select a from Appointment a "
 						+ "left outer join a.participants par "
-						+ "where (a.create = :user or par = :user) "
-						+ "and (a.startDate >= :start) and (a.endDate < :end))",
+						+ "where (a.creator = :user or par = :user) and "
+						+ "((a.startDate >= :start) and (a.endDate < :end)))",
 				Appointment.class);
 		query.setParameter("start", start).setParameter("end", end)
 				.setParameter("user", user);
@@ -61,9 +63,22 @@ public class AppointmentMgr implements IAppointmentMgt {
 		return appDetailsList;
 	}
 
-	private long startOfTheDay(long day) {
+	private long getStartOfDay(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int day = calendar.get(Calendar.DATE);
+		calendar.set(year, month, day, 0, 0, 0);
+		return calendar.getTime().getTime();
+	}
 
-		return ((day - TimeZone.getDefault().getOffset(day) + day) % oneDay);
+	private long getEndOfDay(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int day = calendar.get(Calendar.DATE);
+		calendar.set(year, month, day, 23, 59, 59);
+		return calendar.getTime().getTime();
 	}
 
 	/**
@@ -172,7 +187,8 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 * @return An {@link Appointment} object
 	 */
 	private Appointment parseDetails(AppointmentDetails appDetails) {
-		Appointment app = new Appointment()
+		Appointment app = Appointment
+				.create()
 				.setStartDate(appDetails.getStartDate())
 				.setEndDate(appDetails.getEndDate())
 				.setId(appDetails.getId())
