@@ -16,14 +16,12 @@ public class LoginController {
 	@ManagedProperty(value = "")
 	String email;
 	
-	@Inject
-	FacesContext facesContext;
+	@Inject FacesContext facesContext;
 
 	@ManagedProperty(value = "")
 	private String password;
 
-	@Inject
-	ILogin loginBean;
+	@Inject ILogin loginBean;
 
 	public String getEmail(){
 		return this.email;
@@ -35,10 +33,10 @@ public class LoginController {
 	
 	public void login(){
 		if(!loginBean.login(email, password)){
-			System.out.println("Login Failed!");
+			System.out.println("Login failed!");
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Username and password did not match"
-					, "Login Unsuccessful");
+					, "Login unsuccessful");
 			facesContext.addMessage(null, m);
 		}
 	}

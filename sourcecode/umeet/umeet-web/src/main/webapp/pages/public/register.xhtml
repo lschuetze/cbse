@@ -5,31 +5,31 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/WEB-INF/templates/default.xhtml">
 	<ui:define name="content">
-		<h1>UMeet Login</h1>
-		<h:form id="login">
+		<h1>User Registration</h1>
+		<h:form id="register">
 			<h2>Login</h2>
 			<h:panelGrid columns="3" columnClasses="titleCell">
+			<h:outputLabel for="name" value="Name:" />
+				<h:inputText id="name" value="#{registrationController.name}" />
+				<h:message for="name" errorClass="invalid" />
+				
 				<h:outputLabel for="email" value="Email:" />
-				<h:inputText id="email" value="#{loginController.email}" />
+				<h:inputText id="email" value="#{registrationController.email}" />
 				<h:message for="email" errorClass="invalid" />
 
 				<h:outputLabel for="password" value="Password:" />
-				<h:inputSecret id="password" value="#{loginController.password}" />
+				<h:inputSecret id="password" value="#{registrationController.password}" />
 				<h:message for="password" errorClass="invalid" />
 			</h:panelGrid>
 
 			<p>
-				<h:panelGrid columns="2">
-					<h:commandButton id="login"
-						action="#{loginController.login}" value="Login"
+				<h:panelGrid columns="3">
+					<h:commandButton id="register"
+						action="#{registrationController.register}" value="Register"
 						styleClass="register" />
+					<h:commandButton action="login" value="Cancel" immediate="true" />
 					<h:messages styleClass="messages" errorClass="invalid"
 						infoClass="valid" warnClass="warning" globalOnly="true" />
-				</h:panelGrid>
-			</p>
-			<p>
-				<h:panelGrid columns="1">
-					<h:link value="Register as a new user" outcome="register" />
 				</h:panelGrid>
 			</p>
 		</h:form>
