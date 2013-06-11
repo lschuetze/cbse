@@ -13,13 +13,21 @@ public class LoginController {
 	
 	private String email;
 	
-	private String password;
-	
 	@Inject
 	FacesContext facesContext;
-	
+
+	private String password;
+
 	@EJB
 	UMeetSystem system;
+
+	public String getEMail(){
+		return this.email;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
 	
 	public void login(){
 		if(!system.login(email, password)){
@@ -31,7 +39,13 @@ public class LoginController {
 		}
 	}
 	
-	public String getEMail(){
-		return this.email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 }
