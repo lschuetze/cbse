@@ -33,14 +33,16 @@ public class LoginController {
 		return password;
 	}
 	
-	public void login(){
+	public String login(){
 		if(!loginBean.login(email, password)){
 			System.out.println("Login failed!");
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Username and password did not match"
 					, "Login unsuccessful");
 			facesContext.addMessage(null, m);
+			return "login";
 		}
+		return "test";
 	}
 	
 	public void setEmail(String email) {
