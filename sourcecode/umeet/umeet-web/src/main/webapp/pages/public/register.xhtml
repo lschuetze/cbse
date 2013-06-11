@@ -27,7 +27,7 @@
 					<h:commandButton id="register"
 						action="#{registrationController.register}" value="Register"
 						styleClass="register" />
-					<h:commandButton action="login" value="Cancel" immediate="true" />
+					<h:button value="Cancel" outcome="login" />
 					<h:messages styleClass="messages" errorClass="invalid"
 						infoClass="valid" warnClass="warning" globalOnly="true" />
 				</h:panelGrid>
