@@ -41,10 +41,11 @@
 				<h:message for="notes" errorClass="invalid" />
 
 			</h:panelGrid>
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="3">
 				<h:commandButton id="create"
 					action="#{appointmentController.createAppointment()}"
 					value="Create" styleClass="register" />
+				<h:button outcome="showAppointments" value="Cancel" />
 				<h:messages styleClass="messages" errorClass="invalid"
 					infoClass="valid" warnClass="warning" globalOnly="true" />
 			</h:panelGrid>

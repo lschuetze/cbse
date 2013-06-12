@@ -6,55 +6,50 @@
 	template="/WEB-INF/templates/default.xhtml">
 	<ui:define name="content">
 		<h1>Appointments for #{loginController.email}</h1>
-		<table>
-			<tr>
-				<td><br /> <b>Create Appointment</b></td>
-				<td><h:dataTable
-						value="#{appointmentController.appointmentsOfTheDay}" var="a"
-						styleClass="order-table" headerClass="order-table-header"
-						rowClasses="order-table-odd-row,order-table-even-row">
-
-						<h:column>
-							<f:facet name="header">Start</f:facet>
-							<h:outputLabel value="#{a.startDateAsDate}">
-								<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
-							</h:outputLabel>
-
-						</h:column>
-						<h:column>
-							<f:facet name="header">End</f:facet>
-							<h:outputLabel value="#{a.endDateAsDate}">
-								<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
-							</h:outputLabel>
-						</h:column>
-						<h:column>
-							<f:facet name="header">Title</f:facet>
+		<h:dataTable value="#{appointmentController.appointmentsOfTheDay}"
+			var="a" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+			
+			<h:column>
+				<f:facet name="header">Title</f:facet>
 					#{a.title}			
 			</h:column>
-						<h:column>
-							<f:facet name="header">Status</f:facet>
+			<h:column>
+				<f:facet name="header">Start</f:facet>
+				<h:outputLabel value="#{a.startDateAsDate}">
+					<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+				</h:outputLabel>
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">End</f:facet>
+				<h:outputLabel value="#{a.endDateAsDate}">
+					<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+				</h:outputLabel>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Status</f:facet>
 					#{a.status}			
 			</h:column>
-						<h:column>
-							<f:facet name="header">Creator</f:facet>
+			<h:column>
+				<f:facet name="header">Creator</f:facet>
 					#{a.creator.name}			
 			</h:column>
-						<h:column>
-							<f:facet name="header">Participants</f:facet>
-							<h:dataTable value="#{a.participants}" var="b"
-								styleClass="order-table" headerClass="order-table-header"
-								rowClasses="order-table-odd-row,order-table-even-row">
-								<h:column>
+			<h:column>
+				<f:facet name="header">Participants</f:facet>
+				<h:dataTable value="#{a.participants}" var="b"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+					<h:column>
 						#{b.name}
 						</h:column>
-							</h:dataTable>
-						</h:column>
-						<h:column>
-							<f:facet name="header">Notes</f:facet>
+				</h:dataTable>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Notes</f:facet>
 					#{a.notes}			
 			</h:column>
-					</h:dataTable></td>
-			</tr>
-		</table>
+		</h:dataTable>
+		<h:button outcome="createAppointment" value="Create new appointment" />
 	</ui:define>
 </ui:composition>
