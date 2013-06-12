@@ -143,13 +143,16 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Boolean createAppointment(AppointmentDetails appDetails)
-			throws Exception {
+	public boolean createAppointment(AppointmentDetails appDetails) {
 		// Create the appointment if no conflicts exist
-		if (getConflicts(appDetails).size() == 0) {
-			Appointment app = parseDetails(appDetails);
-			em.persist(app);
-			return true;
+		try {
+			if (getConflicts(appDetails).size() == 0) {
+				Appointment app = parseDetails(appDetails);
+				em.persist(app);
+				return true;
+			}
+		} catch (Exception e) {
+			return false;
 		}
 		// any error returns a false
 		return false;
