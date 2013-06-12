@@ -27,7 +27,7 @@ public interface ICreateAppointment {
 	 */
 	public Boolean createAppointment(String creatorEmail, Long startDate,
 			Long endDate, String title, String status, String notes,
-			Boolean personal, List<String> participantsEmail) throws Exception;
+			Boolean personal, List<String> participantsEmail);
 
 	public List<AppointmentDetails> getConflicts(String creatorEmail,
 			Long startDate, Long endDate, String status, Boolean personal,

@@ -42,7 +42,6 @@ public interface IAppointmentMgt {
 	 * @return
 	 * @throws Exception
 	 */
-	public Boolean createAppointment(AppointmentDetails appDetails)
-			throws Exception;
+	public boolean createAppointment(AppointmentDetails appDetails);
 
 }
