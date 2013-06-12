@@ -39,6 +39,7 @@ public class RegistrationController {
 					"A user with this email-address has already been registred."
 					, "Registration unsuccessful");
 			facesContext.addMessage(null, m);
+			return "register";
 		}
 		return "login";
 	}
