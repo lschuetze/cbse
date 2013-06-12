@@ -3,6 +3,7 @@ package st.cbse.umeet.controller;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -32,25 +33,25 @@ public class AppointmentController implements Serializable {
 
 	private AppointmentDetails[] appointmentsOfTheDay;
 
-	private long startDate, endDate;
+	private Date startDate, endDate;
 	private String title, status, notes;
 	private boolean personal;
 	private String[] participantsEmail;
 	private AppointmentDetails[] conflictingAppointments;
 
-	public long getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(long startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public long getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(long endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -67,6 +68,7 @@ public class AppointmentController implements Serializable {
 	}
 
 	public void setStatus(String status) {
+		System.out.println(status);
 		this.status = status;
 	}
 
@@ -105,21 +107,28 @@ public class AppointmentController implements Serializable {
 	}
 
 	public String createAppointment() {
-
+		
 		String email = (String) context.getExternalContext().getSessionMap()
 				.get("user");
-		List<String> partEmail = Arrays.asList(participantsEmail);
-		if (appointmentCreator.createAppointment(email, startDate, endDate,
-				title, status, notes, personal, partEmail)) {
+		List<String> partEmail = participantsEmail==null?new LinkedList<String>()
+				:Arrays.asList(participantsEmail);
+		if (appointmentCreator.createAppointment(email, startDate.getTime()
+				, endDate.getTime(), title, status, notes, personal, partEmail)) {		
 			return "showAppointments";
 		}
 		else {
-			//there has been a conflict;
+			System.out.println(email+ "\n" + startDate.getTime()+ "\n" + endDate.getTime()+ "\n" + title+ "\n" + status+ "\n" + notes+ "\n" + personal+ "\n" + partEmail);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Stupid program monkey did something wrong here"
+					, "Appointment creation unsuccessful");
+			context.addMessage(null, m);
+			//return "login";
+			return "createAppointment";
 		}
 //		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 //				"Username and password did not match"
 //				, "Create appointment unsuccessful");
 //		facesContext.addMessage(null, m);
-		return "showAppointments";
+		//return "showAppointments";
 	}
 }
