@@ -8,10 +8,7 @@
 		<h1>Appointments for #{loginController.email}</h1>
 		<table>
 			<tr>
-				<td>
-				<br />
-				<b>Create Appointment</b>
-				</td>
+				<td><br /> <b>Create Appointment</b></td>
 				<td><h:dataTable
 						value="#{appointmentController.appointmentsOfTheDay}" var="a"
 						styleClass="order-table" headerClass="order-table-header"
@@ -19,12 +16,17 @@
 
 						<h:column>
 							<f:facet name="header">Start</f:facet>
-					#{a.startDate}
-			</h:column>
+							<h:outputLabel value="#{a.startDateAsDate}">
+								<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+							</h:outputLabel>
+
+						</h:column>
 						<h:column>
 							<f:facet name="header">End</f:facet>
-					#{a.endDate}			
-			</h:column>
+							<h:outputLabel value="#{a.endDateAsDate}">
+								<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+							</h:outputLabel>
+						</h:column>
 						<h:column>
 							<f:facet name="header">Title</f:facet>
 					#{a.title}			
@@ -35,17 +37,24 @@
 			</h:column>
 						<h:column>
 							<f:facet name="header">Creator</f:facet>
-					#{a.creator}			
+					#{a.creator.name}			
 			</h:column>
 						<h:column>
 							<f:facet name="header">Participants</f:facet>
-					#{a.participants}			
-			</h:column>
+							<h:dataTable value="#{a.participants}" var="b"
+								styleClass="order-table" headerClass="order-table-header"
+								rowClasses="order-table-odd-row,order-table-even-row">
+								<h:column>
+						#{b.name}
+						</h:column>
+							</h:dataTable>
+						</h:column>
 						<h:column>
 							<f:facet name="header">Notes</f:facet>
 					#{a.notes}			
 			</h:column>
-					</h:dataTable></td></tr>
+					</h:dataTable></td>
+			</tr>
 		</table>
 	</ui:define>
 </ui:composition>
