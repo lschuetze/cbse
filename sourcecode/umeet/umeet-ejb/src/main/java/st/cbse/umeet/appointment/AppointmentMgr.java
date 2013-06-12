@@ -26,7 +26,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 	@Inject
 	private IUserMgt userMgr;
 
-	private static long oneDay = 86400000l;
+	private static long ONE_DAY = 86400000L - 1000L;
 
 	/**
 	 * {@inheritDoc}
@@ -48,10 +48,10 @@ public class AppointmentMgr implements IAppointmentMgt {
 		 * date and before date+24h)
 		 */
 		TypedQuery<Appointment> query = em.createQuery(
-				"select a from Appointment a "
-						+ "left outer join a.participants par "
-						+ "where (a.creator = :user or par = :user) and "
-						+ "((a.startDate >= :start) and (a.startDate < :end)))",
+				"select DISTINCT a from Appointment a left outer join a.participants par "
+						+ "where (a.creator=:user or par=:user)"
+						+ "and ((a.startDate>=:start and a.startDate<:end)"
+						+ "or (a.endDate>=:start and a.endDate<:end))",
 				Appointment.class);
 		query.setParameter("start", start).setParameter("end", end)
 				.setParameter("user", user);
