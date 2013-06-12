@@ -1,5 +1,6 @@
 package st.cbse.umeet.dto;
 
+import java.util.Date;
 import java.util.List;
 
 public class AppointmentDetails {
@@ -32,6 +33,14 @@ public class AppointmentDetails {
 
 	public Long getEndDate() {
 		return endDate;
+	}
+	
+	public Date getEndDateAsDate() {
+		return new Date(endDate);
+	}
+	
+	public Date getStartDateAsDate() {
+		return new Date(endDate);
 	}
 
 	public AppointmentDetails setEndDate(Long endDate) {
