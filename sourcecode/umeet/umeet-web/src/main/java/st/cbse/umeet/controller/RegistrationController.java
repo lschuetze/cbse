@@ -32,7 +32,7 @@ public class RegistrationController {
 	
 	@Inject	IRegisterUser registerBean;
 	
-	public void register(){
+	public String register(){
 		if(!registerBean.registerUser(email, name, password)){
 			System.out.println("Registration of the user " + name + " failed!");
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -40,6 +40,7 @@ public class RegistrationController {
 					, "Registration unsuccessful");
 			facesContext.addMessage(null, m);
 		}
+		return "login";
 	}
 	
 	public String getEmail() {
