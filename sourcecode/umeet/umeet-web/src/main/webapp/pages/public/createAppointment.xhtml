@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Create Appointment for #{loginController.email}</h1>
+		<h:form id="createAppointment">
+			<h2>Appointment details</h2>
+			<h:panelGrid columns="3">
+				<h:outputLabel for="title" value="Title:" />
+				<h:inputText id="title" value="#{appointmentController.title}" />
+				<h:message for="title" errorClass="invalid" />
+
+				<h:outputLabel for="startDate" value="Start Date:" />
+				<h:inputText id="startDate"
+					value="#{appointmentController.startDate}">
+					<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+				</h:inputText>
+				<h:message for="startDate" errorClass="invalid" />
+
+				<h:outputLabel for="endDate" value="End Date:" />
+				<h:inputText id="endDate" value="#{appointmentController.endDate}">
+					<f:convertDateTime  pattern="dd.MM.yyyy HH:mm" />
+				</h:inputText>
+				<h:message for="endDate" errorClass="invalid" />
+
+				<h:outputLabel for="endDate" value="Status:" />
+				<h:selectOneMenu value="#{appointmentController.status}">
+					<f:selectItem itemLabel="Free" itemValue="Free" />
+					<f:selectItem itemLabel="Potentially blocked" itemValue="Potentially blocked" />
+					<f:selectItem itemLabel="Blocked" itemValue="Blocked" />
+					<f:selectItem itemLabel="Away" itemValue="Away" />
+				</h:selectOneMenu>
+				<h:message for="endDate" errorClass="invalid" />
+
+				<h:outputLabel for="notes" value="Notes:" />
+				<h:inputTextarea id="notes" value="#{appointmentController.notes}"
+					style="width : 252px; height : 88px;" />
+				<h:message for="notes" errorClass="invalid" />
+
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<h:commandButton id="create"
+					action="#{appointmentController.createAppointment()}"
+					value="Create" styleClass="register" />
+				<h:messages styleClass="messages" errorClass="invalid"
+					infoClass="valid" warnClass="warning" globalOnly="true" />
+			</h:panelGrid>
+		</h:form>
+		<!--
+		<table>
+			<tr>
+				<td>
+				<br />
+				<b>Create Appointment</b>
+				</td>
+				<td><h:dataTable
+						value="#{appointmentController.appointmentsOfTheDay}" var="a"
+						styleClass="order-table" headerClass="order-table-header"
+						rowClasses="order-table-odd-row,order-table-even-row">
+
+						<h:column>
+							<f:facet name="header">Start</f:facet>
+					#{a.startDate}
+			</h:column>
+						<h:column>
+							<f:facet name="header">End</f:facet>
+					#{a.endDate}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Title</f:facet>
+					#{a.title}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Status</f:facet>
+					#{a.status}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Creator</f:facet>
+					#{a.creator}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Participants</f:facet>
+					#{a.participants}			
+			</h:column>
+						<h:column>
+							<f:facet name="header">Notes</f:facet>
+					#{a.notes}			
+			</h:column>
+					</h:dataTable></td></tr>
+		</table>
+		-->
+	</ui:define>
+</ui:composition>
