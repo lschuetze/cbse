@@ -136,7 +136,6 @@ public class AppointmentMgrTest {
 	@Test
 	@InSequence(1)
 	public void testDate() throws Exception {
-		cal.set(YEAR, MONTH, DAY, 0, 0, 0);
 		assertEquals(appMgr.showAppointmentsOfDay(userDetails, date).size(), 1);
 	}
 
@@ -176,10 +175,10 @@ public class AppointmentMgrTest {
 				.size(), 0);
 	}
 
-	@Test(expected = Exception.class)
+	@Test
 	@InSequence(6)
 	public void testCreateEmptyAppointment() throws Exception {
-		appMgr.createAppointment(AppointmentDetails.create());
+		assertFalse(appMgr.createAppointment(AppointmentDetails.create()));
 	}
 
 	@Test
