@@ -6,6 +6,8 @@
 	template="/WEB-INF/templates/default.xhtml">
 	<ui:define name="content">
 		<h1>Create Appointment for #{loginController.email}</h1>
+		<h:panelGrid columns="2" width="750" columnClasses="top">
+		
 		<h:form id="createAppointment">
 			<h2>Appointment details</h2>
 			<h:panelGrid columns="3">
@@ -76,5 +78,19 @@
 					infoClass="valid" warnClass="warning" globalOnly="true" />
 			</h:panelGrid>
 		</h:form>
+		
+		<h:panelGroup>
+		<h:outputLabel value="Conflicts"  /><br />
+		<h:dataTable value="#{appointmentController.conflictingAppointments}"
+			var="x" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row" width="300">
+			<h:column>#{x.creator.name}</h:column>
+			<h:column>#{x.title}</h:column>
+			<h:column>#{x.startDateAsDate}</h:column>
+			<h:column>#{x.endDateAsDate}</h:column>
+			<h:column>#{x.notes}</h:column>
+		</h:dataTable>
+		</h:panelGroup>
+		</h:panelGrid>
 	</ui:define>
 </ui:composition>

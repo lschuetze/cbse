@@ -40,7 +40,7 @@ public class AppointmentDetails {
 	}
 
 	public Date getStartDateAsDate() {
-		return new Date(endDate);
+		return new Date(startDate);
 	}
 
 	public AppointmentDetails setEndDate(Long endDate) {

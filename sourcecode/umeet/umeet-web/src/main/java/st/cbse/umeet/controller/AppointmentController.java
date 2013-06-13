@@ -47,10 +47,20 @@ public class AppointmentController implements Serializable {
 	private String title, status, notes;
 	private boolean personal;
 	private Set<UserDetails> participants;
-	private AppointmentDetails[] conflictingAppointments;
+	private List<AppointmentDetails> conflictingAppointments;	
 	private String chosenParticipant;
 	private String[] selectedInvitedUsers;
 
+	public List<AppointmentDetails> getConflictingAppointments() {
+		return conflictingAppointments;
+	}
+
+	public void setConflictingAppointments(
+			List<AppointmentDetails> conflictingAppointments) {
+		this.conflictingAppointments = conflictingAppointments;
+	}
+
+	
 	public String[] getSelectedInvitedUsers() {
 		return selectedInvitedUsers;
 	}
@@ -185,6 +195,9 @@ public class AppointmentController implements Serializable {
 		
 		String message = "There are conflicting appointments:\n";
 		
+		conflictingAppointments = conflicts;
+		
+		/*
 		for(AppointmentDetails details : conflicts){
 			message += "\t"; 
 			message += details.getCreator().getName() + " (\"";
@@ -193,6 +206,7 @@ public class AppointmentController implements Serializable {
 			message += "to " + new Date(details.getEndDate()).toString() + " ";
 			message += ")";
 		}
+		*/
 		
 		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 			message, "Appointment creation unsuccessful");
