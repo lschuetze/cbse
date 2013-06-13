@@ -49,6 +49,15 @@ public class AppointmentController implements Serializable {
 	private Set<UserDetails> participants;
 	private AppointmentDetails[] conflictingAppointments;
 	private String chosenParticipant;
+	private String[] selectedInvitedUsers;
+
+	public String[] getSelectedInvitedUsers() {
+		return selectedInvitedUsers;
+	}
+
+	public void setSelectedInvitedUsers(String[] selectedInvitedUsers) {
+		this.selectedInvitedUsers = selectedInvitedUsers;
+	}
 
 	public String getChosenParticipant() {
 		return chosenParticipant;
@@ -175,6 +184,16 @@ public class AppointmentController implements Serializable {
 	}
 	
 	public String disinvite(){
-		return "";
+		if(selectedInvitedUsers!=null){
+			for(String email:selectedInvitedUsers){
+				for (UserDetails details : getAllUsers()) {
+					if(details.getEmail().equals(email)){
+						participants.remove(details);
+						break;
+					}
+				}
+			}
+		}
+		return "createAppointment";
 	}
 }

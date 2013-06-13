@@ -50,7 +50,7 @@
 				<h:message for="participants" errorClass="invalid" />
 				
 				<h:outputLabel for="invite" value="" />
-				<h:selectManyListbox style=" width : 178px;">
+				<h:selectManyListbox style=" width : 178px;" value="#{appointmentController.selectedInvitedUsers}">
 					<f:selectItems value="#{appointmentController.participants}" var="f" 
 					itemLabel="#{f.name}" itemValue="#{f.email}" />
 				</h:selectManyListbox>
