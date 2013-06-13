@@ -14,7 +14,8 @@ public interface IAppointmentMgt {
 	 *            the user as participant or creator of the appointment.
 	 * @param date
 	 *            the long representation of the date of the appointments. Has
-	 *            to be at 00:00.
+	 *            to be at 00:00.<br>
+	 *            <code>null</code> selects the current date.
 	 * @return A list of {@link AppointmentDetails}
 	 */
 	public List<AppointmentDetails> showAppointmentsOfDay(UserDetails user,

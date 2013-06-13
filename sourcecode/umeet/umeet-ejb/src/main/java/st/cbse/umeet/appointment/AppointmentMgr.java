@@ -65,6 +65,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 
 	private long getStartOfDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
+		if (date != null) {
+			calendar.setTime(date);
+		}
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH);
 		int day = calendar.get(Calendar.DATE);
@@ -74,6 +77,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 
 	private long getEndOfDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
+		if (date != null) {
+			calendar.setTime(date);
+		}
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH);
 		int day = calendar.get(Calendar.DATE);
