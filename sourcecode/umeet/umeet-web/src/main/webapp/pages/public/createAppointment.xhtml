@@ -7,98 +7,135 @@
 	<ui:define name="content">
 		<h1>Create Appointment for #{loginController.email}</h1>
 		<h:panelGrid columns="2" width="750" columnClasses="top">
-		<h:column>
-		
-		<h:form id="createAppointment">
-			<h2>Appointment details</h2>
-			<h:panelGrid columns="3">
-				<h:outputLabel for="title" value="Title:" />
-				<h:inputText id="title" value="#{appointmentController.title}" />
-				<h:message for="title" errorClass="invalid" />
+			<h:column>
 
-				<h:outputLabel for="startDate" value="Start Date:" />
-				<h:inputText id="startDate"
-					value="#{appointmentController.startDate}">
-					<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
-				</h:inputText>
-				<h:message for="startDate" errorClass="invalid" />
+				<h:form id="createAppointment">
+					<h2>Appointment details</h2>
+					<h:panelGrid columns="3">
+						<h:outputLabel for="title" value="Title:" />
+						<h:inputText id="title" value="#{appointmentController.title}" />
+						<h:message for="title" errorClass="invalid" />
 
-				<h:outputLabel for="endDate" value="End Date:" />
-				<h:inputText id="endDate" value="#{appointmentController.endDate}">
-					<f:convertDateTime  pattern="dd.MM.yyyy HH:mm" />
-				</h:inputText>
-				<h:message for="endDate" errorClass="invalid" />
+						<h:outputLabel for="startDate" value="Start Date:" />
+						<h:inputText id="startDate"
+							value="#{appointmentController.startDate}">
+							<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+						</h:inputText>
+						<h:message for="startDate" errorClass="invalid" />
 
-				<h:outputLabel for="status" value="Status:" />
-				<h:selectOneMenu id="status" value="#{appointmentController.status}">
-					<f:selectItem itemLabel="Free" itemValue="Free" />
-					<f:selectItem itemLabel="Potentially blocked" itemValue="Potentially blocked" />
-					<f:selectItem itemLabel="Blocked" itemValue="Blocked" />
-					<f:selectItem itemLabel="Away" itemValue="Away" />
-				</h:selectOneMenu>
-				<h:message for="status" errorClass="invalid" />
-				
-				<h:outputLabel for="personal" value="Private:" />
-				<h:selectBooleanCheckbox id="personal" value="#{appointmentController.personal}" />
-				<h:message for="personal" errorClass="invalid" />
-				
-				<h:outputLabel for="participants" value="Participants:" />
+						<h:outputLabel for="endDate" value="End Date:" />
+						<h:inputText id="endDate" value="#{appointmentController.endDate}">
+							<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+						</h:inputText>
+						<h:message for="endDate" errorClass="invalid" />
+
+						<h:outputLabel for="status" value="Status:" />
+						<h:selectOneMenu id="status"
+							value="#{appointmentController.status}">
+							<f:selectItem itemLabel="Free" itemValue="Free" />
+							<f:selectItem itemLabel="Potentially blocked"
+								itemValue="Potentially blocked" />
+							<f:selectItem itemLabel="Blocked" itemValue="Blocked" />
+							<f:selectItem itemLabel="Away" itemValue="Away" />
+						</h:selectOneMenu>
+						<h:message for="status" errorClass="invalid" />
+
+						<h:outputLabel for="personal" value="Private:" />
+						<h:selectBooleanCheckbox id="personal"
+							value="#{appointmentController.personal}" />
+						<h:message for="personal" errorClass="invalid" />
+
+						<h:outputLabel for="participants" value="Participants:" />
+						<h:panelGroup>
+							<h:selectOneMenu id="participants"
+								value="#{appointmentController.chosenParticipant}">
+								<f:selectItems value="#{appointmentController.allUsers}" var="c"
+									itemLabel="#{c.name}" itemValue="#{c.email}" />
+							</h:selectOneMenu>
+							<h:commandButton id="invite"
+								action="#{appointmentController.invite()}" value="Invite" />
+						</h:panelGroup>
+						<h:message for="participants" errorClass="invalid" />
+
+						<h:outputLabel for="invite" value="" />
+						<h:selectManyListbox style=" width : 178px;"
+							value="#{appointmentController.selectedInvitedUsers}">
+							<f:selectItems value="#{appointmentController.participants}"
+								var="f" itemLabel="#{f.name}" itemValue="#{f.email}" />
+						</h:selectManyListbox>
+
+						<br />
+
+						<h:outputLabel for="disinvite" value="" />
+						<h:commandButton id="disinvite"
+							action="#{appointmentController.disinvite()}" value="Remove" />
+						<br />
+
+						<h:outputLabel for="notes" value="Notes:" />
+						<h:inputTextarea id="notes" value="#{appointmentController.notes}"
+							style="width : 252px; height : 88px;" />
+						<h:message for="notes" errorClass="invalid" />
+
+					</h:panelGrid>
+					<h:panelGrid columns="4">
+						<h:commandButton id="create"
+							action="#{appointmentController.createAppointment()}"
+							value="Create" styleClass="register" />
+						<h:commandButton id="cancel"
+							action="#{appointmentController.cancel()}" value="Cancel" />
+						<h:commandButton id="reset"
+							action="#{appointmentController.reset()}" value="Reset" />
+						<h:messages styleClass="messages" errorClass="invalid"
+							infoClass="valid" warnClass="warning" globalOnly="true" />
+					</h:panelGrid>
+				</h:form>
+			</h:column>
+			<h:column>
 				<h:panelGroup>
-				<h:selectOneMenu id="participants" value="#{appointmentController.chosenParticipant}" >
-					<f:selectItems value="#{appointmentController.allUsers}" 
-					var="c" itemLabel="#{c.name}" itemValue="#{c.email}" />
-				</h:selectOneMenu>
-				<h:commandButton id="invite" action="#{appointmentController.invite()}" value="Invite"/>
-				</h:panelGroup>
-				<h:message for="participants" errorClass="invalid" />
-				
-				<h:outputLabel for="invite" value="" />
-				<h:selectManyListbox style=" width : 178px;" value="#{appointmentController.selectedInvitedUsers}">
-					<f:selectItems value="#{appointmentController.participants}" var="f" 
-					itemLabel="#{f.name}" itemValue="#{f.email}" />
-				</h:selectManyListbox>
-				
-				<br />
-				
-				<h:outputLabel for="disinvite" value="" />
-				<h:commandButton id="disinvite" action="#{appointmentController.disinvite()}" value="Remove" />
-				<br />
-				 
-				<h:outputLabel for="notes" value="Notes:" />
-				<h:inputTextarea id="notes" value="#{appointmentController.notes}"
-					style="width : 252px; height : 88px;" />
-				<h:message for="notes" errorClass="invalid" />
+					<h:outputLabel value="Conflicts" style="vertical-align: top;" />
+					<br />
+					<h:dataTable
+						value="#{appointmentController.conflictingAppointments}" var="x"
+						styleClass="order-table" headerClass="order-table-header"
+						rowClasses="order-table-odd-row,order-table-even-row" width="300">
+						<h:column>
+							<f:facet name="header">Creator</f:facet>
+			#{x.creator.name}</h:column>
+						<h:column>
+							<f:facet name="header">Title</f:facet>#{x.title}</h:column>
+						<h:column>
+							<f:facet name="header">Start date</f:facet>
+							<h:outputText value="#{x.startDateAsDate}">
+								<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+							</h:outputText>
 
-			</h:panelGrid>
-			<h:panelGrid columns="4">
-				<h:commandButton id="create"
-					action="#{appointmentController.createAppointment()}"
-					value="Create" styleClass="register" />
-				<h:commandButton id="cancel"
-					action="#{appointmentController.cancel()}"
-					value="Cancel" />
-				<h:commandButton id="reset"
-					action="#{appointmentController.reset()}"
-					value="Reset" />
-				<h:messages styleClass="messages" errorClass="invalid"
-					infoClass="valid" warnClass="warning" globalOnly="true" />
-			</h:panelGrid>
-		</h:form>
-		</h:column>
-		<h:column>
-		<h:panelGroup>
-		<h:outputLabel value="Conflicts"  style="vertical-align: top;"/><br />
-		<h:dataTable value="#{appointmentController.conflictingAppointments}"
-			var="x" styleClass="order-table" headerClass="order-table-header"
-			rowClasses="order-table-odd-row,order-table-even-row" width="300">
-			<h:column>#{x.creator.name}</h:column>
-			<h:column>#{x.title}</h:column>
-			<h:column>#{x.startDateAsDate}</h:column>
-			<h:column>#{x.endDateAsDate}</h:column>
-			<h:column>#{x.notes}</h:column>
-		</h:dataTable>
-		</h:panelGroup>
-		</h:column>
+						</h:column>
+						<h:column>
+							<f:facet name="header">End date</f:facet>
+							<h:outputText value="#{x.endDateAsDate}">
+								<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+							</h:outputText>
+
+						</h:column>
+						<h:column>
+							<f:facet name="header">Private</f:facet>
+							<h:selectBooleanCheckbox value="#{x.personal}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Participants</f:facet>
+							<h:dataTable value="#{x.participants}" var="y"
+								styleClass="order-table" headerClass="order-table-header"
+								rowClasses="order-table-odd-row,order-table-even-row">
+								<h:column>
+									<h:outputText value="-#{y.name}" />
+								</h:column>
+							</h:dataTable>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Notes</f:facet>#{x.notes}</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+			</h:column>
 		</h:panelGrid>
 	</ui:define>
 </ui:composition>
