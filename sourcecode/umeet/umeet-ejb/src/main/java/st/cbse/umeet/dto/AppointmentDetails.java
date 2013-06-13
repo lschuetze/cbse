@@ -4,20 +4,20 @@ import java.util.Date;
 import java.util.List;
 
 public class AppointmentDetails {
-	private Long id;
+	private long id;
 	private UserDetails creator;
-	private Long endDate;
+	private long endDate = 0;
 	private String notes;
 	private List<UserDetails> participants;
-	private Boolean personal;
-	private Long startDate;
+	private boolean personal = false;
+	private long startDate = 0;
 	private String status;
 	private String title;
 
 	public static AppointmentDetails create() {
 		return new AppointmentDetails();
 	}
-	
+
 	private AppointmentDetails() {
 		super();
 	}
@@ -31,14 +31,14 @@ public class AppointmentDetails {
 		return this;
 	}
 
-	public Long getEndDate() {
+	public long getEndDate() {
 		return endDate;
 	}
-	
+
 	public Date getEndDateAsDate() {
 		return new Date(endDate);
 	}
-	
+
 	public Date getStartDateAsDate() {
 		return new Date(endDate);
 	}
@@ -66,20 +66,20 @@ public class AppointmentDetails {
 		return this;
 	}
 
-	public Boolean getPersonal() {
+	public boolean getPersonal() {
 		return personal;
 	}
 
-	public AppointmentDetails setPersonal(Boolean personal) {
+	public AppointmentDetails setPersonal(boolean personal) {
 		this.personal = personal;
 		return this;
 	}
 
-	public Long getStartDate() {
+	public long getStartDate() {
 		return startDate;
 	}
 
-	public AppointmentDetails setStartDate(Long startDate) {
+	public AppointmentDetails setStartDate(long startDate) {
 		this.startDate = startDate;
 		return this;
 	}
@@ -102,11 +102,11 @@ public class AppointmentDetails {
 		return this;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public AppointmentDetails setId(Long id) {
+	public AppointmentDetails setId(long id) {
 		this.id = id;
 		return this;
 	}
