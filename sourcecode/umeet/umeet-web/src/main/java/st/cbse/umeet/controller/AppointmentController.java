@@ -49,11 +49,11 @@ public class AppointmentController implements Serializable {
 	private String[] participantsEmail;
 	private AppointmentDetails[] conflictingAppointments;
 	private String chosenParticipant;
-	
+
 	public String getChosenParticipant() {
 		return chosenParticipant;
 	}
-	
+
 	public void setChosenParticipant(String chosenParticipant) {
 		this.chosenParticipant = chosenParticipant;
 	}
@@ -159,8 +159,11 @@ public class AppointmentController implements Serializable {
 	public String invite(){
 		if(participantsEmail ==null){
 			Set<String> participants = new HashSet<String>();
+			System.out.println(chosenParticipant);
+			/*
 			participants.add(chosenParticipant);
 			participants.toArray(participantsEmail);
+			*/
 		}
 		return "createAppointment";
 	}

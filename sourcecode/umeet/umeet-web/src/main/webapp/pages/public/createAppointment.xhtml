@@ -39,22 +39,25 @@
 				<h:selectBooleanCheckbox id="personal" value="#{appointmentController.personal}" />
 				<h:message for="personal" errorClass="invalid" />
 				
-				<h:outputLabel for="paricipants" value="Participants:" />
+				<h:outputLabel for="participants" value="Participants:" />
 				<h:panelGroup>
-				<h:selectOneMenu>
+				<h:selectOneMenu id="participants" value="#{appointmentController.chosenParticipant}" >
 					<f:selectItems value="#{appointmentController.allUsers}" 
 					var="c" itemLabel="#{c.name}" itemValue="#{c.email}" />
 				</h:selectOneMenu>
-				<h:commandButton action="#{appointmentController.invite}" immediate="true" value="Invite" />
+				<h:commandButton id="invite" action="#{appointmentController.invite}" immediate="true" value="Invite" />
 				</h:panelGroup>
 				<br />
 				
 				<h:outputLabel for="invite" value="" />
-				<h:selectManyListbox value="#{appointmentController.participantsEmail}" style=" width : 178px;"/>
+				<h:selectManyListbox style=" width : 178px;">
+					<f:selectItems value="#{appointmentController.participantsEmail}" />
+				</h:selectManyListbox>
+				
 				<br />
 				
 				<h:outputLabel for="disinvite" value="" />
-				<h:commandButton action="#{appointmentController.disinvite}" value="Remove" />
+				<h:commandButton id="disinvite" action="#{appointmentController.disinvite}" value="Remove" />
 				<br />
 				 
 				<h:outputLabel for="notes" value="Notes:" />
@@ -72,48 +75,5 @@
 					infoClass="valid" warnClass="warning" globalOnly="true" />
 			</h:panelGrid>
 		</h:form>
-		<!--
-		<table>
-			<tr>
-				<td>
-				<br />
-				<b>Create Appointment</b>
-				</td>
-				<td><h:dataTable
-						value="#{appointmentController.appointmentsOfTheDay}" var="a"
-						styleClass="order-table" headerClass="order-table-header"
-						rowClasses="order-table-odd-row,order-table-even-row">
-
-						<h:column>
-							<f:facet name="header">Start</f:facet>
-					#{a.startDate}
-			</h:column>
-						<h:column>
-							<f:facet name="header">End</f:facet>
-					#{a.endDate}			
-			</h:column>
-						<h:column>
-							<f:facet name="header">Title</f:facet>
-					#{a.title}			
-			</h:column>
-						<h:column>
-							<f:facet name="header">Status</f:facet>
-					#{a.status}			
-			</h:column>
-						<h:column>
-							<f:facet name="header">Creator</f:facet>
-					#{a.creator}			
-			</h:column>
-						<h:column>
-							<f:facet name="header">Participants</f:facet>
-					#{a.participants}			
-			</h:column>
-						<h:column>
-							<f:facet name="header">Notes</f:facet>
-					#{a.notes}			
-			</h:column>
-					</h:dataTable></td></tr>
-		</table>
-		-->
 	</ui:define>
 </ui:composition>
