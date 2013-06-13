@@ -1,5 +1,7 @@
 package st.cbse.umeet.dto;
 
+import st.cbse.umeet.datatype.User;
+
 public class UserDetails {
 
 	private String email;
@@ -39,5 +41,19 @@ public class UserDetails {
 	public UserDetails setPassword(String password) {
 		this.password = password;
 		return this;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		System.out.println("Moep!");
+		if(obj instanceof UserDetails){
+			return ((UserDetails)obj).getEmail().equals(email);
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return email.hashCode();
 	}
 }

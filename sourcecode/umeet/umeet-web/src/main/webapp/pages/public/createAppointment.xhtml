@@ -45,19 +45,20 @@
 					<f:selectItems value="#{appointmentController.allUsers}" 
 					var="c" itemLabel="#{c.name}" itemValue="#{c.email}" />
 				</h:selectOneMenu>
-				<h:commandButton id="invite" action="#{appointmentController.invite}" immediate="true" value="Invite" />
+				<h:commandButton id="invite" action="#{appointmentController.invite()}" value="Invite"/>
 				</h:panelGroup>
-				<br />
+				<h:message for="participants" errorClass="invalid" />
 				
 				<h:outputLabel for="invite" value="" />
 				<h:selectManyListbox style=" width : 178px;">
-					<f:selectItems value="#{appointmentController.participantsEmail}" />
+					<f:selectItems value="#{appointmentController.participants}" var="f" 
+					itemLabel="#{f.name}" itemValue="#{f.email}" />
 				</h:selectManyListbox>
 				
 				<br />
 				
 				<h:outputLabel for="disinvite" value="" />
-				<h:commandButton id="disinvite" action="#{appointmentController.disinvite}" value="Remove" />
+				<h:commandButton id="disinvite" action="#{appointmentController.disinvite()}" value="Remove" />
 				<br />
 				 
 				<h:outputLabel for="notes" value="Notes:" />

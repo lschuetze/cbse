@@ -2,6 +2,7 @@ package st.cbse.umeet.controller;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -10,7 +11,6 @@ import java.util.Set;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -41,12 +41,12 @@ public class AppointmentController implements Serializable {
 
 	private AppointmentDetails[] appointmentsOfTheDay;
 	
-	private UserDetails[] invitableUsers;
+	//private UserDetails[] invitableUsers;
 
 	private Date startDate, endDate;
 	private String title, status, notes;
 	private boolean personal;
-	private String[] participantsEmail;
+	private Set<UserDetails> participants;
 	private AppointmentDetails[] conflictingAppointments;
 	private String chosenParticipant;
 
@@ -55,6 +55,7 @@ public class AppointmentController implements Serializable {
 	}
 
 	public void setChosenParticipant(String chosenParticipant) {
+		System.out.println("setChosenParticipant" + chosenParticipant);
 		this.chosenParticipant = chosenParticipant;
 	}
 
@@ -107,12 +108,12 @@ public class AppointmentController implements Serializable {
 		this.personal = personal;
 	}
 
-	public String[] getParticipantsEmail() {
-		return participantsEmail;
+	public Set<UserDetails> getParticipants() {
+		return participants;
 	}
 
-	public void setParticipantsEmail(String[] participantsEmail) {
-		this.participantsEmail = participantsEmail;
+	public void setParticipants(Set<UserDetails> participants) {
+		this.participants = participants;
 	}
 	
 	public List<UserDetails> getAllUsers() {
@@ -134,8 +135,13 @@ public class AppointmentController implements Serializable {
 		
 		String email = (String) context.getExternalContext().getSessionMap()
 				.get("user");
-		List<String> partEmail = participantsEmail==null?new LinkedList<String>()
-				:Arrays.asList(participantsEmail);
+		List<String> partEmail = new LinkedList<String>();
+		
+		for(UserDetails detail:participants){
+			partEmail.add(detail.getEmail());
+		}
+		
+
 		if (appointmentCreator.createAppointment(email, startDate.getTime()
 				, endDate.getTime(), title, status, notes, personal, partEmail)) {		
 			return "showAppointments";
@@ -157,13 +163,13 @@ public class AppointmentController implements Serializable {
 	}
 	
 	public String invite(){
-		if(participantsEmail ==null){
-			Set<String> participants = new HashSet<String>();
-			System.out.println(chosenParticipant);
-			/*
-			participants.add(chosenParticipant);
-			participants.toArray(participantsEmail);
-			*/
+		if(participants==null){
+			participants = new HashSet<UserDetails>();
+		}
+		for(UserDetails details : getAllUsers()){
+			if(details.getEmail().equals(chosenParticipant)){
+				participants.add(details);
+			}
 		}
 		return "createAppointment";
 	}

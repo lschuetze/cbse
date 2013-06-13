@@ -23,10 +23,10 @@
   <managed-bean-class>st.cbse.umeet.controller.RegistrationController</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
-  <managed-bean>
+ <managed-bean>
   <managed-bean-name>appointmentController</managed-bean-name>
   <managed-bean-class>st.cbse.umeet.controller.AppointmentController</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
+  <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <!-- This descriptor activates the JSF 2.0 Servlet 
  Write your navigation rules here. You are encouraged to use CDI for 
