@@ -26,15 +26,37 @@
 				</h:inputText>
 				<h:message for="endDate" errorClass="invalid" />
 
-				<h:outputLabel for="endDate" value="Status:" />
-				<h:selectOneMenu value="#{appointmentController.status}">
+				<h:outputLabel for="status" value="Status:" />
+				<h:selectOneMenu id="status" value="#{appointmentController.status}">
 					<f:selectItem itemLabel="Free" itemValue="Free" />
 					<f:selectItem itemLabel="Potentially blocked" itemValue="Potentially blocked" />
 					<f:selectItem itemLabel="Blocked" itemValue="Blocked" />
 					<f:selectItem itemLabel="Away" itemValue="Away" />
 				</h:selectOneMenu>
-				<h:message for="endDate" errorClass="invalid" />
-
+				<h:message for="status" errorClass="invalid" />
+				
+				<h:outputLabel for="personal" value="Private:" />
+				<h:selectBooleanCheckbox id="personal" value="#{appointmentController.personal}" />
+				<h:message for="personal" errorClass="invalid" />
+				
+				<h:outputLabel for="paricipants" value="Participants:" />
+				<h:panelGroup>
+				<h:selectOneMenu>
+					<f:selectItems value="#{appointmentController.allUsers}" 
+					var="c" itemLabel="#{c.name}" itemValue="#{c.email}" />
+				</h:selectOneMenu>
+				<h:commandButton action="#{appointmentController.invite}" immediate="true" value="Invite" />
+				</h:panelGroup>
+				<br />
+				
+				<h:outputLabel for="invite" value="" />
+				<h:selectManyListbox value="#{appointmentController.participantsEmail}" style=" width : 178px;"/>
+				<br />
+				
+				<h:outputLabel for="disinvite" value="" />
+				<h:commandButton action="#{appointmentController.disinvite}" value="Remove" />
+				<br />
+				 
 				<h:outputLabel for="notes" value="Notes:" />
 				<h:inputTextarea id="notes" value="#{appointmentController.notes}"
 					style="width : 252px; height : 88px;" />

@@ -11,10 +11,11 @@ import st.cbse.umeet.datatype.User;
 import st.cbse.umeet.dto.AppointmentDetails;
 import st.cbse.umeet.dto.UserDetails;
 import st.cbse.umeet.user.IUserMgt;
+import st.cbse.umeet.user.UserMgr;
 
 @Stateless
 public class UMeetSystem implements IShowAppointmentOfTheDay,
-		ICreateAppointment, IRegisterUser, ILogin {
+		ICreateAppointment, IRegisterUser, ILogin, IGetAllUsers {
 
 	@EJB
 	IAppointmentMgt appMgr;
@@ -82,6 +83,11 @@ public class UMeetSystem implements IShowAppointmentOfTheDay,
 			return false;
 		// TODO: do something with User instance?
 		return true;
+	}
+
+	@Override
+	public List<UserDetails> getAllUsers() {
+		return userMgr.getAllUsers();
 	}
 
 }

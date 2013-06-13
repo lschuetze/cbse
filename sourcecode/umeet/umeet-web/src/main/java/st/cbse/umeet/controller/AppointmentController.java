@@ -3,21 +3,26 @@ package st.cbse.umeet.controller;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import st.cbse.umeet.dto.AppointmentDetails;
+import st.cbse.umeet.dto.UserDetails;
 import st.cbse.umeet.system.ICreateAppointment;
+import st.cbse.umeet.system.IGetAllUsers;
 import st.cbse.umeet.system.IShowAppointmentOfTheDay;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class AppointmentController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,14 +35,28 @@ public class AppointmentController implements Serializable {
 
 	@Inject
 	private ICreateAppointment appointmentCreator;
+	
+	@Inject
+	private IGetAllUsers userProvider;
 
 	private AppointmentDetails[] appointmentsOfTheDay;
+	
+	private UserDetails[] invitableUsers;
 
 	private Date startDate, endDate;
 	private String title, status, notes;
 	private boolean personal;
 	private String[] participantsEmail;
 	private AppointmentDetails[] conflictingAppointments;
+	private String chosenParticipant;
+	
+	public String getChosenParticipant() {
+		return chosenParticipant;
+	}
+	
+	public void setChosenParticipant(String chosenParticipant) {
+		this.chosenParticipant = chosenParticipant;
+	}
 
 	public Date getStartDate() {
 		return startDate;
@@ -95,6 +114,10 @@ public class AppointmentController implements Serializable {
 	public void setParticipantsEmail(String[] participantsEmail) {
 		this.participantsEmail = participantsEmail;
 	}
+	
+	public List<UserDetails> getAllUsers() {
+		return userProvider.getAllUsers();
+	}
 
 	public AppointmentDetails[] getAppointmentsOfTheDay() {
 
@@ -105,6 +128,7 @@ public class AppointmentController implements Serializable {
 
 		return result;
 	}
+	
 
 	public String createAppointment() {
 		
@@ -130,5 +154,18 @@ public class AppointmentController implements Serializable {
 //				, "Create appointment unsuccessful");
 //		facesContext.addMessage(null, m);
 		//return "showAppointments";
+	}
+	
+	public String invite(){
+		if(participantsEmail ==null){
+			Set<String> participants = new HashSet<String>();
+			participants.add(chosenParticipant);
+			participants.toArray(participantsEmail);
+		}
+		return "createAppointment";
+	}
+	
+	public String disinvite(){
+		return "";
 	}
 }

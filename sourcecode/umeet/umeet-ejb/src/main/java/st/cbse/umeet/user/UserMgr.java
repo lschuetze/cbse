@@ -1,5 +1,6 @@
 package st.cbse.umeet.user;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -111,6 +112,29 @@ public class UserMgr implements IUserMgt {
 			userDetailsList.add(parseUser(user));
 		}
 		return userDetailsList;
+	}
+
+	@Override
+	public List<UserDetails> getAllUsers() {
+		TypedQuery<User> query = em
+				.createQuery(
+						"SELECT u FROM User u",
+						User.class);
+		List<User> users = query.getResultList();
+		if(users.isEmpty()){
+			return null;
+		}
+		List<UserDetails> userDetails = new LinkedList<UserDetails>();
+		for (User user: users){
+			userDetails.add(
+					UserDetails.create()
+					.setEmail(user.getEmail())
+					.setName(user.getName())
+					//Password is not necessary here!
+					);
+		}
+		
+		return userDetails;
 	}
 
 }
