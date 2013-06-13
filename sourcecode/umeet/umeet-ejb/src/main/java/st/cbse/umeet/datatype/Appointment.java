@@ -64,11 +64,11 @@ public class Appointment implements Serializable {
 		return this.creator;
 	}
 
-	public long getEndDate() {
+	public Long getEndDate() {
 		return this.endDate;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -84,7 +84,7 @@ public class Appointment implements Serializable {
 		return this.personal;
 	}
 
-	public long getStartDate() {
+	public Long getStartDate() {
 		return this.startDate;
 	}
 
@@ -101,12 +101,12 @@ public class Appointment implements Serializable {
 		return this;
 	}
 
-	public Appointment setEndDate(long endDate) {
+	public Appointment setEndDate(Long endDate) {
 		this.endDate = endDate;
 		return this;
 	}
 
-	public Appointment setId(long id) {
+	public Appointment setId(Long id) {
 		this.id = id;
 		return this;
 	}

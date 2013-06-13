@@ -1,23 +1,22 @@
 package st.cbse.umeet.dto;
 
-import java.util.Date;
 import java.util.List;
 
 public class AppointmentDetails {
-	private long id;
+	private Long id;
 	private UserDetails creator;
-	private long endDate = 0;
+	private Long endDate;
 	private String notes;
 	private List<UserDetails> participants;
-	private boolean personal = false;
-	private long startDate = 0;
+	private Boolean personal;
+	private Long startDate;
 	private String status;
 	private String title;
 
 	public static AppointmentDetails create() {
 		return new AppointmentDetails();
 	}
-
+	
 	private AppointmentDetails() {
 		super();
 	}
@@ -31,16 +30,8 @@ public class AppointmentDetails {
 		return this;
 	}
 
-	public long getEndDate() {
+	public Long getEndDate() {
 		return endDate;
-	}
-
-	public Date getEndDateAsDate() {
-		return new Date(endDate);
-	}
-
-	public Date getStartDateAsDate() {
-		return new Date(endDate);
 	}
 
 	public AppointmentDetails setEndDate(Long endDate) {
@@ -66,20 +57,20 @@ public class AppointmentDetails {
 		return this;
 	}
 
-	public boolean getPersonal() {
+	public Boolean getPersonal() {
 		return personal;
 	}
 
-	public AppointmentDetails setPersonal(boolean personal) {
+	public AppointmentDetails setPersonal(Boolean personal) {
 		this.personal = personal;
 		return this;
 	}
 
-	public long getStartDate() {
+	public Long getStartDate() {
 		return startDate;
 	}
 
-	public AppointmentDetails setStartDate(long startDate) {
+	public AppointmentDetails setStartDate(Long startDate) {
 		this.startDate = startDate;
 		return this;
 	}
@@ -102,11 +93,11 @@ public class AppointmentDetails {
 		return this;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public AppointmentDetails setId(long id) {
+	public AppointmentDetails setId(Long id) {
 		this.id = id;
 		return this;
 	}

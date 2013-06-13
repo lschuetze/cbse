@@ -149,18 +149,13 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean createAppointment(AppointmentDetails appDetails) {
+	public Boolean createAppointment(AppointmentDetails appDetails)
+			throws Exception {
 		// Create the appointment if no conflicts exist
-		try {
-			if (getConflicts(appDetails).size() == 0) {
-				Appointment app = parseDetails(appDetails);
-				em.persist(app);
-				return true;
-			}
-		} catch (Exception e) {
-			System.out.println("Exception on createAppointment");
-			e.printStackTrace();
-			return false;
+		if (getConflicts(appDetails).size() == 0) {
+			Appointment app = parseDetails(appDetails);
+			em.persist(app);
+			return true;
 		}
 		// any error returns a false
 		return false;
@@ -181,8 +176,9 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 */
 	protected Boolean isAppointmentDetailsCorrect(AppointmentDetails appDetails) {
 		if (appDetails.getCreator() == null
-				|| appDetails.getStartDate() == 0
-				|| appDetails.getEndDate() == 0
+				|| appDetails.getStartDate() == null
+				|| appDetails.getEndDate() == null
+				|| appDetails.getPersonal() == null
 				|| AppointmentStatus.fromString(appDetails.getStatus()) == null) {
 			return false;
 		}
@@ -197,16 +193,18 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 * @return An {@link Appointment} object
 	 */
 	private Appointment parseDetails(AppointmentDetails appDetails) {
-		Appointment app = Appointment.create();
-		app.setStartDate(appDetails.getStartDate());
-		app.setEndDate(appDetails.getEndDate());
-		app.setId(appDetails.getId());
-		app.setTitle(appDetails.getTitle());
-		app.setNotes(appDetails.getNotes());
-		app.setPersonal(appDetails.getPersonal());
-		app.setStatus(appDetails.getStatus());
-		app.setCreator(userMgr.parseDetails(appDetails.getCreator()));
-		app.setParticipants(userMgr.parseDetails(appDetails.getParticipants()));
+		Appointment app = Appointment
+				.create()
+				.setStartDate(appDetails.getStartDate())
+				.setEndDate(appDetails.getEndDate())
+				.setId(appDetails.getId())
+				.setTitle(appDetails.getTitle())
+				.setNotes(appDetails.getNotes())
+				.setPersonal(appDetails.getPersonal())
+				.setStatus(appDetails.getStatus())
+				.setCreator(userMgr.parseDetails(appDetails.getCreator()))
+				.setParticipants(
+						userMgr.parseDetails(appDetails.getParticipants()));
 		return app;
 	}
 

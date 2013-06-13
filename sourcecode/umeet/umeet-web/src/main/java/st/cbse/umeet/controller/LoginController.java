@@ -41,6 +41,7 @@ public class LoginController {
 	
 	public String login(){
 		if(!loginBean.login(email, password)){
+			System.out.println("Login failed!");
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"Username and password did not match"
 					, "Login unsuccessful");

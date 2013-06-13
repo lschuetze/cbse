@@ -32,16 +32,14 @@ public class RegistrationController {
 	
 	@Inject	IRegisterUser registerBean;
 	
-	public String register(){
+	public void register(){
 		if(!registerBean.registerUser(email, name, password)){
 			System.out.println("Registration of the user " + name + " failed!");
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					"A user with this email-address has already been registred."
 					, "Registration unsuccessful");
 			facesContext.addMessage(null, m);
-			return "register";
 		}
-		return "login";
 	}
 	
 	public String getEmail() {
