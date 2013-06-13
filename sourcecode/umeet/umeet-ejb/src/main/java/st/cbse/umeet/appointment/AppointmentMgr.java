@@ -137,7 +137,29 @@ public class AppointmentMgr implements IAppointmentMgt {
 						&& !app.getCreator().getEmail()
 								.equals(appDetails.getCreator().getEmail())) {
 					// Remove interesting parts
-					app.setTitle("").setNotes("").setStatus("");
+					app.setTitle("").setNotes("").setStatus("")
+							.setStartDate(0L).setEndDate(0L);
+					// Only hold the details of users which are participants in
+					// the givenEvent
+					List<User> uTempList = new LinkedList<User>();
+					User creatorTemp = null;
+					// go through all given users
+					for (User givenUser : userList) {
+						// go through all users of one of the appointments of the database
+						for (User resultAppointmentUser : app.getParticipants()) {
+							if (givenUser.getEmail() == resultAppointmentUser
+									.getEmail()) {
+								// If user is in the given users (new appointment), hold the user details
+								uTempList.add(resultAppointmentUser);
+							}
+						}
+						// If a participant is the creator of another event, hold the details
+						if (givenUser.getEmail() == app.getCreator().getEmail()) {
+							creatorTemp = givenUser;
+						}
+					}
+					app.setParticipants(uTempList).setCreator(creatorTemp);
+
 				}
 				appDetailsList.add(parseAppointment(app));
 			}
@@ -180,8 +202,7 @@ public class AppointmentMgr implements IAppointmentMgt {
 	 *         <code>false</code> otherwise.
 	 */
 	protected Boolean isAppointmentDetailsCorrect(AppointmentDetails appDetails) {
-		if (appDetails.getCreator() == null
-				|| appDetails.getStartDate() == 0
+		if (appDetails.getCreator() == null || appDetails.getStartDate() == 0
 				|| appDetails.getEndDate() == 0
 				|| AppointmentStatus.fromString(appDetails.getStatus()) == null) {
 			return false;
