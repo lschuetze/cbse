@@ -7,6 +7,7 @@
 	<ui:define name="content">
 		<h1>Create Appointment for #{loginController.email}</h1>
 		<h:panelGrid columns="2" width="750" columnClasses="top">
+		<h:column>
 		
 		<h:form id="createAppointment">
 			<h2>Appointment details</h2>
@@ -69,18 +70,24 @@
 				<h:message for="notes" errorClass="invalid" />
 
 			</h:panelGrid>
-			<h:panelGrid columns="3">
+			<h:panelGrid columns="4">
 				<h:commandButton id="create"
 					action="#{appointmentController.createAppointment()}"
 					value="Create" styleClass="register" />
-				<h:button outcome="showAppointments" value="Cancel" />
+				<h:commandButton id="cancel"
+					action="#{appointmentController.cancel()}"
+					value="Cancel" />
+				<h:commandButton id="reset"
+					action="#{appointmentController.reset()}"
+					value="Reset" />
 				<h:messages styleClass="messages" errorClass="invalid"
 					infoClass="valid" warnClass="warning" globalOnly="true" />
 			</h:panelGrid>
 		</h:form>
-		
+		</h:column>
+		<h:column>
 		<h:panelGroup>
-		<h:outputLabel value="Conflicts"  /><br />
+		<h:outputLabel value="Conflicts"  style="vertical-align: top;"/><br />
 		<h:dataTable value="#{appointmentController.conflictingAppointments}"
 			var="x" styleClass="order-table" headerClass="order-table-header"
 			rowClasses="order-table-odd-row,order-table-even-row" width="300">
@@ -91,6 +98,7 @@
 			<h:column>#{x.notes}</h:column>
 		</h:dataTable>
 		</h:panelGroup>
+		</h:column>
 		</h:panelGrid>
 	</ui:define>
 </ui:composition>

@@ -162,6 +162,7 @@ public class AppointmentController implements Serializable {
 
 		if (appointmentCreator.createAppointment(email, startDate.getTime(),
 				endDate.getTime(), title, status, notes, personal, partEmail)) {
+			reset();
 			return "showAppointments";
 		} else {
 			System.out.println(email + "\n" + startDate.getTime() + "\n"
@@ -233,5 +234,21 @@ public class AppointmentController implements Serializable {
 			}
 		}
 		return "createAppointment";
+	}
+	
+	public String cancel(){
+		reset();
+		return "showAppointments";
+	}
+	
+	public void reset() {
+		title = "";
+		startDate = null;
+		endDate = null;
+		conflictingAppointments = null;
+		participants = null;
+		notes = null;
+		personal = false;
+		chosenParticipant = "";
 	}
 }
