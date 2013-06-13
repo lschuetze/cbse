@@ -8,3 +8,5 @@
 
 # vim swp #
 *.swp
+
+!Give_up.pdf
