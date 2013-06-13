@@ -157,10 +157,20 @@ public class AppointmentController implements Serializable {
 		}
 		else {
 			System.out.println(email+ "\n" + startDate.getTime()+ "\n" + endDate.getTime()+ "\n" + title+ "\n" + status+ "\n" + notes+ "\n" + personal+ "\n" + partEmail);
-			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Stupid program monkey did something wrong here"
-					, "Appointment creation unsuccessful");
-			context.addMessage(null, m);
+			
+			try {
+				showConflicts(appointmentCreator.getConflicts(email, startDate.getTime()
+						, endDate.getTime(), status, personal
+						, partEmail));				
+			} catch (Exception e) {
+				FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+						"Stupid program monkey did something wrong here\n"
+						+ e.getMessage()
+						, "Appointment creation unsuccessful");
+				context.addMessage(null, m);
+			}
+			
+			
 			//return "login";
 			return "createAppointment";
 		}
@@ -171,6 +181,24 @@ public class AppointmentController implements Serializable {
 		//return "showAppointments";
 	}
 	
+	private void showConflicts(List<AppointmentDetails> conflicts) {
+		
+		String message = "There are conflicting appointments:\n";
+		
+		for(AppointmentDetails details : conflicts){
+			message += "\t"; 
+			message += details.getCreator().getName() + " (\"";
+			message += details.getTitle() + "\" ";
+			message += "from " + new Date(details.getStartDate()).toString() + " ";
+			message += "to " + new Date(details.getEndDate()).toString() + " ";
+			message += ")";
+		}
+		
+		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+			message, "Appointment creation unsuccessful");
+		context.addMessage(null, m);
+	}
+
 	public String invite(){
 		if(participants==null){
 			participants = new HashSet<UserDetails>();
